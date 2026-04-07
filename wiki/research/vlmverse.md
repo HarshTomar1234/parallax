@@ -19,11 +19,10 @@ Complete from-scratch PyTorch implementation of PaLiGemma vision-language model.
 
 PaLiGemma fuses two components:
 
-```
-Image → [SigLIP Vision Encoder] → 196 visual tokens (224×224 / 16×16 patches)
-Text  → [Gemma Language Decoder] → autoregressive generation
-         ↑ visual tokens projected and prepended to text token sequence
-```
+**PaLiGemma Pipeline Fusion:**
+1. **Vision Encoding:** The input image is parsed by a `SigLIP Vision Encoder` into 196 discrete visual tokens (based on 224×224 images and 16×16 patches).
+2. **Token Prepension:** These visual tokens are projected and linearly prepended directly into the text token sequence.
+3. **Language Decoding:** The `Gemma Language Decoder` ingests the fused token sequence to execute autoregressive generation.
 
 ## SigLIP Vision Encoder
 
