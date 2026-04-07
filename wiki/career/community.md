@@ -42,11 +42,9 @@ links: [[overview]], [[open-source]]
 
 ## Community Signal
 
-```
-CNCF discussions:  15+
-Tech talks:         2
-Developers mentored: 10+
-```
+- **CNCF discussions:** 15+
+- **Tech talks delivered:** 2
+- **Developers mentored:** 10+
 
 ---
 
