@@ -15,14 +15,12 @@ AI/ML Engineer. Building from first principles. Final year undergrad, LNCT Bhopa
 
 ## Identity
 
-```
-Name:      Harsh Tomar
-Handle:    @kernel_crush
-Location:  India (Bhopal)
-Education: LNCT Bhopal, B.Tech (Nov 2022 – May 2026)
-Focus:     Computer Vision · Research Implementations · GenAI & Agents · MLOps
-Email:     tomarharsh28303@gmail.com
-```
+- **Name:** Harsh Tomar
+- **Handle:** @kernel_crush
+- **Location:** India (Bhopal)
+- **Education:** LNCT Bhopal, B.Tech (Nov 2022 – May 2026)
+- **Focus:** Computer Vision, Research Implementations, GenAI & Agents, MLOps
+- **Email:** tomarharsh28303@gmail.com
 
 ## Philosophy
 
@@ -69,30 +67,26 @@ Implements architectures from scratch as the primary learning strategy — not f
 
 ## Domain Resumes Available
 
-```
-Harsh_AI_ML_Engineer_resume.pdf   — General AI/ML
-Harsh_AI_Engineer.pdf             — AI Engineering focus
-Harsh_ML_Engineer.pdf             — ML Engineering focus
-harsh_ml_engineer_resume.pdf      — ML Engineering (variant)
-harsh_ml_cv_domain_resume.pdf     — ML + CV combined focus
-harsh_CV_resume.pdf               — Computer Vision specialist
-```
+- `Harsh_AI_ML_Engineer_resume.pdf` — General AI/ML
+- `Harsh_AI_Engineer.pdf` — AI Engineering focus
+- `Harsh_ML_Engineer.pdf` — ML Engineering focus
+- `harsh_ml_engineer_resume.pdf` — ML Engineering (variant)
+- `harsh_ml_cv_domain_resume.pdf` — ML + CV combined focus
+- `harsh_CV_resume.pdf` — Computer Vision specialist
 
 ---
 
 ## Key Numbers
 
-```
-GitHub repos:          67
-Starred repos:       553 (breadth of interests)
-Top project stars:    27  (Tennis Vision)
-Production systems:    7
-Research impls:       11+ architectures
-Open source:           2+ codebases contributed
-Tech talks:            2
-Developers mentored:  10+
-CNCF discussions:     15+
-```
+- **GitHub repos:** 67
+- **Starred repos:** 553 (breadth of interests)
+- **Top project stars:** 27 (Tennis Vision)
+- **Production systems deployed:** 7
+- **Research impls:** 11+ architectures built from scratch
+- **Open source:** 2+ production codebases contributed to
+- **Tech talks given:** 2
+- **Developers mentored:** 10+
+- **CNCF discussions:** 15+
 
 ---
 
