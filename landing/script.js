@@ -19,6 +19,9 @@ function resolvePagePath(linkName) {
   return normalized; // fallback
 }
 
+// Determine correct base path for wiki files depending on environment
+const wikiBase = window.location.pathname.includes('/landing') ? '../wiki/' : 'wiki/';
+
 // Convert [[link]] to standard html links
 function processWikiLinks(markdown) {
   return markdown.replace(/\[\[(.*?)\]\]/g, (match, p1) => {
@@ -65,7 +68,7 @@ async function loadPage(route) {
   container.innerHTML = '<div style="color:var(--text-muted); padding: 2rem;">Loading...</div>';
 
   try {
-    const res = await fetch(`../wiki/${route}.md`);
+    const res = await fetch(`${wikiBase}${route}.md`);
     if (!res.ok) {
       if (res.status === 404) {
         container.innerHTML = `<h1>404</h1><p>Page <code>${route}</code> not found.</p>`;
@@ -130,7 +133,7 @@ async function buildSearchIndex() {
   if (searchDataLoaded) return;
   for (const page of pages) {
     try {
-      const res = await fetch(`../wiki/${page}.md`);
+      const res = await fetch(`${wikiBase}${page}.md`);
       if (res.ok) {
         const text = await res.text();
         searchIndex.push({ path: page, content: text });
