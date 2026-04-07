@@ -15,15 +15,12 @@ Core concept underlying all modern transformer architectures. Implemented in mul
 
 ## Scaled Dot-Product Attention
 
-```
-Attention(Q, K, V) = softmax(QKᵀ / √d_k) · V
+> **Attention(Q, K, V) = softmax(Q·Kᵀ / √d_k) · V**
 
-where:
-  Q = queries  (what we're looking for)
-  K = keys     (what's available)
-  V = values   (what we retrieve)
-  d_k = key dimension (scaling factor prevents vanishing gradients)
-```
+- **Q (Queries):** What we're looking for.
+- **K (Keys):** What's available to match against.
+- **V (Values):** What we retrieve once a match is found.
+- **d_k:** Key dimension — the scaling factor that prevents vanishing gradients in softmax.
 
 ## Multi-Head Self-Attention (MHSA)
 
@@ -43,12 +40,10 @@ where:
 
 Traditional position encodings are additive. RoPE applies rotation matrices to Q and K:
 
-```
-q_rotated = q · R(θ·m)
-k_rotated = k · R(θ·n)
-
-→ dot product naturally encodes relative position (m - n)
-```
+> **q_rotated = q · R(θ·m)**
+> **k_rotated = k · R(θ·n)**
+>
+> The dot product of the rotated vectors naturally encodes the **relative position (m − n)** between tokens.
 
 - **Advantage:** No position embedding parameters. Extrapolates to longer sequences than trained on.
 - Implemented in: [[vlmverse]] (Gemma), standard in Llama, Mistral, Gemma
@@ -59,11 +54,9 @@ During autoregressive generation, K and V are recomputed every step — quadrati
 
 KV-Cache stores K, V for all previous tokens:
 
-```
-Step t: compute K_t, V_t → cache them
-Step t+1: reuse cached K_{1..t}, V_{1..t} → only compute K_{t+1}, V_{t+1}
-→ generation cost: linear instead of quadratic
-```
+- **Step t:** Compute K_t and V_t, then store them in the cache.
+- **Step t+1:** Reuse all cached K_{1..t}, V_{1..t} — only compute the new K_{t+1}, V_{t+1}.
+- **Result:** Generation cost drops from **quadratic** to **linear** in sequence length.
 
 - Implemented in: [[vlmverse]]
 - Critical for production inference optimization
