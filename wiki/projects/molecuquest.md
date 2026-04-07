@@ -27,31 +27,24 @@ AI-driven molecular research platform combining generative AI with computational
 
 ## Architecture
 
-```
-User Input (molecular constraints / targets)
-    ↓
-NVIDIA MolMIM API  →  novel SMILES generation
-    ↓
-RDKit              →  3D visualization + property calculation
-    ↓
-CMA-ES             →  evolutionary optimization toward target properties
-    ↓
-QED Scoring        →  pharmaceutical viability filter
-    ↓
-PubChem API        →  cross-reference known compounds
-    ↓
-Next.js UI + Firebase persistence
-```
+**Platform Workflow:**
+1. **User Input:** Researchers specify molecular constraints or target properties.
+2. **Generation:** NVIDIA MolMIM API generates structural SMILES strings matching parameters.
+3. **Visualization:** RDKit performs 3D chemical rendering and native property calculations.
+4. **Optimization Phase:** CMA-ES algorithm executes evolutionary property tuning against the objective function.
+5. **Quality Filtering:** QED Scoring provides a stringent pharmaceutical viability filter.
+6. **Cross-Referencing:** Validated via the PubChem API against known biological compounds.
+7. **Delivery:** Presented via a high-performance Next.js interface with persistent state in Firebase.
 
 ## Why It Matters
 
 Applies modern generative AI (NIMs) to computational chemistry — a bridge between LLM-era tooling and drug discovery. CMA-ES optimization is notable: it's a derivative-free evolutionary strategy well-suited for optimizing molecular properties in non-differentiable chemical space.
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | NVIDIA MolMIM (NIM) | RDKit | Next.js | Firebase | PubChem API | CMA-ES
-```
+- **GenAI & Computation:** Python, NVIDIA MolMIM (NIM), RDKit, CMA-ES
+- **Frontend App:** Next.js
+- **System Integration:** Firebase, PubChem API
 
 ## Links
 
