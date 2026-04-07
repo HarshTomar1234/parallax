@@ -17,17 +17,12 @@ Deep learning system for breast cancer detection with explainable AI and automat
 
 ## System Overview
 
-```
-Input: histopathology image (H&E stained)
-    ↓
-MobileNetV2 (transfer learned)  →  binary classification: Benign / Malignant + confidence
-    ↓
-Grad-CAM                        →  visual explanation of attention regions
-    ↓
-OpenCV feature extraction       →  nuclear density, chromatin, tissue architecture, H&E intensity
-    ↓
-HTML report                     →  original image + heatmap + analysis + clinical interpretation
-```
+**Inference Workflow:**
+1. **Input Stage:** Ingests raw H&E stained histopathology slide images.
+2. **Classification:** Route through a fine-tuned MobileNetV2 backbone to output binary likelihoods (Benign vs Malignant) with statistical confidence metrics.
+3. **Explainability Extraction:** Interrogate convolutional layers using Grad-CAM to construct a high-resolution attention heatmap.
+4. **Biological Feature Profiling:** OpenCV logic estimates nuclear density, sizes, chromatin distribution, tissue architecture, and dye intensity parameters.
+5. **Report Generation:** Generates comprehensive clinical documentation intertwining raw imagery, heatmaps, AI interpretation, and secondary features.
 
 ## Model Architecture
 
@@ -58,11 +53,11 @@ HTML report                     →  original image + heatmap + analysis + clini
 
 Grad-CAM makes the model actionable for pathologists — they see which cell regions the model is focusing on, enabling human validation of AI predictions.
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | PyTorch | MobileNetV2 | Grad-CAM | OpenCV | Flask | HTML/CSS
-```
+- **Model Framework:** PyTorch, MobileNetV2, Python
+- **XAI & Analytics:** Grad-CAM, OpenCV
+- **Interface & Delivery:** Flask, HTML/CSS
 
 ## Links
 
