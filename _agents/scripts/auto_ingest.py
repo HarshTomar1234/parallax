@@ -110,10 +110,11 @@ def update_registry(domain, repo_name, slug):
     if os.path.exists(script_file):
         with open(script_file, "r", encoding="utf-8") as f:
             js_content = f.read()
-        js_content = js_content.replace(
-            "const pages = [",
-            f"const pages = [\n  '{domain}/{slug}',"
-        )
+            
+        marker = r"// AGENT_INJECT_PAGES_START"
+        inject = f"// AGENT_INJECT_PAGES_START\n  '{domain}/{slug}',"
+        js_content = re.sub(marker, inject, js_content, count=1)
+        
         with open(script_file, "w", encoding="utf-8") as f:
             f.write(js_content)
 
@@ -123,11 +124,12 @@ def update_registry(domain, repo_name, slug):
         with open(html_file, "r", encoding="utf-8") as f:
             html_content = f.read()
         
-        target_group = "Projects" if domain == "projects" else "Research"
-        html_target = f'<div class="nav-group-title">{target_group}</div>'
-        html_inject = f'{html_target}\n          <a href="#" class="nav-item" data-page="{domain}/{slug}">{repo_name.replace("-", " ").title()}</a>'
+        marker_domain = domain.upper().replace("-", "_")
+        marker = f"<!-- AGENT_INJECT_SIDEBAR_{marker_domain} -->"
+        label = repo_name.replace("-", " ").title()
+        inject = f'{marker}\n          <a href="#" class="nav-item" data-page="{domain}/{slug}">{label}</a>'
         
-        html_content = html_content.replace(html_target, html_inject)
+        html_content = re.sub(marker, inject, html_content, count=1)
         with open(html_file, "w", encoding="utf-8") as f:
             f.write(html_content)
 
@@ -137,14 +139,11 @@ def update_registry(domain, repo_name, slug):
         with open(index_file, "r", encoding="utf-8") as f:
             index_content = f.read()
             
-        if domain == "projects":
-            table_target = "|------|--------|---------|-------------|"
-            table_inject = f"{table_target}\n| [[{slug}]] | Auto | Newly ingested repository | Actions, LLM |"
-        else:
-            table_target = "|------|-------------|---------|---------|-------------|"
-            table_inject = f"{table_target}\n| [[{slug}]] | Auto | Newly ingested research | ~ | Actions, LLM |"
-            
-        index_content = index_content.replace(table_target, table_inject)
+        marker_domain = domain.upper().replace("-", "_")
+        marker = f"<!-- AGENT_INJECT_TABLE_{marker_domain} -->"
+        
+        table_inject = f"| [[{slug}]] | Auto | Newly ingested repo | Actions, LLM |\n{marker}"
+        index_content = re.sub(marker, table_inject, index_content, count=1)
         with open(index_file, "w", encoding="utf-8") as f:
             f.write(index_content)
 
@@ -152,7 +151,7 @@ def update_registry(domain, repo_name, slug):
 def main():
     parser = argparse.ArgumentParser(description="Parallax Agent: Ingest GitHub Repo")
     parser.add_argument("--repo-url", required=True, help="GitHub Repository URL")
-    parser.add_argument("--domain", required=True, choices=["projects", "research"], help="Target domain folder")
+    parser.add_argument("--domain", required=True, choices=["projects", "research", "learning", "skills", "concepts", "career", "opensource", "meta"], help="Target domain folder")
     args = parser.parse_args()
 
     owner, repo = extract_github_info(args.repo_url)

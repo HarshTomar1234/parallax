@@ -2,6 +2,7 @@
 const PGBase = '/wiki/';
 const pages = [
   'index', 'overview', 'log',
+  // AGENT_INJECT_PAGES_START
   'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
   'research/transformers-cv', 'research/vlmverse', 'research/lora-qlora', 'research/reasoning-llms', 'research/vision-transformer',
   'skills/computer-vision', 'skills/genai-agents', 'skills/mlops', 'skills/deep-learning',
@@ -35,6 +36,8 @@ function processFrontmatter(markdown) {
   const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---/;
   const match = markdown.match(frontmatterRegex);
   
+  let lastUpdatedHtml = '';
+
   if (match) {
     const fmContent = match[1];
     const restOfDoc = markdown.slice(match[0].length).trim();
@@ -47,10 +50,22 @@ function processFrontmatter(markdown) {
       const [key, ...vals] = line.split(':');
       const val = vals.join(':').trim();
       fmHtml += `<div><strong>${key.trim()}:</strong> ${processWikiLinks(val)}</div>`;
+      
+      if (key.trim() === 'last_updated') {
+        const dateStr = val.replace(/['"]/g, '');
+        const dDate = new Date(dateStr);
+        if (!isNaN(dDate)) {
+           const days = Math.floor((new Date() - dDate) / (1000 * 60 * 60 * 24));
+           const dayText = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
+           lastUpdatedHtml = `\n\n<div class="last-updated">Last modified: ${dayText} (${dateStr})</div>`;
+        } else {
+           lastUpdatedHtml = `\n\n<div class="last-updated">Last modified: ${dateStr}</div>`;
+        }
+      }
     });
     fmHtml += '</div>';
     
-    return fmHtml + '\n\n' + restOfDoc;
+    return fmHtml + '\n\n' + restOfDoc + lastUpdatedHtml;
   }
   return markdown;
 }

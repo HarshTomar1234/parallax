@@ -48,6 +48,7 @@ You can download or view specific versions of my resume formatted for different 
 | [[field-fusion]] | Computer Vision | Multi-sensor fusion for agricultural environments | ROS, Sensor Fusion, CV |
 | [[histopathology]] | Medical AI | High-res tumor detection in medical imaging | ViTs, ResNet, Torch |
 | [[rppg-heart-rate]] | Healthcare AI | Webcam-based heart rate extraction | FaceMesh, Signal Processing |
+<!-- AGENT_INJECT_TABLE_PROJECTS -->
 
 ### Research (From-Scratch Implementations)
 | Page | Architecture | Summary | Commits | Skills Used |
@@ -57,6 +58,12 @@ You can download or view specific versions of my resume formatted for different 
 | [[lora-qlora]] | LoRA + QLoRA PEFT | Manual implementation of Low-Rank Adapters | ~30 | PyTorch, CUDA, Quantization |
 | [[reasoning-llms]] | CoT, Inference Scaling | Chain-of-Thought reasoning scaling laws | ~25 | LLM Inference, RLHF |
 | [[vision-transformer]] | ViT from scratch | Recreating An Image is Worth 16x16 Words | ~55 | PyTorch, Attention Mechanics |
+<!-- AGENT_INJECT_TABLE_RESEARCH -->
+
+### Learning Repos
+| Page | Info | Status | Types |
+|------|------|--------|-------|
+<!-- AGENT_INJECT_TABLE_LEARNING -->
 
 ### Skills
 | Page | Category |
@@ -65,6 +72,7 @@ You can download or view specific versions of my resume formatted for different 
 | [[genai-agents]] | LLM / Agents |
 | [[mlops]] | MLOps & Cloud |
 | [[deep-learning]] | Research & DL |
+<!-- AGENT_INJECT_TABLE_SKILLS -->
 
 ### Concepts
 | Page | Topic |
@@ -75,6 +83,7 @@ You can download or view specific versions of my resume formatted for different 
 | [[lora-theory]] | Low-rank adaptation theory |
 | [[object-detection]] | YOLO, detection heads |
 | [[multi-object-tracking]] | ByteTrack, DeepSORT |
+<!-- AGENT_INJECT_TABLE_CONCEPTS -->
 
 ### Career
 | Page | Topic |
@@ -82,12 +91,14 @@ You can download or view specific versions of my resume formatted for different 
 | [[ai-internship]] | RAG research profiling system |
 | [[community]] | CNCF, GDG, tech talks |
 | [[open-source]] | Hive, BBoxMaskPose ICCV 2025 |
+<!-- AGENT_INJECT_TABLE_CAREER -->
 
 ### Meta
 | Page | Purpose |
 |------|---------|
 | [[knowledge-gaps]] | What's missing, what to learn next |
 | [[connections]] | Cross-domain connection map |
+<!-- AGENT_INJECT_TABLE_META -->
 
 ---
 
