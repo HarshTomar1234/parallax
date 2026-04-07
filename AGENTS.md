@@ -49,9 +49,11 @@ When triggered via the **LLM Auto-Ingest** GitHub Action:
 1. Agent securely fetches the remote repository (e.g., GitHub README)
 2. Content is routed via the Gemini API with strict Parallax schema constraints
 3. Generate native Markdown `.md` page (NO wrapping codeblocks)
-4. Create an automatic Pull Request under `wiki/projects` or `wiki/research`
-5. A human (you) reviews the PR, updates index/log, and merges
+4. Create an automatic Pull Request or commit directly under the target wiki folder (`wiki/[domain]`)
+5. A human (you) reviews the PR or changes.
 
+> [!WARNING]
+> **Constraint - No Auto-Regeneration:** As currently architected, the GitHub Actions bot operates as a **one-way pipeline**. It does *not* listen to `pull_request_review` or `issue_comment` events. If you ask the bot to "add clickable source links" by leaving a comment on the PR in GitHub, the bot **will not** and **cannot** read that comment to regenerate the files. Any corrections must currently be made manually by the human reviewer.
 ### Query
 When asked a question:
 1. Read `wiki/index.md` to identify relevant pages
