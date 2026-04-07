@@ -107,9 +107,9 @@ The repository utilizes an LLM-assisted workflow system defined in [`AGENTS.md`]
 
 - **Ingestion** — Reading new sources (GitHub repos, papers) to generate structured wiki pages
 - **Querying** — Synthesizing answers from the knowledge graph
-- **Linting** — Detecting orphan pages, missing cross-references, and stale metrics
+- **Linting** — Detecting orphan pages, missing cross-references, and stale metrics (via CI)
 
-Trigger ingestion via the `/ingest` workflow defined in `_agents/workflows/ingest.md`.
+Trigger ingestion remotely via the **LLM Auto-Ingest** GitHub Action (`workflow_dispatch`). Provide a repository URL and it will fetch the source, invoke the Gemini API to format the content natively, and open a Pull Request into your knowledge graph.
 
 ---
 
