@@ -25,24 +25,17 @@ First professional AI engineering role. Designed and built a production intellig
 
 ### Intelligent Research Profiling System
 
-A multi-source aggregation system that compiles researcher profiles automatically:
+A multi-source aggregation system that compiles researcher profiles automatically by ingesting data across three primary domains:
 
-```
-Data Sources:
-  - PubMed       (biomedical publications)
-  - ResearchGate (academic social network)
-  - Google Scholar (citations, h-index, publications)
+- **PubMed:** Biomedical publications and medical semantic data.
+- **ResearchGate:** Academic social network connections and pre-prints.
+- **Google Scholar:** Citations, h-index metrics, and verified publication history.
 
-System:
-  ↓
-  API aggregation layer (FastAPI)
-  ↓
-  RAG-powered semantic search agents (LangChain)
-  ↓
-  Structured researcher profiles
-  ↓
-  Collaborator discovery recommendations
-```
+**Workflow Architecture:**
+1. **API Aggregation Layer:** Fast routing and data orchestration built on `FastAPI`.
+2. **Semantic Search Agents:** `LangChain` powered RAG agents to chunk, embed, and index raw text pipelines.
+3. **Structuring:** Unstructured academic papers are converted into pristine researcher profiles.
+4. **Discovery:** LLMs analyze the vector space to generate real-time collaborator recommendations.
 
 ### RAG Search Agents
 
@@ -60,11 +53,11 @@ System:
 
 ---
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | LangChain | FastAPI | RAG | Vector DB | PubMed API | Google Scholar API | ResearchGate API
-```
+- **Languages & Frameworks:** Python, FastAPI
+- **AI/ML & Agents:** LangChain, RAG Architectures, Vector Databases
+- **Integrated Data APIs:** PubMed API, Google Scholar API, ResearchGate API
 
 ---
 
