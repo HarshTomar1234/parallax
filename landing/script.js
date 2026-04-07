@@ -2,7 +2,7 @@
 const PGBase = '/wiki/';
 const pages = [
   'index', 'overview', 'log',
-  'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
+  'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
   'research/transformers-cv', 'research/vlmverse', 'research/lora-qlora', 'research/reasoning-llms', 'research/vision-transformer',
   'skills/computer-vision', 'skills/genai-agents', 'skills/mlops', 'skills/deep-learning',
   'concepts/attention-mechanisms', 'concepts/diffusion-models', 'concepts/rag-architectures', 'concepts/lora-theory', 'concepts/object-detection', 'concepts/multi-object-tracking',
