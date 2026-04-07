@@ -64,6 +64,7 @@ You can download or view specific versions of my resume formatted for different 
 ### Learning Repos
 | Page | Info | Status | Types |
 |------|------|--------|-------|
+
 <!-- AGENT_INJECT_TABLE_LEARNING -->
 
 ### Skills
