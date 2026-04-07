@@ -64,6 +64,7 @@ You can download or view specific versions of my resume formatted for different 
 ### Learning Repos
 | Page | Info | Status | Types |
 |------|------|--------|-------|
+| [[computer-vision]] | Auto | Newly ingested repo | Actions, LLM |
 <!-- AGENT_INJECT_TABLE_LEARNING -->
 
 ### Skills
