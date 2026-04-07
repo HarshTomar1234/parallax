@@ -17,17 +17,11 @@ links: [[overview]], [[community]]
 
 **Problem:** Race condition in `_write_progress` method of `GraphExecutor`. Parallel branches writing concurrently caused data loss and corruption.
 
-**Fix:** Added `threading.Lock` to serialize concurrent writes:
+**Fix:** Added `threading.Lock` to serialize concurrent writes.
 
-```python
-# Added to GraphExecutor.__init__:
-self._progress_lock = threading.Lock()
-
-# Modified _write_progress:
-def _write_progress(self, ...):
-    with self._progress_lock:
-        # original write logic
-```
+- Introduced a `self._progress_lock = threading.Lock()` instance variable in `GraphExecutor.__init__`.
+- Wrapped the entire body of `_write_progress` inside a `with self._progress_lock:` context manager.
+- This ensures that when parallel agent branches attempt to write simultaneously, only one write proceeds at a time — eliminating the data race entirely.
 
 **Deliverables:**
 - `executor.py` — lock-based serialization
