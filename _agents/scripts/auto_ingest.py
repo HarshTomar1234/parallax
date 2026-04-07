@@ -48,8 +48,8 @@ def generate_wiki_markdown(readme_text, repo_url, domain, repo_name):
          sys.exit(1)
          
     genai.configure(api_key=api_key)
-    
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    tz_ist = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+    today = datetime.datetime.now(tz_ist).strftime("%Y-%m-%d")
     
     prompt = f"""
 You are an autonomous LLM agent maintaining the Parallax wiki for @kernel_crush (Harsh Tomar).
@@ -183,7 +183,8 @@ def main():
     
     # Also log it
     log_file = os.path.join("wiki", "log.md")
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    tz_ist = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+    today = datetime.datetime.now(tz_ist).strftime("%Y-%m-%d")
     if os.path.exists(log_file):
         with open(log_file, "a", encoding="utf-8") as f:
             f.write(f"\n## [{today}] ingest | Autonomous run for {args.repo_url} via Action\n")
