@@ -39,6 +39,7 @@ You can download or view specific versions of my resume formatted for different 
 ### Projects (Production Systems)
 | Page | Domain | Summary | Skills Used |
 |------|--------|---------|-------------|
+| [[travel-planner]] | Multi-Agent | LLM-orchestrated travel planning application | Google ADK, LLM Agents |
 | [[tennis-vision]] | Computer Vision | End-to-end player tracking & analytics system | YOLO, OpenCV, Python |
 | [[quanta-ai]] | GenAI / Agents | AI-powered pipeline and generation platform | LLMs, TypeScript, Next.js |
 | [[deepguard]] | MLOps | Machine learning security & adversarial defense | PyTorch, FastAPI, ONNX |
