@@ -41,6 +41,7 @@ jobs:
       - name: Run Autonomous Ingest Script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        continue-on-error: true
         run: |
           python _agents/scripts/auto_ingest.py --repo-url "${{ inputs.repo_url }}" --domain "${{ inputs.domain }}"
 
@@ -55,6 +56,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "docs(agent): ingest ${{ steps.repo_name.outputs.repo }}"
           title: "🤖 Agentic Ingest: ${{ steps.repo_name.outputs.repo }}"
           body: |
@@ -63,7 +65,7 @@ jobs:
             
             - **Source:** ${{ inputs.repo_url }}
             - **Domain:** `wiki/${{ inputs.domain }}/`
-            - **Generated using:** Gemini 1.5 Flash
+            - **Generated using:** Gemini 2.0 Flash
             
             Please review the generated markdown for accuracy before merging into the knowledge graph.
           branch: "agent-ingest-${{ steps.repo_name.outputs.repo }}"
