@@ -1,6 +1,6 @@
 # Parallax
 
-A self-organizing digital nervous system and AI-maintained knowledge base. Built to document the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.
+A self-organizing digital nervous system and AI-maintained knowledge base. Built to document the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles. Inspired by Andrej Karpathy's minimal LLM Wiki pattern.
 
 ## Overview
 
