@@ -44,12 +44,12 @@ Parallax is **not a portfolio**. It is a persistent, compounding knowledge syste
 
 | Feature | Description |
 |---------|-------------|
-| **🧠 30+ Interlinked Wiki Pages** | Projects, research implementations, skills, concepts, and career history — all cross-referenced |
-| **🔍 Ctrl+K Command Palette** | Client-side instant search across the entire knowledge base with keyword highlighting |
-| **🤖 Agent-Maintained** | LLM agents autonomously ingest new repos, generate pages, update the index, and commit changes |
-| **🎨 Obsidian-style Dark UI** | Premium dark-mode interface with glassmorphism search, sidebar navigation, and responsive layout |
-| **📝 Pure Native Markdown** | Zero code blocks for content — everything renders as clean, professionally formatted documentation |
-| **🔗 Wiki-style Links** | `[[wiki-link]]` format for seamless cross-referencing between pages |
+| **30+ Interlinked Wiki Pages** | Projects, research implementations, skills, concepts, and career history — all cross-referenced |
+| **Ctrl+K Command Palette** | Client-side instant search across the entire knowledge base with keyword highlighting |
+| **Agent-Maintained** | LLM agents autonomously ingest new repos, generate pages, update the index, and commit changes |
+| **Obsidian-style Dark UI** | Premium dark-mode interface with glassmorphism search, sidebar navigation, and responsive layout |
+| **Pure Native Markdown** | Zero code blocks for content — everything renders as clean, professionally formatted documentation |
+| **Wiki-style Cross-links** | `[[wiki-link]]` format for seamless cross-referencing between pages |
 
 ---
 
