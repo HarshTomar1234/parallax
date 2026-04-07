@@ -18,27 +18,19 @@ Football match analysis via computer vision — player tracking, team classifica
 
 ## Performance
 
-```
-Player detection mAP: 91%
-Team classification: 89% accuracy (K-means on jersey colors)
-Tracking MOTA: 94% (ByteTrack)
-```
+- **Player Detection mAP:** 91%
+- **Team Classification:** 89% accuracy (using advanced K-means over jersey colors)
+- **Tracking System MOTA:** 94% (powered by ByteTrack integration)
 
 ## CV Pipeline
 
-```
-Frame input
-    ↓
-YOLOv8 (football fine-tuned)  → player/ball detection (91% mAP)
-    ↓
-K-means clustering             → jersey color → team assignment (89% acc)
-    ↓
-ByteTrack                      → multi-player tracking (94% MOTA)
-    ↓
-Perspective transformation     → camera calibration → speed estimation
-    ↓
-Possession stats + heatmaps + tactical overlays
-```
+**Platform Workflow:**
+1. **Frame Ingestion:** Reading raw broadcast-angle footage.
+2. **Detection Phase:** Passing frames through a football-finetuned YOLOv8 model capable of extracting player/ball bounding boxes at 91% mAP.
+3. **Team Assignment:** Sampling and applying K-means clustering over bounding boxes to achieve 89% jersey color classification.
+4. **Tracking Application:** Establishing state-linking across sequential frames with ByteTrack to output 94% accurate player MOTA tracking.
+5. **Perspective Calibration:** Generating mathematically grounded pixel-to-real-world mappings for physical speed and location approximation.
+6. **Delivery Engine:** Overlaying comprehensive statistical visualizations, spatial heatmaps, and annotated tracking lines.
 
 ## Components
 
@@ -50,11 +42,10 @@ Possession stats + heatmaps + tactical overlays
 | Multi-object tracking | ByteTrack | 94% MOTA |
 | Speed estimation | Perspective transform + calibration | — |
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | YOLOv8 | ByteTrack | DeepSORT | OpenCV | Supervision | NumPy
-```
+- **Computer Vision Core:** Python, OpenCV, Supervision, NumPy
+- **Detection & Tracking Libraries:** YOLOv8, ByteTrack, DeepSORT
 
 ## Links
 
