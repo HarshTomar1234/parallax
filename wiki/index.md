@@ -27,10 +27,10 @@ A self-organizing, digital nervous system for **@kernel_crush**. Documenting the
 ## Resumes & Curricula Vitae
 
 You can download or view specific versions of my resume formatted for different roles:
-- [AI Engineer Resume](../harsh%20resume/Harsh_AI_Engineer.pdf)
-- [ML Engineer Resume](../harsh%20resume/Harsh_ML_Engineer.pdf)
-- [Computer Vision Domain CV](../harsh%20resume/harsh_ml_cv_domain_resume.pdf)
-- [Recommendation Letter](../harsh%20resume/HarshTomarRecommendationLetter.pdf)
+- [AI Engineer Resume](../raw/resumes/Harsh_AI_Engineer.pdf)
+- [ML Engineer Resume](../raw/resumes/Harsh_ML_Engineer.pdf)
+- [Computer Vision Domain CV](../raw/resumes/harsh_ml_cv_domain_resume.pdf)
+- [Recommendation Letter](../raw/resumes/HarshTomarRecommendationLetter.pdf)
 
 ---
 
