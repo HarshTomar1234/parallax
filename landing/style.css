@@ -1,0 +1,339 @@
+/* =============================================
+   PARALLAX WIKI — Obsidian/Farzapedia Style
+   ============================================= */
+
+:root {
+  --bg-main: #111111;
+  --bg-sidebar: #171717;
+  --bg-hover: #222222;
+  --bg-code: #1a1b20;
+  
+  --text-main: #d1d5db;
+  --text-muted: #888888;
+  --text-heading: #f3f4f6;
+  
+  --accent: #3b82f6;
+  --accent-dim: rgba(59, 130, 246, 0.15);
+  
+  --border: #2e2e2e;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---- TOPBAR ---- */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 100;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none; /* hidden on md+ */
+  padding: 4px;
+}
+
+#sidebar-toggle:hover {
+  color: var(--text-main);
+}
+
+.logo {
+  font-weight: 600;
+  color: var(--text-heading);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.topbar-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.topbar-link:hover {
+  color: var(--text-main);
+}
+
+/* ---- LAYOUT ---- */
+#layout {
+  display: flex;
+  height: 100vh;
+  padding-top: 56px; /* topbar offset */
+}
+
+/* ---- SIDEBAR ---- */
+#sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidenav {
+  padding: 1.5rem 1rem;
+}
+
+.nav-section {
+  margin-bottom: 2rem;
+}
+
+.nav-group {
+  margin-bottom: 1.5rem;
+}
+
+.nav-group-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 2px;
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item:hover {
+  background-color: var(--bg-hover);
+}
+
+.nav-item.active {
+  background-color: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.nav-item svg {
+  opacity: 0.7;
+}
+
+/* hide scrollbar for clean look */
+#sidebar::-webkit-scrollbar { width: 6px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+/* ---- CONTENT ---- */
+#content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 3rem 2rem 6rem;
+  scroll-behavior: smooth;
+}
+
+#article-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ---- MARKDOWN STYLES ---- */
+#article-container h1 {
+  font-size: 2.2rem;
+  color: var(--text-heading);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#article-container h2 {
+  font-size: 1.5rem;
+  color: var(--text-heading);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+
+#article-container h3 {
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+#article-container p, 
+#article-container ul, 
+#article-container ol, 
+#article-container table, 
+#article-container blockquote {
+  margin-bottom: 1.2rem;
+}
+
+#article-container ul, #article-container ol {
+  padding-left: 1.5rem;
+}
+
+#article-container li {
+  margin-bottom: 0.4rem;
+}
+
+#article-container a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+#article-container a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Internal wiki links */
+#article-container a[href^="#/"] {
+  color: var(--text-main);
+  background: var(--bg-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  text-decoration: none;
+  border: 1px solid var(--border);
+}
+#article-container a[href^="#/"]:hover {
+  border-color: var(--text-muted);
+}
+
+#article-container code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background-color: var(--bg-hover);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+#article-container pre {
+  background-color: var(--bg-code);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  margin-bottom: 1.2rem;
+}
+
+#article-container pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.85em;
+  color: #e5e7eb;
+}
+
+#article-container blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-left: 0;
+}
+
+#article-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#article-container th, #article-container td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+#article-container th {
+  background-color: var(--bg-sidebar);
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+#article-container hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Wiki Frontmatter style */
+.frontmatter {
+  background: var(--bg-sidebar);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+.frontmatter strong {
+  color: var(--text-heading);
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #sidebar-toggle { display: block; }
+  
+  #sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    transform: translateX(-100%);
+  }
+
+  #sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+  }
+
+  #content { padding: 2rem 1.5rem; }
+}
