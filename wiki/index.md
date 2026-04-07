@@ -66,6 +66,7 @@ You can download or view specific versions of my resume formatted for different 
 |------|------|--------|-------|
 | [[computer-vision]] | Auto | Newly ingested repo | Actions, LLM |
 | [[torchquest]] | Auto | Newly ingested repo | Actions, LLM |
+| [[machine-and-deep-learning-nlp]] | Auto | Newly ingested repo | Actions, LLM |
 <!-- AGENT_INJECT_TABLE_LEARNING -->
 
 ### Skills
