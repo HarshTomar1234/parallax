@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Autonomous LLM Ingest Agent for Parallax
 Takes a GitHub repo URL, fetches the README, passes it to Gemini API,
@@ -82,12 +82,12 @@ Write the page following the Parallax style guidelines:
 """
     # Bulletproof fallback logic for models
     try:
-        print(f"Calling Gemini API (gemini-1.5-flash-latest) for {repo_name}...")
-        model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        print(f"Calling Gemini API (gemini-2.0-flash) for {repo_name}...")
+        model = genai.GenerativeModel('gemini-2.0-flash')
         response = model.generate_content(prompt)
     except Exception as e:
-        print(f"Warning: Flash model failed ({e}). Falling back to gemini-pro...")
-        model = genai.GenerativeModel('gemini-pro')
+        print(f"Warning: Flash model failed ({e}). Falling back to gemini-2.5-flash...")
+        model = genai.GenerativeModel('gemini-2.5-flash')
         response = model.generate_content(prompt)
     
     text = response.text
