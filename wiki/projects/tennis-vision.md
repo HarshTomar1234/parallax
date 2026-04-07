@@ -20,14 +20,12 @@ Real-time tennis match analysis system. Top project by stars (★27).
 
 ## Performance Metrics
 
-```
-Player detection:    95% accuracy (YOLOv8x, 92.8% mAP@0.5)
-Ball tracking:       88% precision (87.3% mAP@0.5)
-Court detection:     91.5% accuracy within 5px tolerance
-Shot classification: 89.4% overall accuracy
-Processing speed:    6.67 FPS (94% memory reduction via ROI)
-Temporal speed:      30 FPS display
-```
+- **Player detection:** 95% accuracy (using YOLOv8x, achieving 92.8% mAP@0.5)
+- **Ball tracking:** 88% precision (achieving 87.3% mAP@0.5)
+- **Court detection:** 91.5% accuracy within a tight 5px tolerance margin
+- **Shot classification:** 89.4% overall stroke identification accuracy
+- **Processing pipeline speed:** 6.67 FPS (Optimized via 94% memory reduction using ROI cropping)
+- **Temporal visualizer speed:** 30 FPS display sync
 
 ## Shot Classification Breakdown
 
@@ -48,11 +46,11 @@ Temporal speed:      30 FPS display
 - **Tracking:** ByteTrack for robust multi-object tracking
 - **Visualization:** Mini-court bird's-eye view, heatmaps, speed analytics dashboard
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python  |  YOLOv8  |  ByteTrack  |  PyTorch  |  OpenCV  |  Supervision
-```
+- **AI & Deep Learning:** PyTorch, YOLOv8 (Ultralytics)
+- **Computer Vision Pipeline:** OpenCV, ByteTrack, Supervision
+- **Languages:** Python
 
 ## Key Features
 
