@@ -1,9 +1,9 @@
 # AGENTS.md — Parallax Wiki Schema
 
 ## Identity
-This is **Parallax** — a personal AI-maintained knowledge base for @kernel_crush (Harsh Tomar), an AI/ML Engineer.
+This is **Parallax** — a personal LLM-assisted knowledge base for @kernel_crush (Harsh Tomar), an AI/ML Engineer.
 
-The wiki's purpose is to serve as a persistent, compounding knowledge base — maintained by LLM agents, navigated by both humans and AI. Not a portfolio. A living knowledge system.
+The wiki's purpose is to serve as a persistent, compounding knowledge base — supported iteratively via LLM-assisted workflows, navigated by both humans and AI. Not a portfolio. A living knowledge system.
 
 ## Wiki Structure
 
