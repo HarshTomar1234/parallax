@@ -1,0 +1,39 @@
+name: Parallax Wiki Validator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/**'
+      - 'AGENTS.md'
+  schedule:
+    # Run every Sunday at midnight UTC — weekly agent health check
+    - cron: '0 0 * * 0'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  validate-wiki:
+    runs-on: ubuntu-latest
+    name: Validate Wiki Structure
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Wiki Validator
+        run: python _agents/scripts/validate_wiki.py
+
+      - name: Check for orphan pages
+        run: python _agents/scripts/check_orphans.py
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Wiki Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Pages scanned: $(find wiki/ -name '*.md' | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- Validation completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
