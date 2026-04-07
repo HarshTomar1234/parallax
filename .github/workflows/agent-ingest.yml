@@ -1,0 +1,70 @@
+name: Parallax Agent - Autonomous Ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_url:
+        description: 'GitHub Repository URL to Ingest (e.g. https://github.com/user/repo)'
+        required: true
+        type: string
+      domain:
+        description: 'Target Wiki Domain Folder'
+        required: true
+        type: choice
+        options:
+          - projects
+          - research
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    name: LLM Auto-Ingest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-generativeai requests
+          
+      - name: Run Autonomous Ingest Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python _agents/scripts/auto_ingest.py --repo-url "${{ inputs.repo_url }}" --domain "${{ inputs.domain }}"
+
+      - name: Extract Repo Name
+        id: repo_name
+        run: |
+           # Simple extraction to name the PR branch
+           URL="${{ inputs.repo_url }}"
+           REPO=$(basename "$URL")
+           echo "repo=$REPO" >> $GITHUB_OUTPUT
+           
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "docs(agent): ingest ${{ steps.repo_name.outputs.repo }}"
+          title: "🤖 Agentic Ingest: ${{ steps.repo_name.outputs.repo }}"
+          body: |
+            ## Parallax Autonomous Ingest
+            This PR was generated automatically by the `agent-ingest` workflow.
+            
+            - **Source:** ${{ inputs.repo_url }}
+            - **Domain:** `wiki/${{ inputs.domain }}/`
+            - **Generated using:** Gemini 1.5 Flash
+            
+            Please review the generated markdown for accuracy before merging into the knowledge graph.
+          branch: "agent-ingest-${{ steps.repo_name.outputs.repo }}"
+          base: main
