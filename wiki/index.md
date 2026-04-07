@@ -25,6 +25,14 @@ links: []
 - **Philosophy:** *"Building AI systems by understanding them from first principles"*
 - **Open to:** AI/ML Engineering • Computer Vision • GenAI/LLMOps roles
 
+## Resumes & Curricula Vitae
+
+You can download or view specific versions of my resume formatted for different roles:
+- [AI Engineer Resume](../harsh%20resume/Harsh_AI_Engineer.pdf)
+- [ML Engineer Resume](../harsh%20resume/Harsh_ML_Engineer.pdf)
+- [Computer Vision Domain CV](../harsh%20resume/harsh_ml_cv_domain_resume.pdf)
+- [Recommendation Letter](../harsh%20resume/HarshTomarRecommendationLetter.pdf)
+
 ---
 
 ## Wiki Pages
