@@ -45,13 +45,12 @@ links: [list of [[wiki-links]] to related pages]
 ## Operations
 
 ### Ingest
-When given a new source:
-1. Read it fully
-2. Discuss key takeaways (if in conversation)
-3. Write/update a summary page in `wiki/`
-4. Update `wiki/index.md`
-5. Update any relevant skill, concept, or project pages
-6. Append to `wiki/log.md`
+When triggered via the **LLM Auto-Ingest** GitHub Action:
+1. Agent securely fetches the remote repository (e.g., GitHub README)
+2. Content is routed via the Gemini API with strict Parallax schema constraints
+3. Generate native Markdown `.md` page (NO wrapping codeblocks)
+4. Create an automatic Pull Request under `wiki/projects` or `wiki/research`
+5. A human (you) reviews the PR, updates index/log, and merges
 
 ### Query
 When asked a question:
