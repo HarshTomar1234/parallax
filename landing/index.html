@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallax — @kernel_crush Wiki</title>
+  <meta name="description" content="Personal knowledge base maintained by AI. Projects, research, skills and notes from an AI/ML Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header id="topbar">
+    <div class="topbar-left">
+      <button id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <a href="#" class="logo" data-page="index">Parallax</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://github.com/HarshTomar1234" target="_blank" class="topbar-link">GitHub ↗</a>
+      <a href="https://kernel-crush.netlify.app" target="_blank" class="topbar-link">Portfolio ↗</a>
+    </div>
+  </header>
+
+  <div id="layout">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+      <nav class="sidenav">
+        <div class="nav-section">
+          <a href="#" class="nav-item nav-home active" data-page="index">
+             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+             Home
+          </a>
+          <a href="#" class="nav-item" data-page="overview">
+             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+             Overview
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Projects</div>
+          <a href="#" class="nav-item" data-page="projects/tennis-vision">Tennis Vision</a>
+          <a href="#" class="nav-item" data-page="projects/quanta-ai">QuantaAI</a>
+          <a href="#" class="nav-item" data-page="projects/deepguard">DeepGuard</a>
+          <a href="#" class="nav-item" data-page="projects/decifra">Decifra</a>
+          <a href="#" class="nav-item" data-page="projects/molecuquest">MoleCuQuest</a>
+          <a href="#" class="nav-item" data-page="projects/field-fusion">Field Fusion</a>
+          <a href="#" class="nav-item" data-page="projects/histopathology">Histopathology</a>
+          <a href="#" class="nav-item" data-page="projects/rppg-heart-rate">rPPG Heart Rate</a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Research</div>
+          <a href="#" class="nav-item" data-page="research/transformers-cv">transformers-CV</a>
+          <a href="#" class="nav-item" data-page="research/vlmverse">VLMverse</a>
+          <a href="#" class="nav-item" data-page="research/lora-qlora">LoRA & QLoRA</a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Skills</div>
+          <a href="#" class="nav-item" data-page="skills/computer-vision">Computer Vision</a>
+          <a href="#" class="nav-item" data-page="skills/genai-agents">GenAI & Agents</a>
+          <a href="#" class="nav-item" data-page="skills/mlops">MLOps</a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Concepts</div>
+          <a href="#" class="nav-item" data-page="concepts/attention-mechanisms">Attention Mechanisms</a>
+          <a href="#" class="nav-item" data-page="concepts/diffusion-models">Diffusion Models</a>
+          <a href="#" class="nav-item" data-page="concepts/rag-architectures">RAG Architectures</a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Career</div>
+          <a href="#" class="nav-item" data-page="career/ai-internship">AI Internship</a>
+          <a href="#" class="nav-item" data-page="career/open-source">Open Source</a>
+          <a href="#" class="nav-item" data-page="career/community">Community</a>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Meta</div>
+          <a href="#" class="nav-item" data-page="meta/knowledge-gaps">Knowledge Gaps</a>
+          <a href="#" class="nav-item" data-page="log">Activity Log</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main id="content">
+      <div id="article-container">
+        <!-- Rendered Markdown goes here -->
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
