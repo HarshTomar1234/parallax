@@ -1,6 +1,7 @@
 // List of all valid wiki pages (used for resolving [[wiki-links]])
 const PGBase = '/wiki/';
 const pages = [
+  'projects/insureml-pipeline',
   'index', 'overview', 'log',
   // AGENT_INJECT_PAGES_START
   'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
