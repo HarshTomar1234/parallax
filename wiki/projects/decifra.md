@@ -18,25 +18,21 @@ End-to-end MLOps fraud detection pipeline with explainable AI.
 
 ## Performance
 
-```
-PR-AUC: 88.52%
-Pipeline steps: 9
-Orchestrator: ZenML
-```
+- **Precision-Recall AUC:** 88.52%
+- **Pipeline complexity:** 9 interconnected execution steps
+- **Primary Orchestrator:** ZenML
 
 ## 9-Step ZenML Pipeline
 
-```
-1. Data Ingestion
-2. Data Validation (Great Expectations)
-3. Preprocessing
-4. Feature Engineering
-5. Model Training  (XGBoost + LightGBM + Random Forest ensemble)
-6. Evaluation
-7. Model Selection
-8. Explainability  (SHAP global + LIME instance-level)
-9. Registration    (MLflow model registry)
-```
+1. **Data Ingestion:** Securely loading raw transaction data.
+2. **Data Validation:** Automated checks using `Great Expectations` to prevent data drift.
+3. **Preprocessing:** Cleaning and normalizing data distributions.
+4. **Feature Engineering:** Extracting high-signal temporal and numeric indicators.
+5. **Model Training:** Ensembling XGBoost, LightGBM, and Random Forests.
+6. **Evaluation:** Calculating robust PR-AUC and accuracy metrics.
+7. **Model Selection:** Automatically promoting the highest scoring model variant.
+8. **Explainability:** Attaching SHAP (global) and LIME (instance-level) diagnostics.
+9. **Registration:** Committing the final model package directly into the `MLflow` registry.
 
 ## ML Stack
 
@@ -60,11 +56,11 @@ Orchestrator: ZenML
 - Every prediction includes confidence + feature contribution breakdown
 - Clinical-style report output
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | ZenML | XGBoost | LightGBM | SHAP | LIME | MLflow | DVC | BentoML | Docker | GitHub Actions | Streamlit
-```
+- **ML Orchestration & Tooling:** ZenML, MLflow, DVC, BentoML
+- **Modeling & XAI:** XGBoost, LightGBM, SHAP, LIME
+- **Infrastructure:** Docker, GitHub Actions, Streamlit, Python
 
 ## Links
 
