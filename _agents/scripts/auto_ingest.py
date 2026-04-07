@@ -49,9 +49,6 @@ def generate_wiki_markdown(readme_text, repo_url, domain, repo_name):
          
     genai.configure(api_key=api_key)
     
-    # We use gemini-1.5-flash for speedy markdown generation
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     
     prompt = f"""
@@ -83,8 +80,15 @@ Write the page following the Parallax style guidelines:
 - Headers should be noun phrases
 - Absolutely ZERO code blocks (```) for infrastructure or architecture.
 """
-    print(f"Calling Gemini API for {repo_name}...")
-    response = model.generate_content(prompt)
+    # Bulletproof fallback logic for models
+    try:
+        print(f"Calling Gemini API (gemini-1.5-flash-latest) for {repo_name}...")
+        model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        response = model.generate_content(prompt)
+    except Exception as e:
+        print(f"Warning: Flash model failed ({e}). Falling back to gemini-pro...")
+        model = genai.GenerativeModel('gemini-pro')
+        response = model.generate_content(prompt)
     
     text = response.text
     # Remove possible markdown wrapper from LLM output
