@@ -37,15 +37,12 @@ Deep focus on agentic AI — building systems that reason, plan, and act autonom
 
 ## Agent Patterns
 
-```
-Patterns implemented:
-- ReAct (Reasoning + Acting)
-- LangGraph StatGraph with conditional routing
-- Multi-agent role delegation (CrewAI)
-- Tool-using agents (search, code execution, file I/O)
-- Memory-augmented agents (conversation + episodic)
-- MCP (Model Context Protocol) agents
-```
+- **ReAct Framework:** Reasoning + Acting loops
+- **LangGraph StateGraph:** Conditional edge routing and state management
+- **Role Delegation:** Multi-agent role delegation (using CrewAI)
+- **Tool-using Agents:** Search, Code Execution, File I/O
+- **Memory-augmented Agents:** Long-term conversation and episodic memory
+- **MCP Deployments:** Model Context Protocol agents
 
 ## Production Examples
 
