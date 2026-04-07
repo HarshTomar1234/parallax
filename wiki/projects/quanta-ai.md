@@ -19,26 +19,20 @@ Intelligent conversational AI with real-time web search and agentic decision-mak
 
 4-node LangGraph state machine:
 
-```
-Query Input
-    ↓
-[Classifier Node] — GPT-4, 94% accuracy determining if search needed
-    ↓ (conditional routing)
-[Search Node]     — Tavily API, relevance scoring, source attribution
-    ↓
-[Generate Node]   — GPT-4 response with streaming
-    ↓
-[Response Node]   — token streaming + intermediate state updates
-```
+**4-node LangGraph state machine:**
+
+1. **Query Input:** The raw user prompt is ingested into the state graph.
+2. **Classifier Node (GPT-4):** Operates with 94% accuracy to determine if external validation or web search is needed. Triggers conditional edge routing.
+3. **Search Node (Tavily API):** Conducts high-speed broad retrieval, assigns relevance scoring to documents, and extracts source attribution links.
+4. **Generate Node (GPT-4):** Synthesizes the augmented context into a cohesive answer natively supporting streaming.
+5. **Response Node:** Manages continuous token streaming and publishes intermediate state updates to the user interface.
 
 ## Key Metrics
 
-```
-Search-decision accuracy: 94%
-Context window: last 10 messages with semantic compression
-Search provider: Tavily API
-Streaming: real-time token streaming with phase transparency
-```
+- **Search-decision accuracy:** 94%
+- **Context window:** Last 10 messages with intelligent semantic compression
+- **Search provider:** Tavily API
+- **Streaming architecture:** Real-time token streaming with phase transparency
 
 ## Features
 
@@ -48,11 +42,11 @@ Streaming: real-time token streaming with phase transparency
 - **Context-aware** — conversation history with intelligent compression
 - **Modern UI** — Next.js 14, TypeScript, Tailwind CSS
 
-## Tech Stack
+## Core Tech Stack
 
-```
-LangGraph | GPT-4 | Tavily API | Next.js 14 | TypeScript | FastAPI | Tailwind CSS
-```
+- **Agentic Framework:** LangGraph, GPT-4
+- **Search & Orchestration:** Tavily API, FastAPI
+- **Frontend / Client:** Next.js 14, TypeScript, Tailwind CSS
 
 ## Design Patterns
 
