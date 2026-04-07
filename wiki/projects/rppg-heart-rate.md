@@ -36,19 +36,14 @@ Remote Photoplethysmography (rPPG) extracts subtle color changes in facial skin 
 
 ## Face Detection Pipeline
 
-```
-Webcam frame
-    ↓
-Face detection (localize ROI)
-    ↓
-Extract RGB time series from skin region
-    ↓
-PhysNet OR CHROM/POS signal extraction
-    ↓
-FFT / peak detection → BPM estimate
-    ↓
-Real-time web dashboard
-```
+1. **Input Signal:** Capturing raw webcam video frames locally.
+2. **Localization:** Extracting precisely the facial ROI through targeted boundary detection.
+3. **Time Series Extraction:** Isolating pure RGB data shifting strictly from human skin regions.
+4. **Signal Extraction Options:**
+   - Deep Learning Route: *PhysNet* execution.
+   - Algorithmic Route: *CHROM* or *POS* mapping.
+5. **BPM Normalization:** Running Fast Fourier Transform (FFT) and precise peak detection to achieve Beats Per Minute (BPM) estimates.
+6. **Delivery:** Plotting signals instantaneously to a real-time web dashboard.
 
 ## Why Notable
 
@@ -56,11 +51,11 @@ Real-time web dashboard
 - Covers two distinct paradigms: learned (PhysNet) vs. handcrafted signal processing (CHROM, POS)
 - Real-time inference with web dashboard
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | PyTorch | PhysNet | OpenCV | SciPy | Flask/Streamlit
-```
+- **Computer Vision & CNN:** PyTorch, PhysNet Architecture, OpenCV
+- **Engineering & Analytics:** Python, SciPy
+- **Hosting / Display:** Flask, Streamlit
 
 ## Links
 
