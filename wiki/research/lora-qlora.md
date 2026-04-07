@@ -17,11 +17,9 @@ Pure PyTorch implementations of parameter-efficient fine-tuning methods for LLMs
 
 ## Memory Reduction Results
 
-```
-LoRA on BERT:         65% memory reduction
-LoRA on LLaMA-7B:     50% memory reduction
-QLoRA on LLaMA-65B:   85% reduction → fits on consumer GPUs
-```
+- **LoRA on BERT:** 65% memory reduction
+- **LoRA on LLaMA-7B:** 50% memory reduction
+- **QLoRA on LLaMA-65B:** 85% memory reduction (Fits large models onto standard consumer GPUs)
 
 ## LoRA — Concept
 
@@ -29,13 +27,12 @@ Standard fine-tuning updates all weights W (huge memory cost).
 
 LoRA freezes W and injects two small trainable matrices A, B:
 
-```
-W' = W + ΔW = W + B·A
-where:
-  B ∈ R^(d×r)
-  A ∈ R^(r×k)
-  r << d,k  (rank, typically 8, 16, or 32)
-```
+> **W' = W + ΔW = W + B·A**
+> 
+> *where:*
+> - **B** ∈ R^(d×r)
+> - **A** ∈ R^(r×k)
+> - **r** << d,k  *(rank, typically 8, 16, or 32)*
 
 - **Parameter reduction:** trains <1% of original parameters
 - **Zero inference overhead** — at deployment, B·A merges into W
