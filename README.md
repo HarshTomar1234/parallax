@@ -11,6 +11,10 @@
     <a href="https://github.com/HarshTomar1234/parallax/commits/main"><img src="https://img.shields.io/github/last-commit/HarshTomar1234/parallax?style=flat-square&color=22c55e" alt="Last Commit"></a>
     <a href="wiki/index.md"><img src="https://img.shields.io/badge/pages-30%2B-blue?style=flat-square" alt="Pages"></a>
     <a href="AGENTS.md"><img src="https://img.shields.io/badge/agent--maintained-✓-purple?style=flat-square" alt="Agent Maintained"></a>
+    <a href="https://harshtomar1234.github.io/parallax/"><img src="https://img.shields.io/badge/live%20demo-→-orange?style=flat-square" alt="Live Demo"></a>
+  </p>
+  <p align="center">
+    <strong><a href="https://harshtomar1234.github.io/parallax/">🌐 harshtomar1234.github.io/parallax</a></strong>
   </p>
 </p>
 
@@ -140,5 +144,5 @@ Or start reading directly: **[wiki/index.md](wiki/index.md)**
 <p align="center">
   <strong>Built with 🧠 by <a href="https://github.com/HarshTomar1234">@kernel_crush</a></strong>
   <br>
-  <a href="https://kernel-crush.netlify.app">Portfolio</a> · <a href="https://www.linkedin.com/in/harsh-tomar-a96a38256/">LinkedIn</a> · <a href="https://x.com/kernel_crush">X</a>
+  <a href="https://harshtomar1234.github.io/parallax/">Live Wiki</a> · <a href="https://kernel-crush.netlify.app">Portfolio</a> · <a href="https://www.linkedin.com/in/harsh-tomar-a96a38256/">LinkedIn</a> · <a href="https://x.com/kernel_crush">X</a>
 </p>
