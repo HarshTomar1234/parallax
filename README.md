@@ -1,58 +1,22 @@
 # Parallax
 
-> A personal AI-maintained knowledge base for @kernel_crush.
+A self-organizing digital nervous system and AI-maintained knowledge base. Built to document the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.
 
-**Live:** `d:\LLM-wiki\landing\index.html` (serve with `python -m http.server 5500 --directory landing`)
+## Overview
 
----
+Parallax serves as a persistent, compounding knowledge system for Harsh Tomar (@kernel_crush). It is not a static portfolio, but rather a living architectural map maintained by specialized LLM agents.
 
 ## Structure
 
-```
-parallax/
-├── landing/          # Web landing page (HTML/CSS/JS)
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── wiki/             # AI-maintained knowledge base
-│   ├── index.md      # START HERE — master navigation
-│   ├── log.md        # Append-only activity log
-│   ├── overview.md   # Who is kernel_crush
-│   ├── projects/     # 8 production system pages
-│   ├── research/     # Research implementation pages
-│   ├── skills/       # Skill domain pages
-│   ├── concepts/     # AI/ML concept deep-dives
-│   ├── career/       # Work experience, contributions
-│   └── meta/         # Knowledge gaps, connections
-├── raw/              # Immutable source material
-├── AGENTS.md         # LLM agent schema (READ THIS FIRST)
-└── llm-wiki.md       # Karpathy's reference architecture
-```
+- `/wiki`: The core AI-maintained knowledge graph, organized by projects, research, skills, and concepts.
+- `/raw`: Immutable source material (papers, unformatted code, meeting notes) ingested by the agents.
+- `/harsh resume`: Versioned PDF resumes targeting specific ML and AI domains.
+- `/landing`: A static web interface for navigating the knowledge base locally.
 
-## Quick Commands
+## Agent System
 
-```bash
-# Serve landing page locally
-python -m http.server 5500 --directory landing
+The repository utilizes autonomous agents dictated by the schema in `AGENTS.md`. These agents perform Ingestion (reading new sources to generate markdown), Querying (synthesizing answers from past projects), and Linting (maintaining the structural integrity of the interlinked graph).
 
-# View wiki index
-cat wiki/index.md
+## Getting Started
 
-# Add a new source and ingest
-# Drop file in raw/ then run ingest prompt from AGENTS.md
-```
-
-## Maintenance (Antigravity / Claude Code)
-
-When running an agent on this wiki:
-1. Read `AGENTS.md` first — it defines the schema and operations
-2. Read `wiki/index.md` to understand the current state
-3. Follow the Ingest / Query / Lint operations defined there
-
-## Design
-
-- **Name:** Parallax
-- **Tagline:** Knowledge, from a different angle
-- **Color:** Cyan (`#38bdf8`) on deep dark (`#080a0e`)
-- **Font:** Inter + JetBrains Mono
-- **Inspiration:** Karpathy's LLM Wiki pattern
+Start at the Master Index: [wiki/index.md](wiki/index.md)
