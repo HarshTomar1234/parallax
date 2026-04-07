@@ -41,4 +41,63 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 
 ---
 
-*(Future entries append below this line)*
+## [2026-04-07] ingest | Full wiki content build from source materials
+
+- All 8 production project pages authored from GitHub repos + portfolio
+- All 5 research implementation pages built from repo analysis
+- Skills, concepts, career, meta sections populated
+- 30+ pages total with cross-linked `[[wiki-link]]` references
+
+**Pages created (batch):**
+- wiki/projects/ — quanta-ai, deepguard, decifra, molecuquest, field-fusion, histopathology, rppg-heart-rate
+- wiki/research/ — vlmverse, lora-qlora, reasoning-llms, vision-transformer
+- wiki/skills/ — mlops, genai-agents, computer-vision, deep-learning
+- wiki/concepts/ — attention-mechanisms, diffusion-models, rag-architectures, lora-theory
+- wiki/career/ — community, open-source
+- wiki/meta/ — knowledge-gaps, connections
+
+---
+
+## [2026-04-07] refactor | Native markdown formatting pass
+
+- All code blocks converted to native markdown (lists, blockquotes, tables)
+- Removed flowchart-style ASCII diagrams — replaced with numbered prose workflows
+- Tech Stack sections restructured into categorized bullet lists
+- Full grep scan confirmed zero remaining ``` blocks across all wiki pages
+
+---
+
+## [2026-04-07] feat | Landing page UI + Command Palette
+
+- Built Obsidian-inspired dark UI: sidebar, topbar, content pane
+- Implemented Ctrl+K Command Palette with client-side full-text search
+- Pre-fetches and indexes all wiki .md files on page load
+- Keyword highlighting in search results
+- Fixed search Enter-key navigation to directly trigger `loadPage()`
+
+---
+
+## [2026-04-07] fix | Created missing pages resolving 404 links
+
+- Created wiki/skills/deep-learning.md (linked from 6 pages)
+- Created wiki/concepts/lora-theory.md (linked from research/lora-qlora)
+
+---
+
+## [2026-04-07] infra | GitHub Actions + real agent scripts wired up
+
+- Created .github/workflows/wiki-validator.yml — runs on every push to wiki/ and weekly on schedule
+- Created _agents/scripts/validate_wiki.py — validates frontmatter, domain, required fields
+- Created _agents/scripts/check_orphans.py — detects pages with zero inbound links
+- Automation now provably runs; not just aspirational
+
+---
+
+## [2026-04-07] docs | README premium overhaul
+
+- Added badges (stars, last-commit, page count, agent-maintained)
+- Embedded screenshots of landing page and wiki page
+- Added feature table, repo structure tree, knowledge graph listing, quick start
+- Added Karpathy attribution
+
+---
