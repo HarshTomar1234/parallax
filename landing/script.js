@@ -29,7 +29,7 @@ function processWikiLinks(markdown) {
 
 // Extract and format YAML frontmatter
 function processFrontmatter(markdown) {
-  const frontmatterRegex = /^---\n([\s\S]*?)\n---/;
+  const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---/;
   const match = markdown.match(frontmatterRegex);
   
   if (match) {
@@ -47,7 +47,7 @@ function processFrontmatter(markdown) {
     });
     fmHtml += '</div>';
     
-    return fmHtml + restOfDoc;
+    return fmHtml + '\n\n' + restOfDoc;
   }
   return markdown;
 }
@@ -122,8 +122,158 @@ document.querySelector('.logo').addEventListener('click', (e) => {
   window.location.hash = `/index`;
 });
 
+// --- COMMAND PALETTE LOGIC ---
+const searchIndex = [];
+let searchDataLoaded = false;
+
+async function buildSearchIndex() {
+  if (searchDataLoaded) return;
+  for (const page of pages) {
+    try {
+      const res = await fetch(`../wiki/${page}.md`);
+      if (res.ok) {
+        const text = await res.text();
+        searchIndex.push({ path: page, content: text });
+      }
+    } catch(e) {}
+  }
+  searchDataLoaded = true;
+}
+
+const cpBackdrop = document.getElementById('command-palette-backdrop');
+const cpInput = document.getElementById('cp-search-input');
+const cpResults = document.getElementById('cp-results');
+const cpCloseBtn = document.getElementById('cp-close');
+const searchTriggerBtn = document.getElementById('search-trigger');
+let activeResultIndex = -1;
+
+function toggleCommandPalette(forceState) {
+  const isHidden = cpBackdrop.classList.contains('hidden');
+  const show = forceState !== undefined ? forceState : isHidden;
+  
+  if (show) {
+    cpBackdrop.classList.remove('hidden');
+    cpInput.focus();
+    buildSearchIndex();
+  } else {
+    cpBackdrop.classList.add('hidden');
+    cpInput.value = '';
+    cpResults.innerHTML = '<div class="cp-empty">Type to search your wiki...</div>';
+  }
+}
+
+// Event Listeners
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    toggleCommandPalette();
+  }
+  if (e.key === 'Escape' && !cpBackdrop.classList.contains('hidden')) {
+    toggleCommandPalette(false);
+  }
+  
+  // Navigation
+  if (!cpBackdrop.classList.contains('hidden')) {
+    const items = cpResults.querySelectorAll('.cp-item');
+    if (items.length > 0) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeResultIndex = (activeResultIndex + 1) % items.length;
+        updateActiveHover(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeResultIndex = (activeResultIndex - 1 + items.length) % items.length;
+        updateActiveHover(items);
+      } else if (e.key === 'Enter' && activeResultIndex >= 0) {
+        e.preventDefault();
+        const href = items[activeResultIndex].getAttribute('href');
+        if (href) {
+          toggleCommandPalette(false);
+          window.location.href = href;
+          // Fallback to force load if already on the same hash
+          loadPage(href.replace('#/', ''));
+        }
+      }
+    }
+  }
+});
+
+function updateActiveHover(items) {
+  items.forEach((item, idx) => {
+    if (idx === activeResultIndex) {
+      item.classList.add('active');
+      item.scrollIntoView({ block: 'nearest' });
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+cpBackdrop.addEventListener('click', (e) => {
+  if (e.target === cpBackdrop) toggleCommandPalette(false);
+});
+cpCloseBtn.addEventListener('click', () => toggleCommandPalette(false));
+if (searchTriggerBtn) searchTriggerBtn.addEventListener('click', () => toggleCommandPalette(true));
+
+cpInput.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase().trim();
+  if (!query) {
+    cpResults.innerHTML = '<div class="cp-empty">Type to search your wiki...</div>';
+    return;
+  }
+  if (!searchDataLoaded) {
+    // If not loaded, trigger load and show loading message
+    buildSearchIndex();
+    cpResults.innerHTML = '<div class="cp-empty">Fetching index... please type again in a moment.</div>';
+    return;
+  }
+  
+  const results = [];
+  for (const item of searchIndex) {
+    const textLower = item.content.toLowerCase();
+    const idx = textLower.indexOf(query);
+    if (idx !== -1) {
+      // Find a snippet around the match
+      const start = Math.max(0, idx - 40);
+      const end = Math.min(item.content.length, idx + query.length + 60);
+      let snippet = item.content.substring(start, end).replace(/\n/g, ' ');
+      
+      // Highlight the keyword
+      const regex = new RegExp(`(${query})`, 'gi');
+      snippet = snippet.replace(regex, '<mark>$1</mark>');
+      
+      // Clean up title
+      const titleName = item.path.split('/').pop().replace(/-/g, ' ');
+      
+      results.push({
+        path: item.path,
+        title: titleName.charAt(0).toUpperCase() + titleName.slice(1),
+        snippet: `...${snippet}...`
+      });
+    }
+  }
+  
+  if (results.length === 0) {
+    cpResults.innerHTML = '<div class="cp-empty">No results found for "' + e.target.value + '"</div>';
+  } else {
+    activeResultIndex = 0;
+    cpResults.innerHTML = results.map((r, i) => `
+      <a href="#/${r.path}" class="cp-item ${i === 0 ? 'active' : ''}" onclick="toggleCommandPalette(false)">
+        <div class="cp-item-title">${r.title} <span class="cp-item-path">/${r.path}</span></div>
+        <div class="cp-item-snippet">${r.snippet}</div>
+      </a>
+    `).join('');
+  }
+});
+
 // Initialize
 window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#/', '');
   loadPage(hash || 'index');
+  // Pre-load wiki files in background for instant search
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(buildSearchIndex);
+  } else {
+    setTimeout(buildSearchIndex, 2000);
+  }
 });
