@@ -15,17 +15,11 @@ Retrieval-Augmented Generation — grounding LLM responses in external knowledge
 
 ## Core Pattern
 
-```
-Query
-  ↓
-[Embed query] → vector
-  ↓
-[Vector DB search] → top-k relevant chunks
-  ↓
-[Augmented prompt] = query + retrieved chunks
-  ↓
-[LLM generation] → grounded response
-```
+1. **Query Input:** User provides natural language query.
+2. **Embedding:** Query is passed through an Embedding Model to generate a dense vector representation.
+3. **Vector DB Search:** System conducts semantic similarity search against the Vector DB, extracting top-k relevant context chunks.
+4. **Prompt Augmentation:** The raw query is combined dynamically with the retrieved context chunks.
+5. **Generation:** The unified prompt is passed to the LLM to synthesize a grounded, hallucination-free response.
 
 ## Key Components
 
