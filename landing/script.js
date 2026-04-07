@@ -4,8 +4,6 @@ const pages = [
   'projects/insureml-pipeline',
   'index', 'overview', 'log',
   // AGENT_INJECT_PAGES_START
-  'learning/torchquest',
-  'learning/computer-vision',
   'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
   'research/transformers-cv', 'research/vlmverse', 'research/lora-qlora', 'research/reasoning-llms', 'research/vision-transformer',
   'skills/computer-vision', 'skills/genai-agents', 'skills/mlops', 'skills/deep-learning',
@@ -52,13 +50,19 @@ function processFrontmatter(markdown) {
       if (!line.includes(':')) return;
       const [key, ...vals] = line.split(':');
       const val = vals.join(':').trim();
-      fmHtml += `<div><strong>${key.trim()}:</strong> ${processWikiLinks(val)}</div>`;
+      
+      let displayVal = processWikiLinks(val);
+      // Auto-link any URLs
+      displayVal = displayVal.replace(/(https?:\/\/[^\s\]]+)/g, '<a href="$1" target="_blank" style="color:var(--text-accent);text-decoration:underline;">$1</a>');
+      
+      fmHtml += `<div><strong>${key.trim()}:</strong> ${displayVal}</div>`;
       
       if (key.trim() === 'last_updated') {
         const dateStr = val.replace(/['"]/g, '');
         const dDate = new Date(dateStr);
         if (!isNaN(dDate)) {
-           const days = Math.floor((new Date() - dDate) / (1000 * 60 * 60 * 24));
+           let days = Math.floor((new Date() - dDate) / (1000 * 60 * 60 * 24));
+           if (days < 0) days = 0; // Fix negative timestamp diff due to timezone bounds
            const dayText = days === 0 ? 'today' : days === 1 ? 'yesterday' : `${days} days ago`;
            lastUpdatedHtml = `\n\n<div class="last-updated">Last modified: ${dayText} (${dateStr})</div>`;
         } else {
