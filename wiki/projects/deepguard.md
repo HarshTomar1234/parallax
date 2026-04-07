@@ -18,17 +18,14 @@ Production-grade MLOps pipeline for deepfake detection with complete ML lifecycl
 
 ## Architecture
 
-```
-Data Ingestion
-    → DVC versioning
-    → Preprocessing pipeline
-    → Xception transfer learning (GenImage dataset)
-    → MLflow + DagsHub experiment tracking
-    → Docker containerization
-    → AWS EKS deployment
-    → Prometheus + Grafana observability
-    → CI/CD via GitHub Actions
-```
+**Workflow Execution:**
+1. **Data Ingestion:** Tracked securely via DVC versioning.
+2. **Preprocessing:** Standardized image transformation pipelines.
+3. **Training Engine:** Xception transfer learning model trained on the GenImage dataset.
+4. **Experiment Tracking:** Logging natively to MLflow and DagsHub.
+5. **Infrastructure:** Model instances grouped via Docker containerization and orchestrated on AWS EKS.
+6. **Observability:** Prometheus + Grafana telemetry dashboard integration.
+7. **Automation:** Fully triggered CI/CD through GitHub Actions.
 
 ## ML Pipeline
 
@@ -49,11 +46,11 @@ Data Ingestion
 - Observability stack included at deployment time
 - Automated triggers for data → training → evaluation → deployment
 
-## Tech Stack
+## Core Tech Stack
 
-```
-Python | PyTorch | Xception | DVC | MLflow | DagsHub | Docker | AWS EKS | Prometheus | Grafana | GitHub Actions
-```
+- **Model Ecosystem:** Python, PyTorch, Xception Architecture
+- **MLOps & Tracking:** DVC, MLflow, DagsHub
+- **Platform & Infrastructure:** Docker, AWS EKS, Prometheus, Grafana, GitHub Actions
 
 ## Links
 
