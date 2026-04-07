@@ -7,12 +7,11 @@ last_updated: 2026-04-07
 links: []
 ---
 
-# 🌌 Parallax — Master Index
+# 🌌 Parallax
 
-> *A self-organizing, digital nervous system for @kernel_crush.*
-> *Built on Karpathy's minimal LLM Wiki pattern, explicitly designed to document the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.*
->
-> *Continuously synthesized, linked, and maintained by autonomous agent swarms.*
+A self-organizing, digital nervous system for **@kernel_crush**. Documenting the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.
+
+> *Built on Andrej Karpathy's minimal LLM Wiki pattern.*
 
 ---
 
@@ -92,13 +91,11 @@ You can download or view specific versions of my resume formatted for different 
 ---
 
 ## Stats
-```
-Repositories:          67
-Production systems:     7
-Research impls:         5 (+ 11 architectures in transformers-cv)
-GitHub stars received: 40+
-Wiki pages:            30+
-```
+- **Repositories:** 67
+- **Production systems:** 7
+- **Research impls:** 5 (+ 11 architectures in transformers-cv)
+- **GitHub stars received:** 40+
+- **Wiki pages:** 30+
 
 ---
 
