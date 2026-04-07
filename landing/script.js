@@ -1,6 +1,7 @@
 // List of all valid wiki pages (used for resolving [[wiki-links]])
 const PGBase = '/wiki/';
 const pages = [
+  'projects/insureml-pipeline',
   'index', 'overview', 'log',
   'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
   'research/transformers-cv', 'research/vlmverse', 'research/lora-qlora', 'research/reasoning-llms', 'research/vision-transformer',
