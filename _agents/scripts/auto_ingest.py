@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Autonomous LLM Ingest Agent for Parallax
 Takes a GitHub repo URL, fetches the README, passes it to Gemini API,
@@ -101,6 +101,54 @@ Write the page following the Parallax style guidelines:
         
     return text
 
+def update_registry(domain, repo_name, slug):
+    """Automatically update index.md, script.js, and index.html to reflect the new page."""
+    print(f"Updating registry files for {domain}/{slug}...")
+    
+    # 1. Update landing/script.js
+    script_file = "landing/script.js"
+    if os.path.exists(script_file):
+        with open(script_file, "r", encoding="utf-8") as f:
+            js_content = f.read()
+        js_content = js_content.replace(
+            "const pages = [",
+            f"const pages = [\n  '{domain}/{slug}',"
+        )
+        with open(script_file, "w", encoding="utf-8") as f:
+            f.write(js_content)
+
+    # 2. Update landing/index.html (Sidebar)
+    html_file = "landing/index.html"
+    if os.path.exists(html_file):
+        with open(html_file, "r", encoding="utf-8") as f:
+            html_content = f.read()
+        
+        target_group = "Projects" if domain == "projects" else "Research"
+        html_target = f'<div class="nav-group-title">{target_group}</div>'
+        html_inject = f'{html_target}\n          <a href="#" class="nav-item" data-page="{domain}/{slug}">{repo_name.replace("-", " ").title()}</a>'
+        
+        html_content = html_content.replace(html_target, html_inject)
+        with open(html_file, "w", encoding="utf-8") as f:
+            f.write(html_content)
+
+    # 3. Update wiki/index.md (Master Table)
+    index_file = "wiki/index.md"
+    if os.path.exists(index_file):
+        with open(index_file, "r", encoding="utf-8") as f:
+            index_content = f.read()
+            
+        if domain == "projects":
+            table_target = "|------|--------|---------|-------------|"
+            table_inject = f"{table_target}\n| [[{slug}]] | Auto | Newly ingested repository | Actions, LLM |"
+        else:
+            table_target = "|------|-------------|---------|---------|-------------|"
+            table_inject = f"{table_target}\n| [[{slug}]] | Auto | Newly ingested research | ~ | Actions, LLM |"
+            
+        index_content = index_content.replace(table_target, table_inject)
+        with open(index_file, "w", encoding="utf-8") as f:
+            f.write(index_content)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Parallax Agent: Ingest GitHub Repo")
     parser.add_argument("--repo-url", required=True, help="GitHub Repository URL")
@@ -123,12 +171,16 @@ def main():
     # Save to file
     out_dir = os.path.join("wiki", args.domain)
     os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, f"{repo.lower()}.md")
+    slug = repo.lower()
+    out_file = os.path.join(out_dir, f"{slug}.md")
     
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(markdown_content)
         
     print(f"Successfully generated {out_file}")
+    
+    # Update all registry files to wire the new page
+    update_registry(args.domain, repo, slug)
     
     # Also log it
     log_file = os.path.join("wiki", "log.md")
@@ -136,7 +188,8 @@ def main():
     if os.path.exists(log_file):
         with open(log_file, "a", encoding="utf-8") as f:
             f.write(f"\n## [{today}] ingest | Autonomous run for {args.repo_url} via Action\n")
-            f.write(f"- Auto-generated `wiki/{args.domain}/{repo.lower()}.md` using Gemini API\n")
+            f.write(f"- Auto-generated `wiki/{args.domain}/{slug}.md`\n")
+            f.write(f"- Auto-updated `index.html`, `script.js`, and `index.md` registry\n")
 
 if __name__ == "__main__":
     main()
