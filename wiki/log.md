@@ -121,6 +121,24 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 - Auto-generated `wiki/learning/machine-and-deep-learning-nlp.md`
 - Auto-updated `index.html`, `script.js`, and `index.md` registry
 
-## [2026-04-08] ingest | Autonomous run for https://github.com/HarshTomar1234/Machine-and-Deep-Learning-NLP via Action
-- Auto-generated `wiki/learning/machine-and-deep-learning-nlp.md`
-- Auto-updated `index.html`, `script.js`, and `index.md` registry
+---
+
+## [2026-05-03] audit | Phase 0 — Reconnaissance Report
+
+- Full filesystem reconnaissance completed; report saved to `phase-reports/phase-0/reconnaissance-report.md`
+- 28 wiki pages catalogued across 8 categories
+- 5 broken wikilinks identified: `reasoning-llms`, `vision-transformer`, `object-detection`, `multi-object-tracking`, `connections`
+
+## [2026-05-03] fix | Phase 4A immediate fixes
+
+**Broken wikilinks resolved (5 pages created):**
+- `wiki/research/reasoning-llms.md` — CoT, inference scaling, RLHF, DPO, GRPO
+- `wiki/research/vision-transformer.md` — ViT architecture, patch embedding, variants, training
+- `wiki/concepts/object-detection.md` — YOLO, DETR, NMS, mAP, production metrics
+- `wiki/concepts/multi-object-tracking.md` — ByteTrack, DeepSORT, Kalman filter, Hungarian algorithm
+- `wiki/meta/connections.md` — cross-domain synthesis map
+
+**Other fixes:**
+- `wiki/log.md` — removed duplicate log entry (same Machine-and-Deep-Learning-NLP ingest logged twice)
+- `wiki/projects/insureml-pipeline.md` — removed hallucinated email `matshushita.konosuke@gmail.com`
+- `landing/index.html` — added missing sidebar items: `skills/deep-learning`, `concepts/lora-theory`, `concepts/object-detection`, `concepts/multi-object-tracking`, `research/vision-transformer`, `research/reasoning-llms`, `meta/connections`
