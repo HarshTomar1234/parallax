@@ -1,0 +1,2588 @@
+# Parallax — Full Wiki Dump
+# Generated: 2026-05-03
+# Contains full content of all 33 wiki pages.
+# Use for deep context injection or offline LLM search.
+
+============================================================
+PAGE: career/ai-internship
+TITLE: AI Internship
+DOMAIN: career
+TAGS: internship, rag, langchain, fastapi, research-profiling, work-experience
+LAST_UPDATED: 2026-04-07
+LINKS: genai-agents, overview, rag-architectures
+============================================================
+# AI Internship
+
+First professional AI engineering role. Designed and built a production intelligent research profiling system.
+
+---
+
+## Role
+
+- **Title:** AI Engineer Intern
+- **Certificate:** Verified (Internship Completion Certificate on file)
+- **Recommendation:** Letter from supervising engineer (positive, on file)
+
+---
+
+## What Was Built
+
+### Intelligent Research Profiling System
+
+A multi-source aggregation system that compiles researcher profiles automatically by ingesting data across three primary domains:
+
+- **PubMed:** Biomedical publications and medical semantic data.
+- **ResearchGate:** Academic social network connections and pre-prints.
+- **Google Scholar:** Citations, h-index metrics, and verified publication history.
+
+**Workflow Architecture:**
+1. **API Aggregation Layer:** Fast routing and data orchestration built on `FastAPI`.
+2. **Semantic Search Agents:** `LangChain` powered RAG agents to chunk, embed, and index raw text pipelines.
+3. **Structuring:** Unstructured academic papers are converted into pristine researcher profiles.
+4. **Discovery:** LLMs analyze the vector space to generate real-time collaborator recommendations.
+
+### RAG Search Agents
+
+- Built contextual recommendation agents on top of aggregated data
+- Used LangChain for chain orchestration and tool calling
+- Semantic similarity for collaborator matching
+- Contextual response generation for query answering
+
+---
+
+## Collaboration
+
+- Worked with healthcare professionals on search algorithm refinement
+- Iterative feedback loop with domain experts to validate relevance of results
+
+---
+
+## Core Tech Stack
+
+- **Languages & Frameworks:** Python, FastAPI
+- **AI/ML & Agents:** LangChain, RAG Architectures, Vector Databases
+- **Integrated Data APIs:** PubMed API, Google Scholar API, ResearchGate API
+
+---
+
+## What This Demonstrated
+
+- Production-level agentic system design (beyond toy examples)
+- API design for ML systems
+- Domain-specific RAG tuning (academic/healthcare)
+- Professional collaboration with non-engineers
+
+---
+
+## Links
+
+- [[genai-agents]] — skills applied
+- [[rag-architectures]] — core technique used
+- [[overview]] — career timeline
+
+============================================================
+PAGE: career/community
+TITLE: Community Contributions
+DOMAIN: career
+TAGS: community, cncf, gdg, mentoring, tech-talks, open-source, cloud-native
+LAST_UPDATED: 2026-04-07
+LINKS: open-source, mlops, overview
+============================================================
+# Community Contributions
+
+---
+
+## CNCF — Cloud Native Computing Foundation
+
+- Participated in 15+ CNCF community discussions
+- Topics: cloud-native architectures, Kubernetes, observability, deployment patterns
+- Consistent, sustained engagement with the cloud-native ecosystem
+- Relevant to Kubernetes/MLOps experience ([[mlops]])
+
+**Significance:** CNCF is the foundation behind Kubernetes, Prometheus, Grafana, Helm, and most cloud-native infrastructure. Active participation shows alignment between learning and community engagement.
+
+---
+
+## Google Developer Groups (GDG)
+
+- Delivered 2 tech talks on AI/ML best practices
+- Public speaking at community level
+- Topics: likely related to AI development practices, MLOps, or model deployment
+
+**Significance:** Speaking at GDG events demonstrates ability to explain technical concepts clearly — a key signal for senior engineering roles.
+
+---
+
+## Mentorship
+
+- Mentored 10+ junior developers
+- Conducted workshops and open-source guidance sessions
+- Topics: ML fundamentals, project structure, debugging
+
+---
+
+## Community Signal
+
+- **CNCF discussions:** 15+
+- **Tech talks delivered:** 2
+- **Developers mentored:** 10+
+
+---
+
+## Links
+
+- [[open-source]] — Hive + ICCV contributions
+- [[overview]] — career timeline
+
+============================================================
+PAGE: career/open-source
+TITLE: Open Source Contributions
+DOMAIN: career
+TAGS: open-source, contributions, hive, iccv, bboxmaskpose, threading, race-condition
+LAST_UPDATED: 2026-04-07
+LINKS: community, overview
+============================================================
+# Open Source Contributions
+
+---
+
+## Hive Multi-Agent Framework
+
+**Type:** Bug fix — threading race condition
+
+**Problem:** Race condition in `_write_progress` method of `GraphExecutor`. Parallel branches writing concurrently caused data loss and corruption.
+
+**Fix:** Added `threading.Lock` to serialize concurrent writes.
+
+- Introduced a `self._progress_lock = threading.Lock()` instance variable in `GraphExecutor.__init__`.
+- Wrapped the entire body of `_write_progress` inside a `with self._progress_lock:` context manager.
+- This ensures that when parallel agent branches attempt to write simultaneously, only one write proceeds at a time — eliminating the data race entirely.
+
+**Deliverables:**
+- `executor.py` — lock-based serialization
+- `test_write_progress_race.py` — race condition regression test
+- Concise comments following repo style guidelines
+
+**Significance:** Production-level concurrency fix. Demonstrates understanding of threading primitives, concurrent execution in multi-agent systems, and professional contribution workflow (tests + comments + style adherence).
+
+---
+
+## ICCV 2025 — BBoxMaskPose
+
+**Paper:** "Detection, Pose Estimation and Segmentation for Multiple Bodies: Closing the Virtuous Circle"
+
+**Repo:** https://github.com/HarshTomar1234/BBoxMaskPose (fork of official ICCV 2025 repo)
+
+**Domain:** Multi-task learning — joint detection, pose estimation, and instance segmentation
+
+**Why Notable:** ICCV (International Conference on Computer Vision) is the top-3 venue in computer vision. Forking and studying the official implementation of an ICCV 2025 paper indicates active tracking of cutting-edge research.
+
+---
+
+## Links
+
+- [[community]] — CNCF + GDG contributions
+- [[overview]] — career timeline
+
+============================================================
+PAGE: concepts/attention-mechanisms
+TITLE: Attention Mechanisms
+DOMAIN: concepts
+TAGS: attention, transformer, mhsa, rope, kv-cache, gqa, self-attention
+LAST_UPDATED: 2026-04-07
+LINKS: deep-learning, vlmverse, lora-qlora, vision-transformer, transformers-cv
+============================================================
+# Attention Mechanisms
+
+Core concept underlying all modern transformer architectures. Implemented in multiple forms across research repos.
+
+---
+
+## Scaled Dot-Product Attention
+
+> **Attention(Q, K, V) = softmax(Q·Kᵀ / √d_k) · V**
+
+- **Q (Queries):** What we're looking for.
+- **K (Keys):** What's available to match against.
+- **V (Values):** What we retrieve once a match is found.
+- **d_k:** Key dimension — the scaling factor that prevents vanishing gradients in softmax.
+
+## Multi-Head Self-Attention (MHSA)
+
+- Run h attention heads in parallel, each with different W_Q, W_K, W_V projections
+- Each head attends to different subspaces (different "aspects" of the input)
+- Concatenate outputs → linear projection
+- Used in: ViT, DETR, Swin, TimeSformer ([[transformers-cv]])
+
+## Grouped-Query Attention (GQA)
+
+- Fewer K,V heads than Q heads (e.g., 8 KV heads, 32 Q heads)
+- Reduces memory bandwidth — KV-Cache size scales with KV heads, not Q heads
+- Middle ground between MHA (all unique heads) and MQA (single KV head)
+- Implemented in: [[vlmverse]] (PaLiGemma's Gemma decoder)
+
+## Rotary Position Encoding (RoPE)
+
+Traditional position encodings are additive. RoPE applies rotation matrices to Q and K:
+
+> **q_rotated = q · R(θ·m)**
+> **k_rotated = k · R(θ·n)**
+>
+> The dot product of the rotated vectors naturally encodes the **relative position (m − n)** between tokens.
+
+- **Advantage:** No position embedding parameters. Extrapolates to longer sequences than trained on.
+- Implemented in: [[vlmverse]] (Gemma), standard in Llama, Mistral, Gemma
+
+## KV-Cache
+
+During autoregressive generation, K and V are recomputed every step — quadratic cost.
+
+KV-Cache stores K, V for all previous tokens:
+
+- **Step t:** Compute K_t and V_t, then store them in the cache.
+- **Step t+1:** Reuse all cached K_{1..t}, V_{1..t} — only compute the new K_{t+1}, V_{t+1}.
+- **Result:** Generation cost drops from **quadratic** to **linear** in sequence length.
+
+- Implemented in: [[vlmverse]]
+- Critical for production inference optimization
+
+## Shifted Window Attention (Swin)
+
+- Divides image into non-overlapping local windows
+- Attention within each window → linear complexity in image size
+- "Shifted" windows create cross-window connections between layers
+- Implemented in: [[transformers-cv]] (Swin Transformer folder)
+
+## Links
+
+- [[transformers-cv]] — implementations of all attention variants
+- [[vlmverse]] — RoPE + GQA + KV-Cache in PaLiGemma
+- [[vision-transformer]] — MHSA in image classification
+
+============================================================
+PAGE: concepts/diffusion-models
+TITLE: Diffusion Models
+DOMAIN: concepts
+TAGS: diffusion, ddpm, score-matching, denoising, generative, noise-schedule
+LAST_UPDATED: 2026-04-07
+LINKS: deep-learning, transformers-cv
+============================================================
+# Diffusion Models
+
+Generative models that learn to reverse a gradual noising process. Implemented in [[transformers-cv]].
+
+---
+
+## Core Idea (DDPM)
+
+- **Forward process (fixed):** x₀ → x₁ → ... → x_T ≈ N(0, I)
+- **Reverse process (learned):** x_T → x_{T-1} → ... → x₀
+
+At each step *t*, Gaussian noise is added according to:
+
+> **q(x_t | x_{t-1}) = N(x_t; √(1-β_t) · x_{t-1}, β_t · I)**
+
+**β_t** is the noise schedule, typically linear or cosine.
+
+## Reparameterization Trick
+
+The forward process has a closed form — sample x_t directly from x_0:
+
+> **x_t = √(ᾱ_t) · x₀ + √(1 - ᾱ_t) · ε**, where **ε ~ N(0, I)**
+>
+> **ᾱ_t = ∏ from s=1 to t of (1 - β_s)**
+
+## Training Objective
+
+Train a U-Net ε_θ to predict the noise added at each step:
+
+> **L = E [ ‖ε − ε_θ(x_t, t)‖² ]**
+>
+> The model learns to predict the exact noise **ε** that was added at timestep **t**.
+
+## Sampling (Inference)
+
+1. **Initialize:** Sample x_T from pure Gaussian noise N(0, I).
+2. **Iterate:** For every timestep from T down to 1:
+   - Predict the noise component using the trained U-Net: **ε_pred = ε_θ(x_t, t)**
+   - Remove the predicted noise to recover x_{t-1}.
+3. **Output:** The final denoised result x₀ is the generated sample.
+
+## Implementations in [[transformers-cv]]
+
+| Dataset | Resolution | File |
+|---------|-----------|------|
+| FashionMNIST | 28×28 grayscale | DDPM_from_scratch.ipynb |
+| CIFAR-10 | 32×32 RGB | DDPM_CIFAR10.ipynb |
+| CelebA | 64×64 RGB | DDPM_CelebA.ipynb |
+
+## Why Diffusion Beats GANs (2023+)
+
+- No mode collapse
+- More stable training (no adversarial game)
+- Better diversity of samples
+- Controllable with guidance (classifier-free guidance)
+
+## Links
+
+- [[transformers-cv]] — DDPM implementation in Diffusion/ folder
+- [[deep-learning]] — domain
+
+============================================================
+PAGE: concepts/lora-theory
+TITLE: LoRA Theory
+DOMAIN: concepts
+TAGS: peft, fine-tuning, linear-algebra, svd, rank-decomposition
+LAST_UPDATED: 2026-04-07
+LINKS: lora-qlora, attention-mechanisms
+============================================================
+# Low-Rank Adaptation (LoRA) Theory
+
+A foundational concept in Parameter-Efficient Fine-Tuning (PEFT) that enables the tuning of gigantic models on consumer hardware.
+
+---
+
+## The Mathematical Intuition
+
+When a massive neural network (like LLaMA or GPT) learns a new downstream task, it doesn't need to change every single one of its billion parameters independently. The "intrinsic rank" of the task-specific update is small.
+
+Standard Fine-Tuning updates the massive weight matrix **W**.
+LoRA freezes **W** and adds a small, trainable residual pathway composed of two low-rank matrices, **A** and **B**.
+
+> **ΔW = B × A**
+
+If **W** is *10,000 × 10,000* (100,000,000 parameters), and we choose a rank *r = 8*:
+- **B** is *10,000 × 8* (80,000 parameters)
+- **A** is *8 × 10,000* (80,000 parameters)
+
+Total trainable parameters: **160,000** instead of 100 million (a **99.8% reduction**).
+
+## Why It Works
+
+1. **Initialization:** **A** is initialized with random Gaussian numbers, but **B** is initialized to zero. Therefore, at the start of training, **B × A = 0**, meaning the model behaves exactly like the original pre-trained model.
+2. **Backpropagation:** Gradients only flow into **A** and **B**.
+3. **Inference:** Once training is done, you can multiply **B × A** to get **ΔW**, and permanently add it to **W**. There is **zero latency overhead** during inference.
+
+## The QLoRA Extension
+
+QLoRA takes this further by quantizing the base weights (**W**) into a highly compressed 4-bit format (NF4). You cannot train 4-bit weights, but you *can* run forward passes through them. The gradients are computed in 16-bit precision and applied to the 16-bit **A** and **B** LoRA matrices, enabling fine-tuning of a 65-Billion parameter model on a single GPU.
+
+## Related Resources
+- **[[lora-qlora]]** — My PyTorch implementation of these mechanics.
+- **[[attention-mechanisms]]** — The transformer layers where LoRA is typically injected.
+
+============================================================
+PAGE: concepts/multi-object-tracking
+TITLE: Multi-Object Tracking
+DOMAIN: concepts
+TAGS: multi-object-tracking, bytetrack, deepsort, kalman-filter, reid, mot
+LAST_UPDATED: 2026-04-07
+LINKS: field-fusion, object-detection, tennis-vision, computer-vision
+============================================================
+# Multi-Object Tracking
+
+Associating detections across video frames to maintain consistent object identities over time. Applied in [[tennis-vision]] and [[field-fusion]].
+
+---
+
+## Problem Statement
+
+Detection gives boxes per frame. Tracking answers: *is the player in frame t the same person as in frame t-1?*
+
+- **Re-identification challenge:** Objects can look identical (players in same jersey)
+- **Occlusion challenge:** Objects temporarily disappear, then reappear
+- **ID switching:** Tracker assigns a new ID after a short disappearance
+
+## Tracking Paradigm: Tracking-by-Detection
+
+1. Run detector on each frame (YOLO, etc.)
+2. Associate new detections to existing tracked objects
+3. Update or create tracks
+
+Association cost is computed by combining:
+- **IoU** between predicted and detected boxes (positional similarity)
+- **Appearance features** (re-ID embedding similarity) — optional
+
+## Kalman Filter
+
+Tracks the state of each object and predicts its next position:
+
+- **State vector:** (x, y, w, h, vx, vy, vw, vh) — position + velocity
+- **Predict step:** Advance state forward using constant velocity model
+- **Update step:** Correct prediction with the actual detection
+- **Gain:** Higher uncertainty → weight the measurement more; lower → trust prediction
+
+Used in SORT, DeepSORT, ByteTrack as the motion model.
+
+## ByteTrack
+
+Primary tracker used in [[tennis-vision]] and [[field-fusion]].
+
+**Key innovation:** Don't discard low-confidence detections — use them for re-association.
+
+### Two-pass association:
+1. **First pass:** Associate high-confidence detections (score > threshold_high) to existing tracks using IoU
+2. **Second pass:** Associate **low-confidence** detections (threshold_low < score < threshold_high) to the *unmatched* tracks from pass 1
+3. **New tracks:** Unmatched high-confidence detections seed new track candidates
+
+**Why this works:** A partially-occluded object gets a lower detection confidence, but ByteTrack still uses it to keep the track alive — preventing premature ID termination.
+
+| Metric | ByteTrack on MOT17 |
+|--------|-------------------|
+| MOTA | 80.3 |
+| IDF1 | 77.3 |
+| IDs | 2196 |
+
+## DeepSORT
+
+**SORT + appearance Re-ID embedding:**
+
+- Adds a CNN-based feature extractor to each detection
+- Association metric: weighted sum of Mahalanobis distance (motion) + cosine distance (appearance)
+- Better at re-identifying after long occlusions vs. pure IoU trackers
+
+Used in [[tennis-vision]] as a secondary consideration; ByteTrack is primary.
+
+## Custom Kalman Interpolation (Ball Tracking)
+
+In [[tennis-vision]], the ball moves fast and is often occluded:
+- YOLOv8 ball detector runs on each frame
+- Missing detections are filled via polynomial interpolation over the trajectory
+- This smooths the trajectory for shot-moment identification
+
+## Hungarian Algorithm
+
+Optimal assignment for the association step:
+
+- Builds a cost matrix: rows = existing tracks, columns = new detections
+- Entry = IoU or distance between track and detection
+- Hungarian algorithm finds the assignment that minimizes total cost in O(n³)
+
+## Links
+
+- [[object-detection]] — detections that feed the tracker
+- [[tennis-vision]] — ByteTrack for player tracking, custom interpolation for ball
+- [[field-fusion]] — ByteTrack for athlete/object tracking in agricultural environments
+- [[computer-vision]] — parent domain
+
+============================================================
+PAGE: concepts/object-detection
+TITLE: Object Detection
+DOMAIN: concepts
+TAGS: object-detection, yolo, detr, anchor-free, nms, map, detection-head
+LAST_UPDATED: 2026-04-07
+LINKS: field-fusion, tennis-vision, computer-vision, multi-object-tracking, transformers-cv
+============================================================
+# Object Detection
+
+Localizing and classifying objects in images. Core skill applied in [[tennis-vision]], [[field-fusion]], and implemented from scratch in [[transformers-cv]].
+
+---
+
+## Task Definition
+
+Given an image, output N bounding boxes:
+- **Box coordinates:** (x_center, y_center, width, height) — normalized to [0,1]
+- **Confidence score:** P(object) × IoU
+- **Class probabilities:** P(class | object)
+
+## Two-Stage vs One-Stage
+
+| Approach | Examples | Speed | Accuracy |
+|----------|---------|-------|----------|
+| Two-stage | Faster R-CNN, Mask R-CNN | Slower | Higher |
+| **One-stage** | YOLO, SSD, RetinaNet | Fast | Competitive |
+| Transformer | **DETR**, DINO, RT-DETR | Variable | SOTA |
+
+## YOLO Family (Primary tool)
+
+**YOLOv5 → YOLOv8** used in production:
+
+- Anchor-based (v5) → anchor-free (v8)
+- Single forward pass: image → grid cells, each predicting boxes + classes
+- **Backbone:** CSP-DarkNet or C2f blocks for feature extraction
+- **Neck:** PANet for multi-scale feature fusion (FPN-style)
+- **Head:** Decoupled classification + regression heads (v8)
+
+### YOLOv8 Specifics
+- Anchor-free: predicts (x, y, w, h) as offsets from grid cell center
+- Uses DFL (Distribution Focal Loss) for box regression
+- Task-specific heads for detect / segment / pose / classify / OBB
+
+## DETR — Transformer Detection
+
+Replaces anchors and NMS entirely:
+
+1. **Backbone** extracts features → flattened + positional encoding
+2. **Transformer encoder** processes the feature map
+3. **N learned object queries** attend to encoder output via cross-attention
+4. **FFN** predicts (class, box) per query
+5. **Hungarian matching** for bipartite assignment of predictions to ground truth (no NMS needed)
+
+Implemented from scratch in [[transformers-cv]].
+
+## Evaluation Metric: mAP
+
+**mAP@0.5:** Average Precision computed at IoU threshold 0.5
+**mAP@0.5:0.95:** Averaged across IoU thresholds from 0.5 to 0.95 in steps of 0.05
+
+- Precision: TP / (TP + FP)
+- Recall: TP / (TP + FN)
+- AP: area under the precision-recall curve per class
+- mAP: mean over all classes
+
+## NMS — Non-Maximum Suppression
+
+Post-processing to eliminate redundant boxes:
+1. Sort boxes by confidence descending
+2. Keep highest-confidence box
+3. Remove all boxes with IoU > threshold against the kept box
+4. Repeat
+
+DETR eliminates NMS by design. YOLOv8 still uses NMS at inference.
+
+## Key Techniques Applied
+
+| Technique | Where |
+|-----------|-------|
+| YOLOv8x (confidence 0.7, size filter 20×50px) | [[tennis-vision]] player detection — 95% accuracy |
+| Custom YOLOv8 (trained on 578 images) | [[tennis-vision]] ball tracking — 88% precision |
+| YOLOv8 + ByteTrack | [[field-fusion]] — 91% mAP football analysis |
+| DETR from scratch | [[transformers-cv]] |
+| ResNet-50 keypoint detection | [[tennis-vision]] court landmark detection — 14 landmarks |
+
+## Links
+
+- [[multi-object-tracking]] — tracking detected objects across frames
+- [[tennis-vision]] — primary production use
+- [[field-fusion]] — agricultural/sports multi-sensor detection
+- [[transformers-cv]] — DETR implementation
+- [[computer-vision]] — parent domain
+
+============================================================
+PAGE: concepts/rag-architectures
+TITLE: RAG Architectures
+DOMAIN: concepts
+TAGS: rag, retrieval, vector-db, embeddings, chunking, langchain, pinecone, chroma, faiss
+LAST_UPDATED: 2026-04-07
+LINKS: quanta-ai, genai-agents, ai-internship
+============================================================
+# RAG Architectures
+
+Retrieval-Augmented Generation — grounding LLM responses in external knowledge.
+
+---
+
+## Core Pattern
+
+1. **Query Input:** User provides natural language query.
+2. **Embedding:** Query is passed through an Embedding Model to generate a dense vector representation.
+3. **Vector DB Search:** System conducts semantic similarity search against the Vector DB, extracting top-k relevant context chunks.
+4. **Prompt Augmentation:** The raw query is combined dynamically with the retrieved context chunks.
+5. **Generation:** The unified prompt is passed to the LLM to synthesize a grounded, hallucination-free response.
+
+## Key Components
+
+### Embedding
+- **OpenAI text-embedding-3-small/large** — high quality, API-based
+- **HuggingFace sentence-transformers** — open-source, local
+- **Domain-specific:** SPECTER for academic papers ([[ai-internship]])
+
+### Vector Stores
+| Store | When |
+|-------|------|
+| **Pinecone** | Managed, production, scale |
+| **Chroma** | Local dev, fast setup |
+| **FAISS** | In-memory, high performance, no server |
+
+### Chunking Strategies
+- Recursive character splitting — respects document structure
+- Semantic chunking — splits on meaning boundaries
+- Sliding window — overlap for context preservation
+- Document-aware — tables, headers as atomic units
+
+### Retrieval Patterns
+- **Similarity search** — cosine or dot product ANN
+- **MMR (Maximum Marginal Relevance)** — diversity-aware retrieval
+- **Hybrid (BM25 + vector)** — keyword + semantic
+- **Cross-encoder reranking** — second-pass relevance scoring
+
+---
+
+## Applied Systems
+
+- **[[ai-internship]]** — multi-source RAG over PubMed, ResearchGate, Google Scholar
+- **[[quanta-ai]]** — Tavily search + GPT-4 generation (web-RAG variant)
+- **RAGify** (https://github.com/HarshTomar1234/RAGify) — RAG hub with multiple patterns
+- **Multiple PDF ChatApp** — document-level RAG, source attribution
+
+---
+
+## Advanced Patterns
+
+### HyDE (Hypothetical Document Embeddings)
+Generate a hypothetical answer, embed it, retrieve on that — better retrieval for questions.
+
+### FLARE (Forward-Looking Active REtrieval)
+Retrieves on-demand during generation when confidence drops.
+
+### Self-RAG
+LLM decides when to retrieve, what to retrieve, and whether retrieved content is useful.
+
+---
+
+## Links
+
+- [[genai-agents]] — RAG is core to agent tool use
+- [[ai-internship]] — production RAG system
+- [[quanta-ai]] — web search as external knowledge source
+
+============================================================
+PAGE: index
+TITLE: Parallax — Index
+DOMAIN: meta
+TAGS: [index, master, navigation]
+LAST_UPDATED: 2026-04-07
+LINKS: insureml-pipeline, object-detection, travel-planner, vlmverse, decifra, multi-object-tracking, lora-qlora, mlops, lora-theory, deepguard, transformers-cv, tennis-vision, molecuquest, rppg-heart-rate, deep-learning, knowledge-gaps, quanta-ai, diffusion-models, open-source, computer-vision, rag-architectures, reasoning-llms, histopathology, machine-and-deep-learning-nlp, connections, vision-transformer, community, field-fusion, ai-internship, genai-agents, attention-mechanisms
+============================================================
+# 🌌 Parallax
+
+A self-organizing, digital nervous system for **@kernel_crush**. Documenting the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.
+
+> *Built on Andrej Karpathy's minimal LLM Wiki pattern.*
+
+---
+
+## Identity
+
+- **Name:** Harsh Tomar
+- **Handle:** @kernel_crush
+- **Role:** AI/ML Engineer
+- **Education:** LNCT Bhopal, B.Tech (Nov 2022 – May 2026)
+- **Philosophy:** *"Building AI systems by understanding them from first principles"*
+- **Open to:** AI/ML Engineering • Computer Vision • GenAI/LLMOps roles
+
+## Resumes & Curricula Vitae
+
+You can download or view specific versions of my resume formatted for different roles:
+- [AI Engineer Resume](../raw/resumes/Harsh_AI_Engineer.pdf)
+- [ML Engineer Resume](../raw/resumes/Harsh_ML_Engineer.pdf)
+- [Computer Vision Domain CV](../raw/resumes/harsh_ml_cv_domain_resume.pdf)
+- [Recommendation Letter](../raw/resumes/HarshTomarRecommendationLetter.pdf)
+
+---
+
+## Wiki Pages
+
+### Projects (Production Systems)
+| Page | Domain | Summary | Skills Used |
+|------|--------|---------|-------------|
+| [[insureml-pipeline]] | Auto | Newly ingested repository | Actions, LLM |
+| [[travel-planner]] | Multi-Agent | LLM-orchestrated travel planning application | Google ADK, LLM Agents |
+| [[tennis-vision]] | Computer Vision | End-to-end player tracking & analytics system | YOLO, OpenCV, Python |
+| [[quanta-ai]] | GenAI / Agents | AI-powered pipeline and generation platform | LLMs, TypeScript, Next.js |
+| [[deepguard]] | MLOps | Machine learning security & adversarial defense | PyTorch, FastAPI, ONNX |
+| [[decifra]] | MLOps / XAI | Advanced Explainable AI visualization dashboards | React, SHAP, LIME |
+| [[molecuquest]] | Drug Discovery AI | Molecule property prediction pipeline | GNNs, Deep Learning |
+| [[field-fusion]] | Computer Vision | Multi-sensor fusion for agricultural environments | ROS, Sensor Fusion, CV |
+| [[histopathology]] | Medical AI | High-res tumor detection in medical imaging | ViTs, ResNet, Torch |
+| [[rppg-heart-rate]] | Healthcare AI | Webcam-based heart rate extraction | FaceMesh, Signal Processing |
+<!-- AGENT_INJECT_TABLE_PROJECTS -->
+
+### Research (From-Scratch Implementations)
+| Page | Architecture | Summary | Commits | Skills Used |
+|------|-------------|---------|---------|-------------|
+| [[transformers-cv]] | 11-arch library | Complete implementation of 11 core CV architectures | 173 | PyTorch, Deep Learning |
+| [[vlmverse]] | PaLiGemma VLM | Vision-Language Model fine-tuning & inference | ~45 | HuggingFace, PEFT |
+| [[lora-qlora]] | LoRA + QLoRA PEFT | Manual implementation of Low-Rank Adapters | ~30 | PyTorch, CUDA, Quantization |
+| [[reasoning-llms]] | CoT, Inference Scaling | Chain-of-Thought reasoning scaling laws | ~25 | LLM Inference, RLHF |
+| [[vision-transformer]] | ViT from scratch | Recreating An Image is Worth 16x16 Words | ~55 | PyTorch, Attention Mechanics |
+<!-- AGENT_INJECT_TABLE_RESEARCH -->
+
+### Learning Repos
+| Page | Info | Status | Types |
+|------|------|--------|-------|
+
+| [[machine-and-deep-learning-nlp]] | Auto | Newly ingested repo | Actions, LLM |
+<!-- AGENT_INJECT_TABLE_LEARNING -->
+
+### Skills
+| Page | Category |
+|------|----------|
+| [[computer-vision]] | CV domain |
+| [[genai-agents]] | LLM / Agents |
+| [[mlops]] | MLOps & Cloud |
+| [[deep-learning]] | Research & DL |
+<!-- AGENT_INJECT_TABLE_SKILLS -->
+
+### Concepts
+| Page | Topic |
+|------|-------|
+| [[attention-mechanisms]] | Transformers, MHSA, RoPE |
+| [[diffusion-models]] | DDPM, score matching |
+| [[rag-architectures]] | Vector DBs, retrieval |
+| [[lora-theory]] | Low-rank adaptation theory |
+| [[object-detection]] | YOLO, detection heads |
+| [[multi-object-tracking]] | ByteTrack, DeepSORT |
+<!-- AGENT_INJECT_TABLE_CONCEPTS -->
+
+### Career
+| Page | Topic |
+|------|-------|
+| [[ai-internship]] | RAG research profiling system |
+| [[community]] | CNCF, GDG, tech talks |
+| [[open-source]] | Hive, BBoxMaskPose ICCV 2025 |
+<!-- AGENT_INJECT_TABLE_CAREER -->
+
+### Meta
+| Page | Purpose |
+|------|---------|
+| [[knowledge-gaps]] | What's missing, what to learn next |
+| [[connections]] | Cross-domain connection map |
+<!-- AGENT_INJECT_TABLE_META -->
+
+---
+
+## Stats
+- **Repositories:** 67
+- **Production systems:** 7
+- **Research impls:** 5 (+ 11 architectures in transformers-cv)
+- **GitHub stars received:** 40+
+- **Wiki pages:** 30+
+
+---
+
+## Links
+- GitHub: https://github.com/HarshTomar1234
+- Portfolio: https://kernel-crush.netlify.app
+- LinkedIn: https://www.linkedin.com/in/harsh-tomar-a96a38256/
+- X: https://x.com/kernel_crush
+- Email: tomarharsh28303@gmail.com
+
+============================================================
+PAGE: learning/machine-and-deep-learning-nlp
+TITLE: Machine-and-Deep-Learning-NLP
+DOMAIN: learning
+TAGS: [Machine Learning, Deep Learning, Natural Language Processing, AI]
+LAST_UPDATED: 2026-04-08
+LINKS: 
+============================================================
+### Overview
+Collection of learned techniques and concepts across machine learning, deep learning, and natural language processing domains.
+
+### Machine Learning Fundamentals
+-   **Supervised Learning:**
+    -   Regression algorithms
+    -   Classification algorithms
+-   **Unsupervised Learning:**
+    -   Clustering methods
+    -   Dimensionality reduction
+-   Feature engineering
+-   Model evaluation and selection
+
+### Deep Learning Architectures
+-   Feedforward Neural Networks
+-   Convolutional Neural Networks (CNNs)
+    -   Architectures for image analysis
+-   Recurrent Neural Networks (RNNs)
+    -   Long Short-Term Memory (LSTM)
+    -   Gated Recurrent Unit (GRU)
+-   Transformer-based models
+
+### Natural Language Processing (NLP) Techniques
+-   Text preprocessing
+    -   Tokenization
+    -   Stemming and Lemmatization
+-   Word embeddings
+    -   Word2Vec
+    -   GloVe
+-   Language modeling
+-   Text classification
+-   Sentiment analysis
+-   Named Entity Recognition (NER)
+
+### Implied Technologies
+-   **Programming Language:** Python
+-   **ML Frameworks:** Scikit-learn
+-   **Deep Learning Frameworks:** TensorFlow, Keras, PyTorch
+-   **NLP Libraries:** NLTK, SpaCy, Hugging Face Transformers
+
+============================================================
+PAGE: meta/connections
+TITLE: Connections
+DOMAIN: meta
+TAGS: cross-domain, connections, synthesis, graph, patterns
+LAST_UPDATED: 2026-04-07
+LINKS: index, insureml-pipeline, object-detection, vlmverse, decifra, multi-object-tracking, lora-qlora, mlops, deepguard, transformers-cv, overview, tennis-vision, knowledge-gaps, quanta-ai, reasoning-llms, histopathology, vision-transformer, field-fusion, attention-mechanisms
+============================================================
+# Connections
+
+Cross-domain connection map. Patterns that emerge when the knowledge graph is read as a whole rather than page by page.
+
+---
+
+## Architecture Convergence: Everything Becomes Attention
+
+The knowledge graph reveals a single architectural thread running through every research project:
+
+| Project | Architecture | Attention Type |
+|---------|-------------|----------------|
+| [[vision-transformer]] | ViT | MHSA on image patches |
+| [[transformers-cv]] (Swin) | Hierarchical ViT | Shifted-window attention |
+| [[transformers-cv]] (DETR) | Encoder-decoder | Cross-attention for object queries |
+| [[vlmverse]] (PaLiGemma) | SigLIP + Gemma | GQA + RoPE |
+| [[lora-qlora]] | BERT / LLaMA | Attention layers are the LoRA injection sites |
+| [[reasoning-llms]] | GPT/LLaMA family | Attention + KV-Cache for inference scaling |
+
+See [[attention-mechanisms]] for the unifying theory.
+
+---
+
+## Production ↔ Research Loop
+
+Each production project connects to an underlying research implementation:
+
+| Production system | Research foundation |
+|-------------------|-------------------|
+| [[tennis-vision]] (YOLO + ByteTrack) | [[transformers-cv]] (DETR), [[object-detection]], [[multi-object-tracking]] |
+| [[histopathology]] (ViT + ResNet) | [[vision-transformer]], [[transformers-cv]] |
+| [[vlmverse]] (PaLiGemma fine-tuning) | [[lora-qlora]] (the PEFT method), [[attention-mechanisms]] (GQA, RoPE) |
+| [[quanta-ai]] (LLM pipeline) | [[reasoning-llms]] (CoT, alignment) |
+| [[field-fusion]] (multi-sensor + tracking) | [[object-detection]], [[multi-object-tracking]] |
+
+Pattern: implement the research first, ship the application second.
+
+---
+
+## MLOps as the Production Enabler
+
+The [[mlops]] skill is the connective tissue between research and production:
+
+- [[deepguard]] — adversarial robustness + FastAPI + ONNX deployment
+- [[insureml-pipeline]] — full ML lifecycle: MongoDB → training → S3 → EC2 → CI/CD
+- [[decifra]] — XAI layer (SHAP/LIME) on top of model inference
+- [[quanta-ai]] — LLMOps pipeline with TypeScript + Next.js frontend
+
+Common infrastructure: FastAPI (API layer) · Docker (packaging) · GitHub Actions (CI/CD) · AWS/cloud (deployment).
+
+---
+
+## GenAI as the Emerging Trajectory
+
+The knowledge graph has a clear temporal direction — older pages are deep-CV, newer pages are GenAI/Agents:
+
+```
+2024 → Computer Vision (Tennis Vision, Field Fusion, Histopathology)
+2025 → Research breadth (transformers-cv × 11 architectures)
+2025 → VLMs (vlmverse, PaLiGemma)
+2025 → Agents (Travel Planner, Quanta AI, MCP, LangGraph)
+2026 → Infrastructure (InsureML-Pipeline, MLOps tooling)
+```
+
+See [[knowledge-gaps]] for where this trajectory is heading (Mamba, LLMOps, distributed training).
+
+---
+
+## The "From-Scratch" Philosophy as a Unifying Principle
+
+The strongest signal across all research pages:
+
+- [[vision-transformer]] — ViT from scratch, not a wrapper
+- [[transformers-cv]] — 11 architectures from scratch, not imports
+- [[lora-qlora]] — custom `LoRALinear` module, not PEFT library
+- [[reasoning-llms]] — implementing CoT and RLHF mechanics, not calling an API
+
+This is a deliberate learning strategy: understand the mechanism, then use the library. The implementations are learning artifacts, not library replacements.
+
+---
+
+## Links
+
+- [[index]] — full page catalog
+- [[overview]] — identity and career context
+- [[knowledge-gaps]] — what's missing from the graph
+
+============================================================
+PAGE: meta/knowledge-gaps
+TITLE: Knowledge Gaps
+DOMAIN: meta
+TAGS: gaps, todo, learn-next, weak-areas
+LAST_UPDATED: 2026-04-07
+LINKS: index, overview
+============================================================
+# Knowledge Gaps
+
+Areas to strengthen. Agent-maintained — update after each learning session.
+
+---
+
+## Identified Gaps (as of 2026-04-07)
+
+### Research Depth
+- **No blog posts yet** — portfolio says "blogs coming soon." Writing would solidify understanding and build search presence.
+- **JEPA family** — implemented diagrams and read papers, but no from-scratch implementation yet (unlike DDPM, ViT, etc.)
+- **Mamba / SSMs** — State Space Models as attention alternative not yet implemented
+- **Diffusion for video** — Sora-style video generation not yet explored
+
+### Engineering
+- **LLMOps tooling depth** — Weave, LangSmith, Opik (Kubrick AI explores Opik, but more depth needed)
+- **Distributed training** — DDP used but limited PyTorch distributed experience documented
+- **Inference optimization** — vLLM, TensorRT, ONNX — not yet in any project
+
+### Domain
+- **Audio/Speech** — no audio ML projects (Whisper, speech synthesis, etc.)
+- **Tabular ML** — limited (InsureML is there, but shallow compared to vision/NLP depth)
+- **Reinforcement Learning** — mentioned in reasoning LLMs (RLHF concepts) but no standalone RL projects
+
+---
+
+## Candidate Next Projects
+
+- [ ] Mamba SSM from scratch (trending architecture)
+- [ ] Production LLMOps with Weave/LangSmith evaluation
+- [ ] Blog post: "Building ViT from scratch"
+- [ ] JEPA implementation (extend transformers-cv)
+- [ ] Distributed training experiment on a large model
+
+---
+
+## Contradictions
+
+*(None detected yet — update as wiki grows)*
+
+---
+
+## Links
+
+- [[index]] — full wiki
+- [[overview]] — current strengths
+
+============================================================
+PAGE: overview
+TITLE: Overview — kernel_crush
+DOMAIN: meta
+TAGS: overview, identity, summary, career
+LAST_UPDATED: 2026-04-07
+LINKS: open-source, index, community, ai-internship
+============================================================
+# Overview — kernel_crush (Harsh Tomar)
+
+AI/ML Engineer. Building from first principles. Final year undergrad, LNCT Bhopal.
+
+---
+
+## Identity
+
+- **Name:** Harsh Tomar
+- **Handle:** @kernel_crush
+- **Location:** India (Bhopal)
+- **Education:** LNCT Bhopal, B.Tech (Nov 2022 – May 2026)
+- **Focus:** Computer Vision, Research Implementations, GenAI & Agents, MLOps
+- **Email:** tomarharsh28303@gmail.com
+
+## Philosophy
+
+> "Building AI systems by understanding them from first principles"
+
+Implements architectures from scratch as the primary learning strategy — not fine-tuning wrappers, but writing the math as code. Believes in shipping production systems, not just notebooks.
+
+---
+
+## Experience
+
+### AI Intern
+- Architected intelligent research profiling system
+- Aggregated data from PubMed, ResearchGate, Google Scholar APIs
+- Built RAG-powered search agents for contextual recommendations and collaborator discovery
+- Collaborated with healthcare professionals on search algorithm refinement
+- Stack: LangChain, FastAPI, modern AI frameworks
+- Certificate: verified (Internship Completion Certificate on file)
+- Recommendation Letter: from supervising engineer (on file)
+
+### Community Contributor
+- **CNCF** — Cloud Native Computing Foundation, 15+ discussions
+- **Google Developer Groups** — 2 tech talks on AI/ML best practices
+- Mentored 10+ junior developers through workshops and open-source
+
+### Open Source Contributions
+- **Hive multi-agent framework** — threading race condition fix in `_write_progress`, `GraphExecutor`; added `threading.Lock` to serialize concurrent writes from parallel branches
+- **BBoxMaskPose** (ICCV 2025) — official paper repo: "Detection, Pose Estimation and Segmentation for Multiple Bodies: Closing the Virtuous Circle"
+
+---
+
+## Skill Domains
+
+| Domain | Depth |
+|--------|-------|
+| Computer Vision | Deep — YOLOv5-v8, OpenCV, tracking, segmentation, medical imaging |
+| GenAI & Agents | Deep — LangGraph, AG2, CrewAI, smolagents, MCP, RAG |
+| Deep Learning | Deep — PyTorch, TensorFlow, from-scratch implementations |
+| MLOps | Deep — DVC, MLflow, ZenML, Docker, AWS, CI/CD, monitoring |
+| Research | Strong — 11 CV architectures implemented, 5 LLM architectures |
+| Development | Solid — FastAPI, Next.js, Streamlit, Flask |
+
+---
+
+## Domain Resumes Available
+
+- `Harsh_AI_ML_Engineer_resume.pdf` — General AI/ML
+- `Harsh_AI_Engineer.pdf` — AI Engineering focus
+- `Harsh_ML_Engineer.pdf` — ML Engineering focus
+- `harsh_ml_engineer_resume.pdf` — ML Engineering (variant)
+- `harsh_ml_cv_domain_resume.pdf` — ML + CV combined focus
+- `harsh_CV_resume.pdf` — Computer Vision specialist
+
+---
+
+## Key Numbers
+
+- **GitHub repos:** 67
+- **Starred repos:** 553 (breadth of interests)
+- **Top project stars:** 27 (Tennis Vision)
+- **Production systems deployed:** 7
+- **Research impls:** 11+ architectures built from scratch
+- **Open source:** 2+ production codebases contributed to
+- **Tech talks given:** 2
+- **Developers mentored:** 10+
+- **CNCF discussions:** 15+
+
+---
+
+## Links
+
+- [[ai-internship]] — internship details
+- [[community]] — CNCF, GDG contributions
+- [[open-source]] — Hive, BBoxMaskPose
+- [[index]] — full wiki navigation
+
+============================================================
+PAGE: projects/decifra
+TITLE: Decifra
+DOMAIN: projects
+TAGS: mlops, fraud-detection, xai, zenml, mlflow, dvc, shap, lime, bentoml, xgboost
+LAST_UPDATED: 2026-04-07
+LINKS: mlops, deep-learning
+============================================================
+# Decifra
+
+End-to-end MLOps fraud detection pipeline with explainable AI.
+
+- **Repo:** https://github.com/HarshTomar1234/decifra
+- **Demo:** https://huggingface.co/spaces/Coddieharsh/decifra-fraud-detection
+
+---
+
+## Performance
+
+- **Precision-Recall AUC:** 88.52%
+- **Pipeline complexity:** 9 interconnected execution steps
+- **Primary Orchestrator:** ZenML
+
+## 9-Step ZenML Pipeline
+
+1. **Data Ingestion:** Securely loading raw transaction data.
+2. **Data Validation:** Automated checks using `Great Expectations` to prevent data drift.
+3. **Preprocessing:** Cleaning and normalizing data distributions.
+4. **Feature Engineering:** Extracting high-signal temporal and numeric indicators.
+5. **Model Training:** Ensembling XGBoost, LightGBM, and Random Forests.
+6. **Evaluation:** Calculating robust PR-AUC and accuracy metrics.
+7. **Model Selection:** Automatically promoting the highest scoring model variant.
+8. **Explainability:** Attaching SHAP (global) and LIME (instance-level) diagnostics.
+9. **Registration:** Committing the final model package directly into the `MLflow` registry.
+
+## ML Stack
+
+| Component | Tool |
+|-----------|------|
+| Orchestration | ZenML |
+| Models | XGBoost + LightGBM + Random Forest ensemble |
+| Hyperparameter optimization | Optuna |
+| Class imbalance | SMOTE |
+| Experiment tracking | MLflow |
+| Data versioning | DVC |
+| Model serving | BentoML |
+| Data validation | Great Expectations |
+| Explainability | SHAP (global) + LIME (instance-level) |
+| UI | Streamlit dashboard |
+
+## Explainability Approach
+
+- **SHAP:** Global feature importance — which features drive fraud across dataset
+- **LIME:** Instance-level — why a specific transaction was flagged
+- Every prediction includes confidence + feature contribution breakdown
+- Clinical-style report output
+
+## Core Tech Stack
+
+- **ML Orchestration & Tooling:** ZenML, MLflow, DVC, BentoML
+- **Modeling & XAI:** XGBoost, LightGBM, SHAP, LIME
+- **Infrastructure:** Docker, GitHub Actions, Streamlit, Python
+
+## Links
+
+- [[mlops]] — pipeline tooling
+- [[deep-learning]] — ensemble ML methods
+
+============================================================
+PAGE: projects/deepguard
+TITLE: DeepGuard
+DOMAIN: projects
+TAGS: mlops, deepfake, xception, dvc, mlflow, docker, aws, kubernetes, monitoring
+LAST_UPDATED: 2026-04-07
+LINKS: mlops, deep-learning, computer-vision
+============================================================
+# DeepGuard
+
+Production-grade MLOps pipeline for deepfake detection with complete ML lifecycle implementation.
+
+- **Repo:** https://github.com/HarshTomar1234/DeepGuard-MLOps-Pipeline
+- **Demo:** https://huggingface.co/spaces/Coddieharsh/DeepGuard
+
+---
+
+## Architecture
+
+**Workflow Execution:**
+1. **Data Ingestion:** Tracked securely via DVC versioning.
+2. **Preprocessing:** Standardized image transformation pipelines.
+3. **Training Engine:** Xception transfer learning model trained on the GenImage dataset.
+4. **Experiment Tracking:** Logging natively to MLflow and DagsHub.
+5. **Infrastructure:** Model instances grouped via Docker containerization and orchestrated on AWS EKS.
+6. **Observability:** Prometheus + Grafana telemetry dashboard integration.
+7. **Automation:** Fully triggered CI/CD through GitHub Actions.
+
+## ML Pipeline
+
+| Component | Detail |
+|-----------|--------|
+| **Model** | Xception (transfer learning) |
+| **Dataset** | GenImage deepfake dataset |
+| **Data versioning** | DVC |
+| **Experiment tracking** | MLflow + DagsHub |
+| **Deployment** | Docker + AWS EKS |
+| **Monitoring** | Prometheus + Grafana |
+| **CI/CD** | GitHub Actions |
+
+## Key Differentiators
+
+- End-to-end MLOps — not just training, but full production lifecycle
+- Containerized with Docker, orchestrated on Kubernetes (EKS)
+- Observability stack included at deployment time
+- Automated triggers for data → training → evaluation → deployment
+
+## Core Tech Stack
+
+- **Model Ecosystem:** Python, PyTorch, Xception Architecture
+- **MLOps & Tracking:** DVC, MLflow, DagsHub
+- **Platform & Infrastructure:** Docker, AWS EKS, Prometheus, Grafana, GitHub Actions
+
+## Links
+
+- [[mlops]] — domain page
+- [[deep-learning]] — model architecture
+- [[computer-vision]] — vision model
+
+============================================================
+PAGE: projects/field-fusion
+TITLE: Field Fusion
+DOMAIN: projects
+TAGS: computer-vision, football, yolov8, deepsort, bytetrack, k-means, tracking, pose
+LAST_UPDATED: 2026-04-07
+LINKS: object-detection, multi-object-tracking, computer-vision
+============================================================
+# Field Fusion
+
+Football match analysis via computer vision — player tracking, team classification, tactical analysis.
+
+- **Repo:** https://github.com/HarshTomar1234/Field_Fusion
+- **Demo:** https://huggingface.co/spaces/Coddieharsh/field-fusion
+
+---
+
+## Performance
+
+- **Player Detection mAP:** 91%
+- **Team Classification:** 89% accuracy (using advanced K-means over jersey colors)
+- **Tracking System MOTA:** 94% (powered by ByteTrack integration)
+
+## CV Pipeline
+
+**Platform Workflow:**
+1. **Frame Ingestion:** Reading raw broadcast-angle footage.
+2. **Detection Phase:** Passing frames through a football-finetuned YOLOv8 model capable of extracting player/ball bounding boxes at 91% mAP.
+3. **Team Assignment:** Sampling and applying K-means clustering over bounding boxes to achieve 89% jersey color classification.
+4. **Tracking Application:** Establishing state-linking across sequential frames with ByteTrack to output 94% accurate player MOTA tracking.
+5. **Perspective Calibration:** Generating mathematically grounded pixel-to-real-world mappings for physical speed and location approximation.
+6. **Delivery Engine:** Overlaying comprehensive statistical visualizations, spatial heatmaps, and annotated tracking lines.
+
+## Components
+
+| Component | Method | Accuracy |
+|-----------|--------|---------|
+| Player detection | YOLOv8 (fine-tuned on football) | 91% mAP |
+| Team classification | K-means on jersey color pixels | 89% |
+| Ball tracking | Custom YOLO | — |
+| Multi-object tracking | ByteTrack | 94% MOTA |
+| Speed estimation | Perspective transform + calibration | — |
+
+## Core Tech Stack
+
+- **Computer Vision Core:** Python, OpenCV, Supervision, NumPy
+- **Detection & Tracking Libraries:** YOLOv8, ByteTrack, DeepSORT
+
+## Links
+
+- [[computer-vision]] — CV domain
+- [[multi-object-tracking]] — ByteTrack algorithm
+- [[object-detection]] — YOLO used
+
+============================================================
+PAGE: projects/histopathology
+TITLE: Histopathology Analysis
+DOMAIN: projects
+TAGS: medical-ai, computer-vision, mobilenetv2, grad-cam, transfer-learning, flask, opencv
+LAST_UPDATED: 2026-04-07
+LINKS: deep-learning, computer-vision
+============================================================
+# Breast Cancer Histopathology Analysis
+
+Deep learning system for breast cancer detection with explainable AI and automated clinical reporting.
+
+- **Repo:** https://github.com/HarshTomar1234/breast-cancer-histopathology-analysis
+
+---
+
+## System Overview
+
+**Inference Workflow:**
+1. **Input Stage:** Ingests raw H&E stained histopathology slide images.
+2. **Classification:** Route through a fine-tuned MobileNetV2 backbone to output binary likelihoods (Benign vs Malignant) with statistical confidence metrics.
+3. **Explainability Extraction:** Interrogate convolutional layers using Grad-CAM to construct a high-resolution attention heatmap.
+4. **Biological Feature Profiling:** OpenCV logic estimates nuclear density, sizes, chromatin distribution, tissue architecture, and dye intensity parameters.
+5. **Report Generation:** Generates comprehensive clinical documentation intertwining raw imagery, heatmaps, AI interpretation, and secondary features.
+
+## Model Architecture
+
+| Component | Detail |
+|-----------|--------|
+| Backbone | MobileNetV2 (transfer learning) |
+| Task | Binary classification (Benign vs Malignant) |
+| Explainability | Grad-CAM — highlights regions influencing prediction |
+| Analysis | Quadrant-specific attention breakdown |
+
+## OpenCV Feature Extraction
+
+- Nuclear density estimation
+- Nuclear size and cell count estimation
+- Chromatin pattern analysis
+- Tissue architecture evaluation
+- H&E staining intensity measurement
+
+## Output
+
+- Confidence-scored binary prediction
+- Grad-CAM heatmap overlay
+- Full-feature breakdown per quadrant
+- Downloadable HTML diagnostic report for clinical documentation
+- Drag-and-drop UI supporting multiple images per session
+
+## Clinical Relevance
+
+Grad-CAM makes the model actionable for pathologists — they see which cell regions the model is focusing on, enabling human validation of AI predictions.
+
+## Core Tech Stack
+
+- **Model Framework:** PyTorch, MobileNetV2, Python
+- **XAI & Analytics:** Grad-CAM, OpenCV
+- **Interface & Delivery:** Flask, HTML/CSS
+
+## Links
+
+- [[computer-vision]] — CV domain
+- [[deep-learning]] — transfer learning approach
+
+============================================================
+PAGE: projects/insureml-pipeline
+TITLE: InsureML-Pipeline
+DOMAIN: projects
+TAGS: [MLOps, AWS, FastAPI, Docker]
+LAST_UPDATED: 2026-04-07
+LINKS: 
+============================================================
+# InsureML-Pipeline
+
+## Project Overview
+
+InsureML-Pipeline is an MLOps system for predicting vehicle insurance cross-sell opportunities. It uses machine learning to identify customers likely to purchase vehicle insurance, optimizing marketing and conversion rates.
+
+Key outcomes:
+*   87%+ model accuracy (Random Forest)
+*   End-to-end automation from data ingestion to deployment
+*   Cloud-native architecture on AWS
+*   Real-time predictions via FastAPI REST API
+*   Continuous training and deployment (CI/CD)
+*   Production-ready code with robust logging and exception handling
+
+## Key Features
+
+### MLOps Best Practices
+*   **Modular Architecture**: Separated components for ingestion, validation, transformation, training, evaluation, and deployment.
+*   **Configuration Management**: YAML-based configuration for data schema and model parameters.
+*   **Artifact Tracking**: Timestamped storage for experiment reproducibility.
+*   **Model Versioning**: AWS S3-based model registry with version control.
+*   **Data Validation**: Schema-based validation for data quality.
+*   **Custom Exception Handling**: Robust error tracking and logging.
+*   **Automated Testing**: Data quality checks and model performance validation.
+
+### Production-Ready Capabilities
+*   **FastAPI Web Application**: High-performance API with interactive documentation (Swagger UI).
+*   **Docker Containerization**: Consistent deployment across environments.
+*   **GitHub Actions CI/CD**: Automated testing, building, and deployment workflows.
+*   **AWS Cloud Integration**: Utilizes S3, ECR, EC2 for scalable infrastructure.
+*   **MongoDB Atlas**: Cloud-based NoSQL database for flexible data storage.
+*   **Self-Hosted Runner**: EC2-based GitHub Actions runner for deployment automation.
+
+### Data Processing Pipeline
+*   **Data Ingestion**: Automated extraction from MongoDB Atlas.
+*   **Feature Engineering**: Smart feature transformation and selection.
+*   **Data Validation**: Comprehensive schema and quality checks.
+*   **Imbalanced Data Handling**: SMOTE-based resampling techniques.
+*   **Model Evaluation**: Automated model comparison and selection.
+*   **Model Registry**: Version-controlled model storage in AWS S3.
+
+## System Architecture
+
+The MLOps system follows an end-to-end pipeline:
+
+1.  **MongoDB Atlas**: Serves as the raw data storage.
+2.  **Data Ingestion**: Fetches data from MongoDB, exports to a feature store, performs a 75-25 train-test split.
+3.  **Data Validation**: Validates data against `schema.yaml`, checks column types, detects missing values, and generates a validation report.
+4.  **Data Transformation**: Applies feature engineering, encodes categorical variables, scales numerical features, handles imbalanced data using SMOTE, and saves the preprocessing pipeline.
+5.  **Model Training**: Trains a Random Forest Classifier with specified hyperparameters, performs cross-validation, and saves the trained model.
+6.  **Model Evaluation**: Compares the newly trained model with the production model, calculates performance metrics, and makes an acceptance decision based on a 2% improvement threshold.
+7.  **Model Pusher**: Pushes the accepted model to an AWS S3 bucket for model registry and version control.
+8.  **FastAPI Application**: Provides REST API endpoints for real-time predictions, a web UI for data input, and a training trigger endpoint.
+9.  **CI/CD Pipeline (GitHub Actions)**: Automates Docker image build, pushes to AWS ECR, and deploys to an EC2 instance.
+
+## Technology Stack
+
+### Core ML & Data Science
+*   **Python 3.12**: Primary programming language.
+*   **scikit-learn**: ML algorithms and preprocessing.
+*   **pandas**: Data manipulation and analysis.
+*   **NumPy**: Numerical computing.
+*   **imbalanced-learn**: SMOTE for imbalanced datasets.
+*   **Matplotlib & Seaborn, Plotly**: Data visualization.
+
+### Web Framework & API
+*   **FastAPI**: High-performance web framework.
+*   **Uvicorn**: ASGI server.
+*   **Jinja2**: Template engine.
+
+### Database & Storage
+*   **MongoDB Atlas**: Cloud-based NoSQL database.
+*   **pymongo**: Python MongoDB driver.
+*   **AWS S3**: Model registry and artifact storage.
+*   **boto3**: AWS SDK for Python.
+
+### DevOps & Deployment
+*   **Docker**: Containerization.
+*   **GitHub Actions**: CI/CD automation.
+*   **AWS ECR**: Container registry.
+*   **AWS EC2**: Application hosting.
+*   **AWS IAM**: Access management.
+
+### Configuration & Utilities
+*   **PyYAML**: Configuration file parsing.
+*   **dill**: Advanced Python serialization.
+
+## Project Structure
+
+*   `.github/workflows/`: CI/CD pipeline configuration (`aws.yaml`).
+*   `artifact/`: Timestamped training artifacts (data_ingestion, data_validation, data_transformation, model_trainer).
+*   `config/`: Model configuration (`model.yaml`) and data schema definition (`schema.yaml`).
+*   `logs/`: Application logs.
+*   `notebook/`: Sample dataset, EDA, and MongoDB integration demos.
+*   `src/`: Core application logic.
+    *   `cloud_storage/`: AWS S3 operations.
+    *   `components/`: Individual ML pipeline stages (data_ingestion, data_validation, data_transformation, model_trainer, model_evaluation, model_pusher).
+    *   `configuration/`: AWS and MongoDB connection setups.
+    *   `constants/`: Project constants.
+    *   `data_access/`: Data access layer for vehicle insurance data.
+    *   `entity/`: Artifact, configuration, and estimator definitions.
+    *   `exception/`: Custom exception handling.
+    *   `logger/`: Logging configuration.
+    *   `pipeline/`: End-to-end training and prediction pipelines.
+    *   `utils/`: Utility functions.
+*   `static/`: Web UI styling (`style.css`).
+*   `templates/`: Web UI template (`vehicledata.html`).
+*   `visuals/`: Project documentation images.
+*   `app.py`: FastAPI application entry point.
+*   `demo.py`: Testing script for the ML pipeline.
+*   `Dockerfile`: Docker configuration.
+*   `requirements.txt`: Python dependencies.
+
+## ML Pipeline Components
+
+### 1. Data Ingestion
+*   **Input**: MongoDB collection (`vehicle-insurance-data`).
+*   **Process**: Fetches data, exports to CSV files, splits into training (75%) and testing (25%) datasets.
+*   **Output**: Train and test datasets stored in the artifact directory.
+
+### 2. Data Validation
+*   **Input**: Raw training and testing datasets.
+*   **Process**: Validates data against `config/schema.yaml`, checks column data types, and detects missing values.
+*   **Output**: A validation report (YAML format) indicating data quality status.
+
+### 3. Data Transformation
+*   **Input**: Validated training and testing datasets.
+*   **Process**:
+    *   Encodes categorical variables (Gender, Vehicle_Age, Vehicle_Damage).
+    *   Scales numerical features (Age, Vintage, Annual_Premium).
+    *   Handles imbalanced data using SMOTE.
+    *   Constructs and saves a preprocessing pipeline.
+*   **Output**: Transformed training and testing datasets, along with the saved preprocessing object.
+
+### 4. Model Training
+*   **Input**: Transformed training dataset.
+*   **Algorithm**: Random Forest Classifier.
+*   **Hyperparameters**: `n_estimators=200`, `min_samples_split=7`, `min_samples_leaf=6`, `max_depth=10`, `criterion=entropy`, `random_state=101`.
+*   **Output**: A trained `model.pkl` file.
+
+### 5. Model Evaluation
+*   **Input**: Trained model, transformed testing dataset, and the current production model (if exists).
+*   **Process**: Compares the new model's performance with the production model using metrics such as Accuracy, Precision, Recall, and F1-Score.
+*   **Threshold**: Requires a 2% improvement in performance for the new model to be accepted.
+*   **Output**: An evaluation report and an acceptance decision for the new model.
+
+### 6. Model Pusher
+*   **Input**: Accepted trained model.
+*   **Process**: Uploads the accepted model to the AWS S3 model registry.
+*   **Location**: `s3://insureml-pipeline-bucket/model-registry/`.
+*   **Output**: A versioned model stored in AWS S3.
+
+## API Endpoints
+
+### `GET /`
+*   **Purpose**: Renders the web interface for vehicle insurance prediction.
+*   **Response**: HTML form for data input.
+
+### `POST /`
+*   **Purpose**: Predicts customer interest in vehicle insurance.
+*   **Request Body**:
+    ```json
+    {
+      "Gender": 1,
+      "Age": 35,
+      "Driving_License": 1,
+      "Region_Code": 28.0,
+      "Previously_Insured": 0,
+      "Annual_Premium": 30000.0,
+      "Policy_Sales_Channel": 152.0,
+      "Vintage": 180,
+      "Vehicle_Age_lt_1_Year": 0,
+      "Vehicle_Age_gt_2_Years": 1,
+      "Vehicle_Damage_Yes": 1
+    }
+    ```
+*   **Response**:
+    ```json
+    {
+      "context": "Response-Yes"
+    }
+    ```
+
+### `GET /train`
+*   **Purpose**: Initiates the complete ML training pipeline.
+*   **Response**: `Training successful!!!` or an error message.
+
+### `GET /docs`
+*   **Purpose**: Provides interactive Swagger UI documentation for the API.
+
+## Deployment
+
+### AWS Infrastructure Setup
+
+*   **MongoDB Atlas**: Configured with a cluster, database user, and network access (0.0.0.0/0). Connection string obtained.
+*   **AWS IAM User**: `InsureML-Pipeline` user created with `AdministratorAccess` policy and access keys for CLI.
+*   **AWS S3 Bucket**: `insureml-pipeline-bucket` created in `us-east-1` with "Block all public access" unchecked for model registry.
+*   **AWS ECR Repository**: `vehicle_insurance_prediction_pipeline` created in `us-east-1` for Docker image storage.
+*   **AWS EC2 Instance**: `vehicledata-machine` (Ubuntu Server 24.04 LTS, `t2.medium`) launched with a key pair (`insureml_pipeline.pem`) and a security group allowing HTTP (80), HTTPS (443), and Custom TCP (5000).
+*   **EC2 Docker Setup**: Docker installed and configured on the EC2 instance.
+*   **GitHub Self-Hosted Runner**: Configured on the EC2 instance as a service for GitHub Actions.
+
+### CI/CD Pipeline (GitHub Actions)
+
+The workflow (`.github/workflows/aws.yaml`) executes on pushes to the `main` branch.
+
+**GitHub Secrets**:
+*   `AWS_ACCESS_KEY_ID`
+*   `AWS_SECRET_ACCESS_KEY`
+*   `AWS_DEFAULT_REGION`
+*   `ECR_REPO`
+*   `MONGODB_URL`
+
+**Workflow Stages**:
+*   **Continuous-Integration**:
+    *   Checks out code.
+    *   Configures AWS credentials.
+    *   Logs in to Amazon ECR.
+    *   Builds Docker image.
+    *   Pushes image to ECR.
+*   **Continuous-Deployment**:
+    *   Pulls the latest image from ECR.
+    *   Stops any existing container.
+    *   Runs the new container with environment variables.
+    *   Verifies deployment.
+
+## Configuration
+
+### Schema Configuration (`config/schema.yaml`)
+
+Defines the expected data schema for validation:
+*   **columns**: `id`, `Gender`, `Age`, `Driving_License`, `Region_Code`, `Previously_Insured`, `Vehicle_Age`, `Vehicle_Damage`, `Annual_Premium`, `Policy_Sales_Channel`, `Vintage`, `Response`.
+*   **numerical_columns**: `Age`, `Driving_License`, `Region_Code`, `Previously_Insured`, `Annual_Premium`, `Policy_Sales_Channel`, `Vintage`, `Response`.
+*   **categorical_columns**: `Gender`, `Vehicle_Age`, `Vehicle_Damage`.
+*   **num_features**: `Age`, `Vintage`.
+*   **mm_columns**: `Annual_Premium`.
+
+### Constants Configuration (`src/constants/__init__.py`)
+
+Key parameters:
+*   **Database**: `DATABASE_NAME="vehicle-insurance-domain"`, `COLLECTION_NAME="vehicle-insurance-data"`.
+*   **Model Training**: `MODEL_TRAINER_N_ESTIMATORS=200`, `MODEL_TRAINER_MIN_SAMPLES_SPLIT=7`, `MODEL_TRAINER_MIN_SAMPLES_LEAF=6`, `MODEL_TRAINER_EXPECTED_SCORE=0.6`.
+*   **Model Evaluation**: `MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE=0.02`.
+*   **AWS**: `MODEL_BUCKET_NAME="insureml-pipeline-bucket"`, `MODEL_PUSHER_S3_KEY="model-registry"`, `REGION_NAME="us-east-1"`.
+*   **Application**: `APP_HOST="0.0.0.0"`, `APP_PORT=5000`.
+
+## Features Description
+
+### Input Features
+*   **Gender**: Binary (1: Male, 0: Female).
+*   **Age**: Integer (customer age).
+*   **Driving_License**: Binary (1: Has license, 0: No license).
+*   **Region_Code**: Float (customer region).
+*   **Previously_Insured**: Binary (1: Previously insured, 0: Not insured).
+*   **Vehicle_Age**: Categorical (< 1 Year, 1-2 Year, > 2 Years).
+*   **Vehicle_Damage**: Binary (1: Vehicle damaged, 0: No damage).
+*   **Annual_Premium**: Float (annual premium amount).
+*   **Policy_Sales_Channel**: Float (sales channel code).
+*   **Vintage**: Integer (days associated with company).
+
+### Target Variable
+*   **Response**: Binary (1: Interested in vehicle insurance, 0: Not interested).
+
+## Model Performance
+
+The Random Forest Classifier achieves:
+*   **Training Accuracy**: ~87%
+*   **Test Accuracy**: ~85%
+*   **Precision**: ~0.86
+*   **Recall**: ~0.84
+*   **F1-Score**: ~0.85
+
+**Model Improvement Strategy**:
+*   Automated model comparison with production model.
+*   2% improvement threshold for model acceptance.
+*   Continuous retraining with new data.
+
+## Security Best Practices
+
+*   **Environment Variables**: Sensitive credentials stored as environment variables.
+*   **AWS IAM**: Least privilege access policies applied.
+*   **MongoDB Atlas**: Network access restricted by IP address.
+*   **Docker**: Non-root user execution within containers.
+*   **GitHub Secrets**: Encrypted storage for credentials.
+*   **S3 Bucket**: Versioning enabled for model artifacts.
+
+## Troubleshooting
+
+*   **MongoDB connection failed**: Verify `MONGODB_URL` environment variable and network access settings.
+*   **AWS S3 access denied**: Confirm AWS credentials and IAM permissions.
+*   **Docker container not starting**: Check container logs using `docker logs <container-id>`.
+*   **Self-hosted runner offline**: Restart the runner service on EC2 (`sudo ./svc.sh restart`).
+*   **Port 5000 already in use**: Change `APP_PORT` in constants or terminate the conflicting process.
+
+## Testing
+
+*   **Unit Tests**: Executed via `pytest tests/`.
+*   **Integration Tests**:
+    *   Training pipeline: `python demo.py`.
+    *   Prediction pipeline: `curl -X POST http://localhost:5000/ -F "Gender=1" ...`.
+*   **Model Validation**: Model loading from S3 verified programmatically.
+
+## Monitoring & Logging
+
+*   **Application Logs**: Stored in `logs/` directory with timestamped filenames (e.g., `logs/10_04_2025_01_28_58.log`).
+*   **Log Format**: `[TIMESTAMP] - LEVEL - MODULE - LINE - MESSAGE`.
+*   **Monitoring Endpoints**:
+    *   Health check: `curl http://localhost:5000/`.
+    *   Training status: `curl http://localhost:5000/train`.
+
+## Learning Resources
+
+This project showcases expertise in:
+*   MLOps (end-to-end ML pipeline design).
+*   Cloud Computing (AWS S3, ECR, EC2, IAM).
+*   DevOps (Docker, CI/CD with GitHub Actions).
+*   Web Development (FastAPI, REST APIs).
+*   Database Management (MongoDB Atlas, NoSQL).
+*   ML Engineering (feature engineering, model training, evaluation).
+*   Software Engineering (modular design, OOP, exception handling).
+*   Version Control (Git, GitHub).
+
+## Contact
+
+*   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
+*   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
+
+============================================================
+PAGE: projects/molecuquest
+TITLE: MoleCuQuest
+DOMAIN: projects
+TAGS: drug-discovery, molecular-ai, nvidia-nim, rdkit, cma-es, qed, next-js, firebase
+LAST_UPDATED: 2026-04-07
+LINKS: genai-agents, deep-learning
+============================================================
+# MoleCuQuest
+
+AI-driven molecular research platform combining generative AI with computational chemistry.
+
+- **Repo:** https://github.com/HarshTomar1234/MoleCuQuest
+
+---
+
+## Core Capabilities
+
+| Feature | Detail |
+|---------|--------|
+| **Molecule Generation** | NVIDIA MolMIM for novel structure generation with desired properties |
+| **3D Visualization** | Real-time interactive rendering via RDKit |
+| **Chemical Analysis** | PubChem API integration for compound research |
+| **Optimization** | CMA-ES (Covariance Matrix Adaptation Evolution Strategy) |
+| **Drug-likeness** | QED scoring (Quantitative Estimate of Drug-likeness) |
+
+## Architecture
+
+**Platform Workflow:**
+1. **User Input:** Researchers specify molecular constraints or target properties.
+2. **Generation:** NVIDIA MolMIM API generates structural SMILES strings matching parameters.
+3. **Visualization:** RDKit performs 3D chemical rendering and native property calculations.
+4. **Optimization Phase:** CMA-ES algorithm executes evolutionary property tuning against the objective function.
+5. **Quality Filtering:** QED Scoring provides a stringent pharmaceutical viability filter.
+6. **Cross-Referencing:** Validated via the PubChem API against known biological compounds.
+7. **Delivery:** Presented via a high-performance Next.js interface with persistent state in Firebase.
+
+## Why It Matters
+
+Applies modern generative AI (NIMs) to computational chemistry — a bridge between LLM-era tooling and drug discovery. CMA-ES optimization is notable: it's a derivative-free evolutionary strategy well-suited for optimizing molecular properties in non-differentiable chemical space.
+
+## Core Tech Stack
+
+- **GenAI & Computation:** Python, NVIDIA MolMIM (NIM), RDKit, CMA-ES
+- **Frontend App:** Next.js
+- **System Integration:** Firebase, PubChem API
+
+## Links
+
+- [[genai-agents]] — NIM API usage pattern
+- [[deep-learning]] — generative model backend
+
+============================================================
+PAGE: projects/quanta-ai
+TITLE: QuantaAI
+DOMAIN: projects
+TAGS: genai, agents, langgraph, gpt4, nextjs, fastapi, streaming, rag, web-search
+LAST_UPDATED: 2026-04-07
+LINKS: genai-agents, rag-architectures
+============================================================
+# QuantaAI
+
+Intelligent conversational AI with real-time web search and agentic decision-making.
+
+- **Repo:** https://github.com/HarshTomar1234/QuantaAI
+
+---
+
+## Architecture
+
+4-node LangGraph state machine:
+
+**4-node LangGraph state machine:**
+
+1. **Query Input:** The raw user prompt is ingested into the state graph.
+2. **Classifier Node (GPT-4):** Operates with 94% accuracy to determine if external validation or web search is needed. Triggers conditional edge routing.
+3. **Search Node (Tavily API):** Conducts high-speed broad retrieval, assigns relevance scoring to documents, and extracts source attribution links.
+4. **Generate Node (GPT-4):** Synthesizes the augmented context into a cohesive answer natively supporting streaming.
+5. **Response Node:** Manages continuous token streaming and publishes intermediate state updates to the user interface.
+
+## Key Metrics
+
+- **Search-decision accuracy:** 94%
+- **Context window:** Last 10 messages with intelligent semantic compression
+- **Search provider:** Tavily API
+- **Streaming architecture:** Real-time token streaming with phase transparency
+
+## Features
+
+- **Autonomous search detection** — AI decides when to search without explicit commands
+- **Multi-stage transparency** — user sees classification → search → generation phases live
+- **Source attribution** — all search-based responses include clickable sources with relevance scores
+- **Context-aware** — conversation history with intelligent compression
+- **Modern UI** — Next.js 14, TypeScript, Tailwind CSS
+
+## Core Tech Stack
+
+- **Agentic Framework:** LangGraph, GPT-4
+- **Search & Orchestration:** Tavily API, FastAPI
+- **Frontend / Client:** Next.js 14, TypeScript, Tailwind CSS
+
+## Design Patterns
+
+- LangGraph StateGraph with conditional edge routing
+- Streaming pipeline using Server-Sent Events (SSE)
+- Memory management with sliding window + semantic compression
+- Relevance scoring for search result ranking
+
+## Links
+
+- [[genai-agents]] — agent framework domain
+- [[rag-architectures]] — retrieval patterns used
+
+============================================================
+PAGE: projects/rppg-heart-rate
+TITLE: rPPG Heart Rate
+DOMAIN: projects
+TAGS: healthcare, computer-vision, deep-learning, signal-processing, rppg, physnet, pytorch
+LAST_UPDATED: 2026-04-07
+LINKS: deep-learning, computer-vision
+============================================================
+# rPPG Heart Rate
+
+Contactless heart rate detection from webcam video using deep learning and signal processing.
+
+- **Repo:** https://github.com/HarshTomar1234/rppg-heart-rate
+- **Stars:** 4
+
+---
+
+## Approach
+
+Remote Photoplethysmography (rPPG) extracts subtle color changes in facial skin caused by blood flow — detecting heart rate without any physical contact.
+
+## Implementation Stack
+
+| Method | Type | Role |
+|--------|------|------|
+| **PhysNet** | Deep learning | End-to-end 3D CNN rPPG estimation |
+| **CHROM** | Signal processing | Chrominance-based rPPG |
+| **POS** | Signal processing | Plane-Orthogonal-to-Skin method |
+
+## Training
+
+- **Dataset:** UBFC-rPPG (benchmark rPPG dataset with ground truth BVP + HR)
+- **Input:** Facial video frames at fixed FPS
+- **Output:** BVP waveform → heart rate (BPM)
+
+## Face Detection Pipeline
+
+1. **Input Signal:** Capturing raw webcam video frames locally.
+2. **Localization:** Extracting precisely the facial ROI through targeted boundary detection.
+3. **Time Series Extraction:** Isolating pure RGB data shifting strictly from human skin regions.
+4. **Signal Extraction Options:**
+   - Deep Learning Route: *PhysNet* execution.
+   - Algorithmic Route: *CHROM* or *POS* mapping.
+5. **BPM Normalization:** Running Fast Fourier Transform (FFT) and precise peak detection to achieve Beats Per Minute (BPM) estimates.
+6. **Delivery:** Plotting signals instantaneously to a real-time web dashboard.
+
+## Why Notable
+
+- Non-contact vital signs monitoring — camera as a medical sensor
+- Covers two distinct paradigms: learned (PhysNet) vs. handcrafted signal processing (CHROM, POS)
+- Real-time inference with web dashboard
+
+## Core Tech Stack
+
+- **Computer Vision & CNN:** PyTorch, PhysNet Architecture, OpenCV
+- **Engineering & Analytics:** Python, SciPy
+- **Hosting / Display:** Flask, Streamlit
+
+## Links
+
+- [[computer-vision]] — face detection, video processing
+- [[deep-learning]] — PhysNet 3D CNN
+
+============================================================
+PAGE: projects/tennis-vision
+TITLE: Tennis Vision
+DOMAIN: projects
+TAGS: computer-vision, yolov8, bytetrack, pytorch, object-detection, tracking
+LAST_UPDATED: 2026-04-07
+LINKS: object-detection, deep-learning, multi-object-tracking, computer-vision
+============================================================
+# Tennis Vision
+
+Real-time tennis match analysis system. Top project by stars (★27).
+
+- **Repo:** https://github.com/HarshTomar1234/Tennis-Vision
+- **Demo:** https://huggingface.co/spaces/Coddieharsh/tennis-vision
+- **Stars:** 27 | **Forks:** 1
+- **Last updated:** Jan 30, 2026
+
+---
+
+## Performance Metrics
+
+- **Player detection:** 95% accuracy (using YOLOv8x, achieving 92.8% mAP@0.5)
+- **Ball tracking:** 88% precision (achieving 87.3% mAP@0.5)
+- **Court detection:** 91.5% accuracy within a tight 5px tolerance margin
+- **Shot classification:** 89.4% overall stroke identification accuracy
+- **Processing pipeline speed:** 6.67 FPS (Optimized via 94% memory reduction using ROI cropping)
+- **Temporal visualizer speed:** 30 FPS display sync
+
+## Shot Classification Breakdown
+
+| Shot Type | Accuracy |
+|-----------|---------|
+| Serve     | 95.2% |
+| Volley    | 91.3% |
+| Smash     | 93.7% |
+| Forehand  | 87.8% |
+| Backhand  | 86.1% |
+
+## Architecture
+
+- **Player detection:** YOLOv8x, confidence threshold 0.7, size filter 20×50px min
+- **Ball tracking:** Custom YOLOv8 trained on 578 images, polynomial interpolation for smooth trajectories
+- **Court detection:** ResNet-50 keypoint detection, 14 landmarks
+- **Shot classification:** Rule-based classifier — player position + ball trajectory + temporal context
+- **Tracking:** ByteTrack for robust multi-object tracking
+- **Visualization:** Mini-court bird's-eye view, heatmaps, speed analytics dashboard
+
+## Core Tech Stack
+
+- **AI & Deep Learning:** PyTorch, YOLOv8 (Ultralytics)
+- **Computer Vision Pipeline:** OpenCV, ByteTrack, Supervision
+- **Languages:** Python
+
+## Key Features
+
+- Real-time player tracking with position heatmaps
+- Ball trajectory visualization with shot moment identification
+- Automated 12-stroke classification
+- Comprehensive statistics dashboard (speeds, distances, shot counts)
+- Mini-court tactical visualization
+
+## Links
+
+- [[computer-vision]] — primary domain
+- [[object-detection]] — YOLO architecture used
+- [[multi-object-tracking]] — ByteTrack tracking
+
+============================================================
+PAGE: projects/travel-planner
+TITLE: Travel-Planner
+DOMAIN: projects
+TAGS: [multi-agent-systems, llm-agents, streamlit, fastapi, adk]
+LAST_UPDATED: 2026-04-07
+LINKS: 
+============================================================
+## Project Overview
+
+The Travel-Planner is a travel planning application utilizing Google's Agent Development Kit (ADK) to orchestrate a multi-agent system. It generates comprehensive travel recommendations by leveraging OpenAI's GPT-4o model via LiteLLM, responding to user-defined destinations, dates, and budget constraints.
+
+## Key Features
+
+*   **Multi-Agent Architecture**: Dedicated agents manage specific planning domains.
+    *   **Host Agent**: Coordinates overall trip planning.
+    *   **Flight Agent**: Suggests flight options, including airline, times, and prices.
+    *   **Stay Agent**: Recommends accommodations with location, pricing, and amenities.
+    *   **Activities Agent**: Provides activity suggestions, descriptions, pricing, and duration.
+*   **Interactive Streamlit UI**: User interface for input and recommendation display.
+*   **Budget-Aware Planning**: All recommendations adhere to specified budget parameters.
+*   **Realistic Suggestions**: Generates plausible travel itineraries.
+
+## System Architecture
+
+The system employs an Agent-to-Agent (A2A) communication model for distributed processing.
+
+### Component Organization
+
+*   `agents/`
+    *   `host_agent/`: Orchestrates planning.
+    *   `flight_agent/`: Manages flight searches.
+    *   `stay_agent/`: Manages accommodation searches.
+    *   `activities_agent/`: Manages activity suggestions.
+*   `common/`: Shared utilities, including `a2a_client.py` and `a2a_server.py`.
+*   `travel_trip.py`: Streamlit UI implementation.
+
+### Agent Communication Architecture
+
+1.  **User Interface (Streamlit)**: Gathers user travel preferences.
+2.  **Host Agent (Port 8000)**: Receives initial request, dispatches sub-tasks.
+3.  **Specialized Agents**:
+    *   **Flight Agent (Port 8001)**: Processes flight search parameters.
+    *   **Stay Agent (Port 8002)**: Processes accommodation search parameters.
+    *   **Activities Agent (Port 8003)**: Processes activity search parameters.
+4.  **Result Aggregation**: Host Agent collects and synthesizes results from specialized agents.
+5.  **Output Presentation**: Host Agent returns the comprehensive travel plan to the Streamlit UI.
+
+## Technology Stack
+
+*   **Google ADK**: Agent development framework.
+*   **LiteLLM**: LLM abstraction for OpenAI GPT-4o.
+*   **FastAPI**: Backend API for inter-agent communication.
+*   **Streamlit**: Frontend user interface framework.
+*   **Uvicorn**: ASGI server.
+*   **HTTPX**: Asynchronous HTTP client.
+*   **Python-dotenv**: Environment variable management.
+
+## Installation and Setup
+
+### Prerequisites
+
+*   Python 3.9+
+*   OpenAI API Key
+
+### Procedure
+
+1.  Clone the repository:
+    `git clone https://github.com/HarshTomar1234/Travel-Planner.git`
+    `cd Travel-Planner`
+2.  Install dependencies:
+    `pip install -r requirements.txt`
+3.  Configure environment variables: Create a `.env` file in the root directory with `OPENAI_API_KEY=your_openai_api_key_here`.
+
+## Operational Procedure
+
+### Start Agent Services
+
+Launch each agent in a separate terminal:
+
+*   Flight Agent: `python -m agents.flight_agent` (Port 8001)
+*   Stay Agent: `python -m agents.stay_agent` (Port 8002)
+*   Activities Agent: `python -m agents.activities_agent` (Port 8003)
+*   Host Agent: `python -m agents.host_agent` (Port 8000)
+
+### Launch Streamlit UI
+
+In an additional terminal, run:
+
+*   `streamlit run travel_trip.py` (accessible via `http://localhost:8501`)
+
+### Plan Generation
+
+Input travel parameters (origin, destination, dates, budget) into the UI and initiate the planning process.
+
+## Recommendation Output
+
+The system generates detailed recommendations covering:
+
+*   **Flights**: Airline, departure/return times, price, direct/connecting status.
+*   **Accommodation**: Hotel/stay name, location, price per night, amenities.
+*   **Activities**: Activity name, description, estimated price, duration, practical tips.
+
+## Troubleshooting Guide
+
+*   **API Key Issues**: Verify `OPENAI_API_KEY` in `.env` file.
+*   **Agent Connection Errors**: Confirm all agent services are running on designated ports.
+*   **No Results**: Consider increasing the specified budget.
+
+## Future Development
+
+*   Integration with live travel APIs for real-time booking.
+*   User authentication and saved trip functionality.
+*   Offline mode for cached plans.
+*   Mobile application development.
+
+============================================================
+PAGE: research/lora-qlora
+TITLE: LoRA & QLoRA
+DOMAIN: research
+TAGS: lora, qlora, peft, fine-tuning, quantization, 4-bit, nf4, llm, memory-efficiency
+LAST_UPDATED: 2026-04-07
+LINKS: lora-theory, deep-learning, attention-mechanisms
+============================================================
+# LoRA & QLoRA
+
+Pure PyTorch implementations of parameter-efficient fine-tuning methods for LLMs and Vision Transformers.
+
+- **Repo:** https://github.com/HarshTomar1234/PyTorch-LoRA-QLoRA
+
+---
+
+## Memory Reduction Results
+
+- **LoRA on BERT:** 65% memory reduction
+- **LoRA on LLaMA-7B:** 50% memory reduction
+- **QLoRA on LLaMA-65B:** 85% memory reduction (Fits large models onto standard consumer GPUs)
+
+## LoRA — Concept
+
+Standard fine-tuning updates all weights W (huge memory cost).
+
+LoRA freezes W and injects two small trainable matrices A, B:
+
+> **W' = W + ΔW = W + B·A**
+> 
+> *where:*
+> - **B** ∈ R^(d×r)
+> - **A** ∈ R^(r×k)
+> - **r** << d,k  *(rank, typically 8, 16, or 32)*
+
+- **Parameter reduction:** trains <1% of original parameters
+- **Zero inference overhead** — at deployment, B·A merges into W
+
+## QLoRA — Additions
+
+| Innovation | Detail |
+|------------|--------|
+| **4-bit NF4 Quantization** | Normal Float 4 — optimized for LLM weight distributions (normal dist) |
+| **Double Quantization** | Quantizes the quantization constants themselves for extra savings |
+| **Paged Optimizers** | Manages GPU memory spikes during backprop |
+
+## Implementation Details
+
+- Custom `LoRALinear` module wrapping `nn.Linear`
+- `lora_rank` parameter controls r
+- `lora_alpha` controls scaling (ΔW scaled by α/r)
+- BitsAndBytes integration for 4-bit loading in QLoRA
+- Fine-tuning scripts for BERT, LLaMA-7B, and Vision Transformers
+
+## Practical Significance
+
+Enables fine-tuning Llama-65B on a single GPU with 48GB VRAM — impossible with standard fine-tuning. This is the technique behind most open-source fine-tuned LLMs.
+
+## Links
+
+- [[attention-mechanisms]] — transformer layers where LoRA is applied
+- [[deep-learning]] — domain
+- [[lora-theory]] — deeper theoretical treatment
+
+============================================================
+PAGE: research/reasoning-llms
+TITLE: Reasoning LLMs
+DOMAIN: research
+TAGS: reasoning, chain-of-thought, rlhf, inference-scaling, cot, llm
+LAST_UPDATED: 2026-04-07
+LINKS: lora-qlora, deep-learning, vlmverse, attention-mechanisms
+============================================================
+# Reasoning LLMs
+
+Research implementation exploring Chain-of-Thought reasoning, inference-time scaling, and RLHF alignment in large language models.
+
+- **Repo:** https://github.com/HarshTomar1234
+- **Commits:** ~25
+
+---
+
+## Chain-of-Thought (CoT) Reasoning
+
+Standard decoding: input → single-step output.
+
+CoT decoding: input → *intermediate reasoning steps* → final answer.
+
+> "Let's think step by step" — few-shot prompt that unlocks multi-step reasoning in sufficiently large models.
+
+- Emergent at ~100B parameters in original PaLM findings
+- Works zero-shot (GPT-3.5+) with the right prompt
+- Scales better with compute than direct prompting on math/logic tasks
+
+## Inference-Time Scaling (Test-Time Compute)
+
+Rather than scaling training compute, scale at inference:
+
+| Method | Idea | Trade-off |
+|--------|------|-----------|
+| **Best-of-N** | Sample N outputs, pick best by reward model | N× latency, N× cost |
+| **Self-consistency** | Sample N CoT chains, majority-vote the answer | Better on math — consistent answers cluster |
+| **Tree-of-Thought** | Explore reasoning as a tree, prune bad branches | High latency — search overhead |
+| **Process Reward Models (PRMs)** | Score each *step* in the chain, not just the final answer | Requires step-level labels — expensive to collect |
+
+Key finding: inference scaling can recover a significant portion of next-scale-up training gains on reasoning benchmarks.
+
+## RLHF — Reinforcement Learning from Human Feedback
+
+Training loop for alignment:
+
+1. **SFT (Supervised Fine-Tuning):** Fine-tune base LLM on curated demonstrations
+2. **Reward Model:** Train a separate model to predict human preference scores on pairs of outputs
+3. **PPO (Proximal Policy Optimization):** Optimize the LLM with respect to the reward model, KL-penalized against the SFT model
+
+> KL penalty: prevents the policy from deviating too far from the SFT model (reward hacking / distribution collapse).
+
+**RLHF variants:**
+- **DPO (Direct Preference Optimization):** Eliminates the explicit reward model — optimizes preference directly from paired data. Simpler, more stable than PPO in practice.
+- **GRPO (Group Relative Policy Optimization):** DeepSeek's variant — eliminates value/critic model, uses group-level relative rewards. Used in DeepSeek-R1.
+
+## Scaling Laws for Reasoning
+
+- **Chinchilla scaling** applies to pre-training compute vs. model loss
+- **Reasoning tasks** show a different curve — benefit more from inference compute than non-reasoning tasks
+- **OpenAI o1 paradigm:** spend more tokens on "thinking" (hidden scratchpad CoT) at inference — trading latency for accuracy on hard tasks
+
+## Links
+
+- [[attention-mechanisms]] — transformer architecture underlying all LLMs
+- [[deep-learning]] — domain
+- [[lora-qlora]] — PEFT used to fine-tune LLMs efficiently
+- [[vlmverse]] — VLM fine-tuning with alignment considerations
+
+============================================================
+PAGE: research/transformers-cv
+TITLE: transformers-CV
+DOMAIN: research
+TAGS: transformers, computer-vision, pytorch, vit, detr, swin, sam, diffusion, gan, vae, jepa
+LAST_UPDATED: 2026-04-07
+LINKS: computer-vision, deep-learning, vision-transformer, diffusion-models, attention-mechanisms
+============================================================
+# transformers-CV
+
+Comprehensive library of transformer architectures for computer vision — implemented from scratch in PyTorch.
+
+- **Repo:** https://github.com/HarshTomar1234/transformers-CV
+- **Commits:** 173
+- **Language:** Jupyter Notebook (98.3%), HTML (1.2%)
+
+---
+
+## Architectures Implemented (11)
+
+| Architecture | Type | Notable Detail |
+|-------------|------|----------------|
+| **ViT** | Classification | CIFAR-10 + ImageNet training, patch embedding, MHSA |
+| **DETR** | Object Detection | End-to-end detector, bipartite matching loss, Excalidraw diagrams |
+| **Swin Transformer** | Hierarchical | Shifted window attention, interactive HTML masking demos |
+| **SAM** | Segmentation | SAM + SAM 2 inference notebooks, video segmentation |
+| **TimeSformer** | Video | From-scratch V2 implementation, Kinetics-400, Pre-LN interactive diagram |
+| **Flamingo VLM** | Vision-Language | Few-shot captioning with OpenFlamingo-9B |
+| **AutoEncoders** | Generative | Vanilla AE, VAE, VQ-VAE — MNIST, FashionMNIST |
+| **GAN** | Generative | Vanilla GAN, DCGAN (CelebA), 10 interactive HTML diagrams |
+| **DDPM** | Diffusion | FashionMNIST 28×28, CIFAR-10 32×32, CelebA 64×64 |
+| **JEPA** | Self-supervised | I-JEPA, V-JEPA, V-JEPA 2, LLM-JEPA family |
+| **DeiT** | Classification | Data-Efficient Image Transformer paper + notes |
+
+## Structure Pattern
+
+Each architecture folder contains:
+- `README.md` — detailed documentation with math
+- Architecture diagrams (Excalidraw + PNG)
+- From-scratch implementation notebooks
+- Inference notebooks with pre-trained models
+- Original research paper (PDF)
+- Interactive HTML visualizations (where applicable)
+
+## Key Research Papers Covered
+
+- "An Image is Worth 16x16 Words" (ViT)
+- "End-to-End Object Detection with Transformers" (DETR)
+- "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows"
+- "Segment Anything" (SAM)
+- "Is Space-Time Attention All You Need for Video Understanding?" (TimeSformer)
+- "Flamingo: a Visual Language Model for Few-Shot Learning"
+- "Denoising Diffusion Probabilistic Models" (DDPM)
+- I-JEPA, V-JEPA, V-JEPA 2, LLM-JEPA papers
+
+## Links
+
+- [[vision-transformer]] — ViT standalone project
+- [[attention-mechanisms]] — theoretical underpinning
+- [[diffusion-models]] — DDPM implementation
+- [[deep-learning]] — domain
+
+============================================================
+PAGE: research/vision-transformer
+TITLE: Vision Transformer (ViT)
+DOMAIN: research
+TAGS: vit, transformer, image-classification, patch-embedding, mhsa, pytorch
+LAST_UPDATED: 2026-04-07
+LINKS: attention-mechanisms, deep-learning, computer-vision, transformers-cv
+============================================================
+# Vision Transformer (ViT)
+
+From-scratch PyTorch implementation of "An Image is Worth 16x16 Words" (Dosovitskiy et al., 2020). Standalone project and a core architecture in [[transformers-cv]].
+
+- **Repo:** https://github.com/HarshTomar1234/Vision-Transformer-ViT-
+- **Commits:** ~55
+
+---
+
+## Core Idea
+
+Treat an image as a sequence of fixed-size patches — then apply a standard Transformer encoder.
+
+> CNNs use inductive biases (translation equivariance, locality). ViT removes those biases and lets the model learn spatial relationships from data via global self-attention.
+
+Requires large-scale pre-training to outperform CNNs — the inductive biases that CNNs impose are actually useful at small data scales.
+
+## Architecture
+
+### 1. Patch Embedding
+- Image: H × W × C
+- Split into N patches of size P × P → N = (H × W) / P²
+- Standard ViT-B/16: P=16, so a 224×224 image → 196 patches
+- Each patch flattened → linear projection → D-dimensional embedding
+
+### 2. Position Encoding
+- 1D learnable position embeddings added to patch embeddings
+- Prepend a learnable `[CLS]` token — its final representation is used for classification
+
+### 3. Transformer Encoder
+- L layers, each: **LayerNorm → MHSA → skip-connection → LayerNorm → MLP → skip-connection**
+- MLP: 2 linear layers, GELU activation, hidden dim = 4×D
+- See [[attention-mechanisms]] for MHSA details
+
+### 4. Classification Head
+- Take `[CLS]` token output
+- Linear layer → num_classes logits
+
+## ViT Variants
+
+| Model | Layers | Hidden dim | Heads | Params |
+|-------|--------|-----------|-------|--------|
+| ViT-Ti/16 | 12 | 192 | 3 | 6M |
+| ViT-S/16 | 12 | 384 | 6 | 22M |
+| **ViT-B/16** | 12 | 768 | 12 | 86M |
+| ViT-L/16 | 24 | 1024 | 16 | 307M |
+| ViT-H/14 | 32 | 1280 | 16 | 632M |
+
+## Training Results
+
+- CIFAR-10 training notebook included
+- ImageNet pre-trained weights loading supported
+- Attention map visualizations showing which patches the model attends to
+
+## Key Insight: Why Patch Size Matters
+
+Smaller patches → more tokens → quadratic attention cost but finer spatial resolution.
+ViT-B/16 vs ViT-B/32: /16 patches are better but 4× more tokens → 16× more attention compute.
+
+## Comparison: ViT vs CNN
+
+| Property | CNN | ViT |
+|----------|-----|-----|
+| Inductive bias | Translation equivariance, locality | None (learned) |
+| Data efficiency | High (works from scratch) | Low (needs large pre-training) |
+| Receptive field | Local → hierarchical | Global from layer 1 |
+| Scalability | Moderate | Excellent |
+| Interpretability | Grad-CAM on feature maps | Attention maps on patches |
+
+## Links
+
+- [[transformers-cv]] — ViT folder with full implementation + Excalidraw diagrams
+- [[attention-mechanisms]] — MHSA that powers every encoder layer
+- [[deep-learning]] — domain
+- [[computer-vision]] — application domain
+
+============================================================
+PAGE: research/vlmverse
+TITLE: VLMverse — PaLiGemma
+DOMAIN: research
+TAGS: vlm, vision-language, paligemma, siglip, gemma, rope, kv-cache, pytorch
+LAST_UPDATED: 2026-04-07
+LINKS: transformers-cv, deep-learning, attention-mechanisms
+============================================================
+# VLMverse — PaLiGemma
+
+Complete from-scratch PyTorch implementation of PaLiGemma vision-language model.
+
+- **Repo:** https://github.com/HarshTomar1234/VLMverse
+
+---
+
+## Architecture
+
+PaLiGemma fuses two components:
+
+**PaLiGemma Pipeline Fusion:**
+1. **Vision Encoding:** The input image is parsed by a `SigLIP Vision Encoder` into 196 discrete visual tokens (based on 224×224 images and 16×16 patches).
+2. **Token Prepension:** These visual tokens are projected and linearly prepended directly into the text token sequence.
+3. **Language Decoding:** The `Gemma Language Decoder` ingests the fused token sequence to execute autoregressive generation.
+
+## SigLIP Vision Encoder
+
+- Vision Transformer architecture
+- 16×16 patch size on 224×224 images → 196 tokens
+- Sigmoid loss instead of softmax (SigLIP vs CLIP distinction)
+- Contrastive pretraining on image-text pairs
+
+## Gemma Language Decoder
+
+| Component | Spec |
+|-----------|------|
+| Architecture | Decoder-only Transformer |
+| Normalization | RMSNorm (instead of LayerNorm) |
+| Activation | GeLU |
+| Position encoding | Rotary Position Encoding (RoPE) |
+| Attention | Grouped-Query Attention (GQA) |
+
+## Key Implementation Details
+
+- **RoPE** — rotation matrices applied to Q/K vectors at each layer; position-aware without absolute embeddings
+- **KV-Cache** — cached key-value pairs for efficient autoregressive inference (reduces quadratic to linear for generation)
+- **GQA** — fewer key-value heads than query heads, reducing memory bandwidth bottleneck
+
+## Why This Matters
+
+PaLiGemma represents modern multimodal architecture. Implementing it from scratch demonstrates:
+- Deep understanding of vision-language fusion
+- Mastery of RoPE, GQA, RMSNorm — components now standard in Llama, Gemma, Mistral
+- KV-Cache implementation — critical for production inference optimization
+
+## Links
+
+- [[attention-mechanisms]] — RoPE, GQA, KV-Cache deep dives
+- [[transformers-cv]] — companion library
+- [[deep-learning]] — domain
+
+============================================================
+PAGE: skills/computer-vision
+TITLE: Computer Vision
+DOMAIN: skills
+TAGS: computer-vision, yolo, opencv, tracking, segmentation, detection, pose
+LAST_UPDATED: 2026-04-07
+LINKS: field-fusion, rppg-heart-rate, tennis-vision, object-detection, histopathology, multi-object-tracking, transformers-cv
+============================================================
+# Computer Vision
+
+Core domain. Applied across production systems, research, and healthcare.
+
+---
+
+## Proficiency Map
+
+| Area | Depth | Applied In |
+|------|-------|-----------|
+| Object Detection | Deep | [[tennis-vision]], [[field-fusion]] |
+| Multi-Object Tracking | Deep | [[tennis-vision]], [[field-fusion]] |
+| Segmentation | Strong | [[transformers-cv]] (SAM, Swin, DETR) |
+| Pose Estimation | Working | BBoxMaskPose (ICCV 2025) |
+| Medical Imaging | Applied | [[histopathology]], [[rppg-heart-rate]] |
+| Video Analysis | Applied | [[tennis-vision]], [[field-fusion]], TimeSformer |
+| Optical Flow | Working | [[field-fusion]] speed estimation |
+
+---
+
+## Tools & Frameworks
+
+### Detection
+- **YOLOv5, YOLOv8, YOLOv8x** — custom training, fine-tuning, inference
+- **ResNet-50** — keypoint detection (court landmarks in Tennis Vision)
+- **MobileNetV2** — transfer learning for classification (Histopathology)
+- **DETR** — end-to-end transformer detection (transformers-cv)
+
+### Tracking
+- **ByteTrack** — primary tracker (Tennis Vision player tracking, Field Fusion)
+- **DeepSORT** — re-identification-based tracking
+- **Custom Kalman Filter interpolation** — ball trajectory smoothing
+
+### Segmentation
+- **SAM + SAM 2** — zero-shot segmentation, video segmentation
+- **U-Net** — medical segmentation
+- **Mask R-CNN** — instance segmentation
+
+### Core Libraries
+- **OpenCV** — video I/O, image processing, perspective transforms, Optical Flow
+- **Supervision** — annotation, tracking utilities
+- **Albumentations** — augmentation pipelines
+
+---
+
+## Key Techniques Mastered
+
+- Confidence threshold tuning + NMS
+- Custom dataset annotation + YOLO fine-tuning
+- Perspective transformation for metric space (Field Fusion speed estimation)
+- ROI-based processing for memory efficiency (94% reduction in Tennis Vision)
+- K-means clustering for visual classification (team jerseys)
+- Grad-CAM for CNN explainability
+- rPPG signal extraction from RGB video
+
+---
+
+## Projects Using This Skill
+
+- [[tennis-vision]] — 95% player detection, 88% ball tracking
+- [[field-fusion]] — 91% mAP football analysis
+- [[histopathology]] — MobileNetV2 + Grad-CAM cancer detection
+- [[rppg-heart-rate]] — contactless heart rate from webcam
+- [[transformers-cv]] — 11 CV architectures from scratch
+
+============================================================
+PAGE: skills/deep-learning
+TITLE: Deep Learning
+DOMAIN: skills
+TAGS: pytorch, neural-networks, architectures, gradient-descent, optimization, loss-functions
+LAST_UPDATED: 2026-04-07
+LINKS: rppg-heart-rate, computer-vision, histopathology, lora-qlora, attention-mechanisms
+============================================================
+# Deep Learning Infrastructure & Frameworks
+
+Core foundational expertise in deep learning, focusing on implementing low-level mathematical architectures in PyTorch from first principles.
+
+---
+
+## Core Competencies
+
+- **Frameworks:** Intimate knowledge of PyTorch (custom `nn.Module`, autograd mechanics, low-level tensor operations). Familiarity with TensorFlow and Keras.
+- **Architectural Implementation:** Capable of reading academic papers and translating raw math into optimized, working Python code.
+- **Optimization:** Deep understanding of optimizers (Adam, SGD, AdamW), learning rate schedules, and loss curve dynamics.
+- **Fine-Tuning:** Parameter-efficient fine-tuning (PEFT), LoRA, QLoRA, and freezing strategies for massive LLMs.
+
+## Academic Implementations
+
+- Implemented **11 distinct Computer Vision architectures** from scratch (ResNets, VGGs, custom CNNs).
+- Implemented **5 LLM / Transformer architectures**, including multi-head attention mechanisms and custom positional encodings.
+
+## Key Projects utilizing Deep Learning
+
+- **[[lora-qlora]]** — Built custom PyTorch modules for Low-Rank Adaptation without external wrappers.
+- **[[histopathology]]** — Fine-tuned MobileNetV2 with diagnostic explainability tools.
+- **[[rppg-heart-rate]]** — Explored highly specialized 3D CNNs (PhysNet) for medical signal extraction.
+
+---
+
+## Future Frontiers
+
+Actively deep-diving into model distillation, 1-bit quantization loops, and state-space models (e.g., Mamba) to optimize sub-quadratic architectures.
+
+============================================================
+PAGE: skills/genai-agents
+TITLE: GenAI & Agent Systems
+DOMAIN: skills
+TAGS: langgraph, ag2, crewai, smolagents, rag, mcp, openai, agents, multi-agent
+LAST_UPDATED: 2026-04-07
+LINKS: ai-internship, molecuquest, quanta-ai, rag-architectures
+============================================================
+# GenAI & Agent Systems
+
+Deep focus on agentic AI — building systems that reason, plan, and act autonomously.
+
+---
+
+## Frameworks Mastered
+
+| Framework | Depth | Used In |
+|-----------|-------|---------|
+| **LangGraph** | Deep | [[quanta-ai]] — 4-node state machine |
+| **AG2 / AutoGen** | Working | AgentForge examples |
+| **Agno** | Working | AgentForge examples |
+| **CrewAI** | Working | AgentForge — role-based agents |
+| **smolagents** | Working | AgentForge — HuggingFace agents |
+| **LangChain** | Deep | [[ai-internship]] RAG pipelines |
+| **Google ADK** | Applied | Travel Planner, ADK experiments |
+| **MCP** | Applied | Kubrick AI — MCP multimodal agents |
+
+## RAG Architecture Expertise
+
+- **Vector stores:** Pinecone, Chroma, FAISS
+- **Embedding models:** OpenAI, HuggingFace sentence transformers
+- **Chunking strategies:** semantic, recursive character, sliding window
+- **Retrieval:** similarity search, MMR, hybrid search
+- **Reranking:** cross-encoder reranking
+- Applied in: [[ai-internship]] (PubMed/ResearchGate/Google Scholar aggregation), RAGify, Multiple PDF ChatApp
+
+## Agent Patterns
+
+- **ReAct Framework:** Reasoning + Acting loops
+- **LangGraph StateGraph:** Conditional edge routing and state management
+- **Role Delegation:** Multi-agent role delegation (using CrewAI)
+- **Tool-using Agents:** Search, Code Execution, File I/O
+- **Memory-augmented Agents:** Long-term conversation and episodic memory
+- **MCP Deployments:** Model Context Protocol agents
+
+## Production Examples
+
+- **[[quanta-ai]]** — production agentic search with LangGraph + GPT-4, 94% routing accuracy
+- **[[ai-internship]]** — RAG agents over research databases at scale
+- **Travel Planner** — Google ADK multi-agent travel planning
+- **Kubrick AI** — MCP multimodal agents for video (Pixeltable + Groq + Opik)
+
+## LLM API Experience
+
+- **OpenAI:** GPT-4, GPT-4o, structured outputs, function calling, streaming
+- **Google:** Gemini 2.5 (TinderMuse), Google ADK
+- **Groq:** Fast inference (Kubrick AI)
+- **DeepSeek:** DeepSeek models
+- **HuggingFace NIMs:** NVIDIA MolMIM ([[molecuquest]])
+
+## Links
+
+- [[quanta-ai]] — LangGraph production system
+- [[rag-architectures]] — RAG concept page
+- [[ai-internship]] — applied RAG at work
+
+============================================================
+PAGE: skills/mlops
+TITLE: MLOps
+DOMAIN: skills
+TAGS: mlops, mlflow, dvc, zenml, bentoml, docker, kubernetes, aws, prometheus, grafana, cicd
+LAST_UPDATED: 2026-04-07
+LINKS: decifra, ai-internship, deep-learning, deepguard
+============================================================
+# MLOps
+
+End-to-end ML lifecycle management — from data versioning to production monitoring.
+
+---
+
+## Full Stack Mastered
+
+### Orchestration
+- **ZenML** — 9-step pipeline orchestration ([[decifra]])
+- **GitHub Actions** — CI/CD automation ([[deepguard]], [[decifra]])
+
+### Experiment Tracking
+- **MLflow + DagsHub** — experiment logging, model registry, artifact storage
+- Applied in: [[deepguard]] (Xception training), [[decifra]] (ensemble comparison)
+
+### Data Versioning
+- **DVC** — dataset versioning, pipeline caching, data lineage
+- Applied in: [[deepguard]], [[decifra]]
+
+### Model Serving
+- **BentoML** — production API serving ([[decifra]])
+- **FastAPI** — custom model APIs ([[ai-internship]], InsureML)
+- **Streamlit / Gradio** — rapid ML demos
+
+### Containerization & Deployment
+- **Docker** — containerization of all production systems
+- **AWS EKS** — Kubernetes orchestration ([[deepguard]])
+- **AWS EC2, S3, Lambda** — compute, storage, serverless inference
+- **AWS ECR** — container registry
+
+### Monitoring & Observability
+- **Prometheus** — metrics collection ([[deepguard]])
+- **Grafana** — dashboards ([[deepguard]])
+- **Great Expectations** — data validation ([[decifra]])
+
+### Data Quality
+- **Great Expectations** — schema validation, data drift detection ([[decifra]])
+
+---
+
+## Projects
+
+| Project | Key Tools | Complexity |
+|---------|-----------|-----------|
+| [[deepguard]] | DVC + MLflow + Docker + AWS EKS + Prometheus/Grafana | Production cloud |
+| [[decifra]] | ZenML + MLflow + DVC + BentoML + Great Expectations | Enterprise pipeline |
+| InsureML Pipeline | MongoDB + AWS + FastAPI + Docker + GitHub Actions | Full-stack MLOps |
+| MLOps Repo | 130+ commits covering entire domain | Learning deep dive |
+
+---
+
+## MLOps Learning Repo
+
+- **Repo:** https://github.com/HarshTomar1234/MLOps-
+- **Commits:** 130+
+- Covers: Docker, Kubernetes, DVC, MLflow, CI/CD, Prometheus, Grafana
+- Systematic documentation of every MLOps concept with hands-on implementations
+
+---
+
+## Links
+
+- [[deepguard]] — full cloud MLOps pipeline
+- [[decifra]] — ZenML orchestrated pipeline
+- [[deep-learning]] — model training underpinning MLOps

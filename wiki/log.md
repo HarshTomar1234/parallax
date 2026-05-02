@@ -123,6 +123,22 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 
 ---
 
+## [2026-05-03] feat | Phase 4B — AI exports + AGENTS.md v2
+
+**AI-consumable exports (U3):**
+- Created `_agents/scripts/generate_exports.py` — builds llms.txt, llms-full.txt, graph.json from wiki
+- Generated `wiki/llms.txt` (33 pages, one-line summaries — inject into any LLM context)
+- Generated `wiki/llms-full.txt` (101K chars — full wiki dump)
+- Generated `wiki/graph.json` (33 nodes, 144 edges — structured knowledge graph)
+- Wired generator into `deploy-pages.yml` — exports auto-regenerate on every push to main
+
+**AGENTS.md v2 (U1):**
+- Rewrote agent constitution: quality gates, dedup contract, confidence scoring, staleness thresholds
+- Added per-domain page templates (projects, research, concepts)
+- Added formal lint checklist with CI failure modes
+- Added 7 one-sentence agent rules
+- Added file conventions table
+
 ## [2026-05-03] audit | Phase 0 — Reconnaissance Report
 
 - Full filesystem reconnaissance completed; report saved to `phase-reports/phase-0/reconnaissance-report.md`

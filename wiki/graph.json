@@ -1,0 +1,1211 @@
+{
+  "meta": {
+    "generated": "2026-05-03",
+    "total_nodes": 33,
+    "total_edges": 144,
+    "owner": "@kernel_crush",
+    "repo": "https://github.com/HarshTomar1234/parallax"
+  },
+  "nodes": [
+    {
+      "id": "career/ai-internship",
+      "title": "AI Internship",
+      "domain": "career",
+      "tags": [
+        "internship",
+        "rag",
+        "langchain",
+        "fastapi",
+        "research-profiling",
+        "work-experience"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "First professional AI engineering role. Designed and built a production intelligent research profiling system.",
+      "inbound_count": 5,
+      "outbound_count": 3
+    },
+    {
+      "id": "career/community",
+      "title": "Community Contributions",
+      "domain": "career",
+      "tags": [
+        "community",
+        "cncf",
+        "gdg",
+        "mentoring",
+        "tech-talks",
+        "open-source",
+        "cloud-native"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Community",
+      "inbound_count": 3,
+      "outbound_count": 3
+    },
+    {
+      "id": "career/open-source",
+      "title": "Open Source Contributions",
+      "domain": "career",
+      "tags": [
+        "open-source",
+        "contributions",
+        "hive",
+        "iccv",
+        "bboxmaskpose",
+        "threading",
+        "race-condition"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Open Source",
+      "inbound_count": 3,
+      "outbound_count": 2
+    },
+    {
+      "id": "concepts/attention-mechanisms",
+      "title": "Attention Mechanisms",
+      "domain": "concepts",
+      "tags": [
+        "attention",
+        "transformer",
+        "mhsa",
+        "rope",
+        "kv-cache",
+        "gqa",
+        "self-attention"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Core concept underlying all modern transformer architectures. Implemented in multiple forms across research repos.",
+      "inbound_count": 9,
+      "outbound_count": 5
+    },
+    {
+      "id": "concepts/diffusion-models",
+      "title": "Diffusion Models",
+      "domain": "concepts",
+      "tags": [
+        "diffusion",
+        "ddpm",
+        "score-matching",
+        "denoising",
+        "generative",
+        "noise-schedule"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Generative models that learn to reverse a gradual noising process. Implemented in transformers-cv.",
+      "inbound_count": 2,
+      "outbound_count": 2
+    },
+    {
+      "id": "concepts/lora-theory",
+      "title": "LoRA Theory",
+      "domain": "concepts",
+      "tags": [
+        "peft",
+        "fine-tuning",
+        "linear-algebra",
+        "svd",
+        "rank-decomposition"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "A foundational concept in Parameter-Efficient Fine-Tuning (PEFT) that enables the tuning of gigantic models on consumer hardware.",
+      "inbound_count": 2,
+      "outbound_count": 2
+    },
+    {
+      "id": "concepts/multi-object-tracking",
+      "title": "Multi-Object Tracking",
+      "domain": "concepts",
+      "tags": [
+        "multi-object-tracking",
+        "bytetrack",
+        "deepsort",
+        "kalman-filter",
+        "reid",
+        "mot"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Associating detections across video frames to maintain consistent object identities over time. Applied in tennis-vision and field-fusion.",
+      "inbound_count": 6,
+      "outbound_count": 4
+    },
+    {
+      "id": "concepts/object-detection",
+      "title": "Object Detection",
+      "domain": "concepts",
+      "tags": [
+        "object-detection",
+        "yolo",
+        "detr",
+        "anchor-free",
+        "nms",
+        "map",
+        "detection-head"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Localizing and classifying objects in images. Core skill applied in tennis-vision, field-fusion, and implemented from scratch in transformers-cv.",
+      "inbound_count": 6,
+      "outbound_count": 5
+    },
+    {
+      "id": "concepts/rag-architectures",
+      "title": "RAG Architectures",
+      "domain": "concepts",
+      "tags": [
+        "rag",
+        "retrieval",
+        "vector-db",
+        "embeddings",
+        "chunking",
+        "langchain",
+        "pinecone",
+        "chroma",
+        "faiss"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Retrieval-Augmented Generation — grounding LLM responses in external knowledge.",
+      "inbound_count": 4,
+      "outbound_count": 3
+    },
+    {
+      "id": "index",
+      "title": "Parallax — Index",
+      "domain": "meta",
+      "tags": [
+        "index",
+        "master",
+        "navigation"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "A self-organizing, digital nervous system for @kernelcrush. Documenting the frontiers of Machine Learning, Computer Vision, and Generative AI from first principles.",
+      "inbound_count": 3,
+      "outbound_count": 31
+    },
+    {
+      "id": "learning/machine-and-deep-learning-nlp",
+      "title": "Machine-and-Deep-Learning-NLP",
+      "domain": "learning",
+      "tags": [
+        "Machine Learning",
+        "Deep Learning",
+        "Natural Language Processing",
+        "AI"
+      ],
+      "last_updated": "2026-04-08",
+      "confidence": 0.8,
+      "summary": "Collection of learned techniques and concepts across machine learning, deep learning, and natural language processing domains.",
+      "inbound_count": 1,
+      "outbound_count": 0
+    },
+    {
+      "id": "meta/connections",
+      "title": "Connections",
+      "domain": "meta",
+      "tags": [
+        "cross-domain",
+        "connections",
+        "synthesis",
+        "graph",
+        "patterns"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Cross-domain connection map. Patterns that emerge when the knowledge graph is read as a whole rather than page by page.",
+      "inbound_count": 1,
+      "outbound_count": 19
+    },
+    {
+      "id": "meta/knowledge-gaps",
+      "title": "Knowledge Gaps",
+      "domain": "meta",
+      "tags": [
+        "gaps",
+        "todo",
+        "learn-next",
+        "weak-areas"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Areas to strengthen. Agent-maintained — update after each learning session.",
+      "inbound_count": 2,
+      "outbound_count": 2
+    },
+    {
+      "id": "overview",
+      "title": "Overview — kernel_crush",
+      "domain": "meta",
+      "tags": [
+        "overview",
+        "identity",
+        "summary",
+        "career"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "AI/ML Engineer. Building from first principles. Final year undergrad, LNCT Bhopal.",
+      "inbound_count": 5,
+      "outbound_count": 4
+    },
+    {
+      "id": "projects/decifra",
+      "title": "Decifra",
+      "domain": "projects",
+      "tags": [
+        "mlops",
+        "fraud-detection",
+        "xai",
+        "zenml",
+        "mlflow",
+        "dvc",
+        "shap",
+        "lime",
+        "bentoml",
+        "xgboost"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "End-to-end MLOps fraud detection pipeline with explainable AI.",
+      "inbound_count": 3,
+      "outbound_count": 2
+    },
+    {
+      "id": "projects/deepguard",
+      "title": "DeepGuard",
+      "domain": "projects",
+      "tags": [
+        "mlops",
+        "deepfake",
+        "xception",
+        "dvc",
+        "mlflow",
+        "docker",
+        "aws",
+        "kubernetes",
+        "monitoring"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Production-grade MLOps pipeline for deepfake detection with complete ML lifecycle implementation.",
+      "inbound_count": 3,
+      "outbound_count": 3
+    },
+    {
+      "id": "projects/field-fusion",
+      "title": "Field Fusion",
+      "domain": "projects",
+      "tags": [
+        "computer-vision",
+        "football",
+        "yolov8",
+        "deepsort",
+        "bytetrack",
+        "k-means",
+        "tracking",
+        "pose"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Football match analysis via computer vision — player tracking, team classification, tactical analysis.",
+      "inbound_count": 5,
+      "outbound_count": 3
+    },
+    {
+      "id": "projects/histopathology",
+      "title": "Histopathology Analysis",
+      "domain": "projects",
+      "tags": [
+        "medical-ai",
+        "computer-vision",
+        "mobilenetv2",
+        "grad-cam",
+        "transfer-learning",
+        "flask",
+        "opencv"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Deep learning system for breast cancer detection with explainable AI and automated clinical reporting.",
+      "inbound_count": 4,
+      "outbound_count": 2
+    },
+    {
+      "id": "projects/insureml-pipeline",
+      "title": "InsureML-Pipeline",
+      "domain": "projects",
+      "tags": [
+        "MLOps",
+        "AWS",
+        "FastAPI",
+        "Docker"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "InsureML-Pipeline is an MLOps system for predicting vehicle insurance cross-sell opportunities. It uses machine learning to identify customers likely to purchase vehicle insurance, optimizing marketin",
+      "inbound_count": 2,
+      "outbound_count": 0
+    },
+    {
+      "id": "projects/molecuquest",
+      "title": "MoleCuQuest",
+      "domain": "projects",
+      "tags": [
+        "drug-discovery",
+        "molecular-ai",
+        "nvidia-nim",
+        "rdkit",
+        "cma-es",
+        "qed",
+        "next-js",
+        "firebase"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "AI-driven molecular research platform combining generative AI with computational chemistry.",
+      "inbound_count": 2,
+      "outbound_count": 2
+    },
+    {
+      "id": "projects/quanta-ai",
+      "title": "QuantaAI",
+      "domain": "projects",
+      "tags": [
+        "genai",
+        "agents",
+        "langgraph",
+        "gpt4",
+        "nextjs",
+        "fastapi",
+        "streaming",
+        "rag",
+        "web-search"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Intelligent conversational AI with real-time web search and agentic decision-making.",
+      "inbound_count": 4,
+      "outbound_count": 2
+    },
+    {
+      "id": "projects/rppg-heart-rate",
+      "title": "rPPG Heart Rate",
+      "domain": "projects",
+      "tags": [
+        "healthcare",
+        "computer-vision",
+        "deep-learning",
+        "signal-processing",
+        "rppg",
+        "physnet",
+        "pytorch"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Contactless heart rate detection from webcam video using deep learning and signal processing.",
+      "inbound_count": 3,
+      "outbound_count": 2
+    },
+    {
+      "id": "projects/tennis-vision",
+      "title": "Tennis Vision",
+      "domain": "projects",
+      "tags": [
+        "computer-vision",
+        "yolov8",
+        "bytetrack",
+        "pytorch",
+        "object-detection",
+        "tracking"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Real-time tennis match analysis system. Top project by stars (★27).",
+      "inbound_count": 5,
+      "outbound_count": 4
+    },
+    {
+      "id": "projects/travel-planner",
+      "title": "Travel-Planner",
+      "domain": "projects",
+      "tags": [
+        "multi-agent-systems",
+        "llm-agents",
+        "streamlit",
+        "fastapi",
+        "adk"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "The Travel-Planner is a travel planning application utilizing Google's Agent Development Kit (ADK) to orchestrate a multi-agent system. It generates comprehensive travel recommendations by leveraging ",
+      "inbound_count": 1,
+      "outbound_count": 0
+    },
+    {
+      "id": "research/lora-qlora",
+      "title": "LoRA & QLoRA",
+      "domain": "research",
+      "tags": [
+        "lora",
+        "qlora",
+        "peft",
+        "fine-tuning",
+        "quantization",
+        "4-bit",
+        "nf4",
+        "llm",
+        "memory-efficiency"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Pure PyTorch implementations of parameter-efficient fine-tuning methods for LLMs and Vision Transformers.",
+      "inbound_count": 6,
+      "outbound_count": 3
+    },
+    {
+      "id": "research/reasoning-llms",
+      "title": "Reasoning LLMs",
+      "domain": "research",
+      "tags": [
+        "reasoning",
+        "chain-of-thought",
+        "rlhf",
+        "inference-scaling",
+        "cot",
+        "llm"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Research implementation exploring Chain-of-Thought reasoning, inference-time scaling, and RLHF alignment in large language models.",
+      "inbound_count": 2,
+      "outbound_count": 4
+    },
+    {
+      "id": "research/transformers-cv",
+      "title": "transformers-CV",
+      "domain": "research",
+      "tags": [
+        "transformers",
+        "computer-vision",
+        "pytorch",
+        "vit",
+        "detr",
+        "swin",
+        "sam",
+        "diffusion",
+        "gan",
+        "vae",
+        "jepa"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Comprehensive library of transformer architectures for computer vision — implemented from scratch in PyTorch.",
+      "inbound_count": 8,
+      "outbound_count": 5
+    },
+    {
+      "id": "research/vision-transformer",
+      "title": "Vision Transformer (ViT)",
+      "domain": "research",
+      "tags": [
+        "vit",
+        "transformer",
+        "image-classification",
+        "patch-embedding",
+        "mhsa",
+        "pytorch"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "From-scratch PyTorch implementation of \"An Image is Worth 16x16 Words\" (Dosovitskiy et al., 2020). Standalone project and a core architecture in transformers-cv.",
+      "inbound_count": 4,
+      "outbound_count": 4
+    },
+    {
+      "id": "research/vlmverse",
+      "title": "VLMverse — PaLiGemma",
+      "domain": "research",
+      "tags": [
+        "vlm",
+        "vision-language",
+        "paligemma",
+        "siglip",
+        "gemma",
+        "rope",
+        "kv-cache",
+        "pytorch"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Complete from-scratch PyTorch implementation of PaLiGemma vision-language model.",
+      "inbound_count": 4,
+      "outbound_count": 3
+    },
+    {
+      "id": "skills/computer-vision",
+      "title": "Computer Vision",
+      "domain": "skills",
+      "tags": [
+        "computer-vision",
+        "yolo",
+        "opencv",
+        "tracking",
+        "segmentation",
+        "detection",
+        "pose"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Core domain. Applied across production systems, research, and healthcare.",
+      "inbound_count": 11,
+      "outbound_count": 7
+    },
+    {
+      "id": "skills/deep-learning",
+      "title": "Deep Learning",
+      "domain": "skills",
+      "tags": [
+        "pytorch",
+        "neural-networks",
+        "architectures",
+        "gradient-descent",
+        "optimization",
+        "loss-functions"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Core foundational expertise in deep learning, focusing on implementing low-level mathematical architectures in PyTorch from first principles.",
+      "inbound_count": 15,
+      "outbound_count": 5
+    },
+    {
+      "id": "skills/genai-agents",
+      "title": "GenAI & Agent Systems",
+      "domain": "skills",
+      "tags": [
+        "langgraph",
+        "ag2",
+        "crewai",
+        "smolagents",
+        "rag",
+        "mcp",
+        "openai",
+        "agents",
+        "multi-agent"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "Deep focus on agentic AI — building systems that reason, plan, and act autonomously.",
+      "inbound_count": 5,
+      "outbound_count": 4
+    },
+    {
+      "id": "skills/mlops",
+      "title": "MLOps",
+      "domain": "skills",
+      "tags": [
+        "mlops",
+        "mlflow",
+        "dvc",
+        "zenml",
+        "bentoml",
+        "docker",
+        "kubernetes",
+        "aws",
+        "prometheus",
+        "grafana",
+        "cicd"
+      ],
+      "last_updated": "2026-04-07",
+      "confidence": 0.8,
+      "summary": "End-to-end ML lifecycle management — from data versioning to production monitoring.",
+      "inbound_count": 5,
+      "outbound_count": 4
+    }
+  ],
+  "edges": [
+    {
+      "source": "index",
+      "target": "projects/insureml-pipeline"
+    },
+    {
+      "source": "index",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "index",
+      "target": "projects/travel-planner"
+    },
+    {
+      "source": "index",
+      "target": "research/vlmverse"
+    },
+    {
+      "source": "index",
+      "target": "projects/decifra"
+    },
+    {
+      "source": "index",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "index",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "index",
+      "target": "skills/mlops"
+    },
+    {
+      "source": "index",
+      "target": "concepts/lora-theory"
+    },
+    {
+      "source": "index",
+      "target": "projects/deepguard"
+    },
+    {
+      "source": "index",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "index",
+      "target": "projects/tennis-vision"
+    },
+    {
+      "source": "index",
+      "target": "projects/molecuquest"
+    },
+    {
+      "source": "index",
+      "target": "projects/rppg-heart-rate"
+    },
+    {
+      "source": "index",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "index",
+      "target": "meta/knowledge-gaps"
+    },
+    {
+      "source": "index",
+      "target": "projects/quanta-ai"
+    },
+    {
+      "source": "index",
+      "target": "concepts/diffusion-models"
+    },
+    {
+      "source": "index",
+      "target": "career/open-source"
+    },
+    {
+      "source": "index",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "index",
+      "target": "concepts/rag-architectures"
+    },
+    {
+      "source": "index",
+      "target": "research/reasoning-llms"
+    },
+    {
+      "source": "index",
+      "target": "projects/histopathology"
+    },
+    {
+      "source": "index",
+      "target": "learning/machine-and-deep-learning-nlp"
+    },
+    {
+      "source": "index",
+      "target": "meta/connections"
+    },
+    {
+      "source": "index",
+      "target": "research/vision-transformer"
+    },
+    {
+      "source": "index",
+      "target": "career/community"
+    },
+    {
+      "source": "index",
+      "target": "projects/field-fusion"
+    },
+    {
+      "source": "index",
+      "target": "career/ai-internship"
+    },
+    {
+      "source": "index",
+      "target": "skills/genai-agents"
+    },
+    {
+      "source": "index",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "overview",
+      "target": "career/open-source"
+    },
+    {
+      "source": "overview",
+      "target": "index"
+    },
+    {
+      "source": "overview",
+      "target": "career/community"
+    },
+    {
+      "source": "overview",
+      "target": "career/ai-internship"
+    },
+    {
+      "source": "career/ai-internship",
+      "target": "skills/genai-agents"
+    },
+    {
+      "source": "career/ai-internship",
+      "target": "overview"
+    },
+    {
+      "source": "career/ai-internship",
+      "target": "concepts/rag-architectures"
+    },
+    {
+      "source": "career/community",
+      "target": "career/open-source"
+    },
+    {
+      "source": "career/community",
+      "target": "skills/mlops"
+    },
+    {
+      "source": "career/community",
+      "target": "overview"
+    },
+    {
+      "source": "career/open-source",
+      "target": "career/community"
+    },
+    {
+      "source": "career/open-source",
+      "target": "overview"
+    },
+    {
+      "source": "concepts/attention-mechanisms",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "concepts/attention-mechanisms",
+      "target": "research/vlmverse"
+    },
+    {
+      "source": "concepts/attention-mechanisms",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "concepts/attention-mechanisms",
+      "target": "research/vision-transformer"
+    },
+    {
+      "source": "concepts/attention-mechanisms",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "concepts/diffusion-models",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "concepts/diffusion-models",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "concepts/lora-theory",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "concepts/lora-theory",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "concepts/multi-object-tracking",
+      "target": "projects/field-fusion"
+    },
+    {
+      "source": "concepts/multi-object-tracking",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "concepts/multi-object-tracking",
+      "target": "projects/tennis-vision"
+    },
+    {
+      "source": "concepts/multi-object-tracking",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "concepts/object-detection",
+      "target": "projects/field-fusion"
+    },
+    {
+      "source": "concepts/object-detection",
+      "target": "projects/tennis-vision"
+    },
+    {
+      "source": "concepts/object-detection",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "concepts/object-detection",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "concepts/object-detection",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "concepts/rag-architectures",
+      "target": "projects/quanta-ai"
+    },
+    {
+      "source": "concepts/rag-architectures",
+      "target": "skills/genai-agents"
+    },
+    {
+      "source": "concepts/rag-architectures",
+      "target": "career/ai-internship"
+    },
+    {
+      "source": "meta/connections",
+      "target": "index"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/insureml-pipeline"
+    },
+    {
+      "source": "meta/connections",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "meta/connections",
+      "target": "research/vlmverse"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/decifra"
+    },
+    {
+      "source": "meta/connections",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "meta/connections",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "meta/connections",
+      "target": "skills/mlops"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/deepguard"
+    },
+    {
+      "source": "meta/connections",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "meta/connections",
+      "target": "overview"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/tennis-vision"
+    },
+    {
+      "source": "meta/connections",
+      "target": "meta/knowledge-gaps"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/quanta-ai"
+    },
+    {
+      "source": "meta/connections",
+      "target": "research/reasoning-llms"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/histopathology"
+    },
+    {
+      "source": "meta/connections",
+      "target": "research/vision-transformer"
+    },
+    {
+      "source": "meta/connections",
+      "target": "projects/field-fusion"
+    },
+    {
+      "source": "meta/connections",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "meta/knowledge-gaps",
+      "target": "index"
+    },
+    {
+      "source": "meta/knowledge-gaps",
+      "target": "overview"
+    },
+    {
+      "source": "projects/decifra",
+      "target": "skills/mlops"
+    },
+    {
+      "source": "projects/decifra",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/deepguard",
+      "target": "skills/mlops"
+    },
+    {
+      "source": "projects/deepguard",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/deepguard",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "projects/field-fusion",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "projects/field-fusion",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "projects/field-fusion",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "projects/histopathology",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/histopathology",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "projects/molecuquest",
+      "target": "skills/genai-agents"
+    },
+    {
+      "source": "projects/molecuquest",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/quanta-ai",
+      "target": "skills/genai-agents"
+    },
+    {
+      "source": "projects/quanta-ai",
+      "target": "concepts/rag-architectures"
+    },
+    {
+      "source": "projects/rppg-heart-rate",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/rppg-heart-rate",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "projects/tennis-vision",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "projects/tennis-vision",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "projects/tennis-vision",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "projects/tennis-vision",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "research/lora-qlora",
+      "target": "concepts/lora-theory"
+    },
+    {
+      "source": "research/lora-qlora",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "research/lora-qlora",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "research/reasoning-llms",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "research/reasoning-llms",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "research/reasoning-llms",
+      "target": "research/vlmverse"
+    },
+    {
+      "source": "research/reasoning-llms",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "research/transformers-cv",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "research/transformers-cv",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "research/transformers-cv",
+      "target": "research/vision-transformer"
+    },
+    {
+      "source": "research/transformers-cv",
+      "target": "concepts/diffusion-models"
+    },
+    {
+      "source": "research/transformers-cv",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "research/vision-transformer",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "research/vision-transformer",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "research/vision-transformer",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "research/vision-transformer",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "research/vlmverse",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "research/vlmverse",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "research/vlmverse",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "projects/field-fusion"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "projects/rppg-heart-rate"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "projects/tennis-vision"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "concepts/object-detection"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "projects/histopathology"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "concepts/multi-object-tracking"
+    },
+    {
+      "source": "skills/computer-vision",
+      "target": "research/transformers-cv"
+    },
+    {
+      "source": "skills/deep-learning",
+      "target": "projects/rppg-heart-rate"
+    },
+    {
+      "source": "skills/deep-learning",
+      "target": "skills/computer-vision"
+    },
+    {
+      "source": "skills/deep-learning",
+      "target": "projects/histopathology"
+    },
+    {
+      "source": "skills/deep-learning",
+      "target": "research/lora-qlora"
+    },
+    {
+      "source": "skills/deep-learning",
+      "target": "concepts/attention-mechanisms"
+    },
+    {
+      "source": "skills/genai-agents",
+      "target": "career/ai-internship"
+    },
+    {
+      "source": "skills/genai-agents",
+      "target": "projects/molecuquest"
+    },
+    {
+      "source": "skills/genai-agents",
+      "target": "projects/quanta-ai"
+    },
+    {
+      "source": "skills/genai-agents",
+      "target": "concepts/rag-architectures"
+    },
+    {
+      "source": "skills/mlops",
+      "target": "projects/decifra"
+    },
+    {
+      "source": "skills/mlops",
+      "target": "career/ai-internship"
+    },
+    {
+      "source": "skills/mlops",
+      "target": "skills/deep-learning"
+    },
+    {
+      "source": "skills/mlops",
+      "target": "projects/deepguard"
+    }
+  ]
+}
