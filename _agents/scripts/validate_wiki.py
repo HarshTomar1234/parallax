@@ -9,8 +9,8 @@ import os
 import sys
 import re
 
-REQUIRED_FIELDS = ['title', 'domain', 'tags', 'last_updated', 'links']
-VALID_DOMAINS = ['projects', 'research', 'skills', 'concepts', 'career', 'meta']
+REQUIRED_FIELDS = ['title', 'domain', 'tags', 'sources', 'last_updated', 'links']
+VALID_DOMAINS = ['projects', 'research', 'skills', 'concepts', 'career', 'meta', 'learning', 'opensource']
 WIKI_DIR = 'wiki'
 
 errors = []

@@ -331,4 +331,4 @@ This project showcases expertise in:
 ## Contact
 
 *   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
-*   **Email**: matshushita.konosuke@gmail.com
+*   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
