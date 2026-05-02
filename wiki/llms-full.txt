@@ -9,7 +9,7 @@ TITLE: AI Internship
 DOMAIN: career
 TAGS: internship, rag, langchain, fastapi, research-profiling, work-experience
 LAST_UPDATED: 2026-04-07
-LINKS: genai-agents, overview, rag-architectures
+LINKS: rag-architectures, overview, genai-agents
 ============================================================
 # AI Internship
 
@@ -86,7 +86,7 @@ TITLE: Community Contributions
 DOMAIN: career
 TAGS: community, cncf, gdg, mentoring, tech-talks, open-source, cloud-native
 LAST_UPDATED: 2026-04-07
-LINKS: open-source, mlops, overview
+LINKS: open-source, overview, mlops
 ============================================================
 # Community Contributions
 
@@ -140,7 +140,7 @@ TITLE: Open Source Contributions
 DOMAIN: career
 TAGS: open-source, contributions, hive, iccv, bboxmaskpose, threading, race-condition
 LAST_UPDATED: 2026-04-07
-LINKS: community, overview
+LINKS: overview, community
 ============================================================
 # Open Source Contributions
 
@@ -190,7 +190,7 @@ TITLE: Attention Mechanisms
 DOMAIN: concepts
 TAGS: attention, transformer, mhsa, rope, kv-cache, gqa, self-attention
 LAST_UPDATED: 2026-04-07
-LINKS: deep-learning, vlmverse, lora-qlora, vision-transformer, transformers-cv
+LINKS: transformers-cv, vlmverse, deep-learning, lora-qlora, vision-transformer
 ============================================================
 # Attention Mechanisms
 
@@ -265,7 +265,7 @@ TITLE: Diffusion Models
 DOMAIN: concepts
 TAGS: diffusion, ddpm, score-matching, denoising, generative, noise-schedule
 LAST_UPDATED: 2026-04-07
-LINKS: deep-learning, transformers-cv
+LINKS: transformers-cv, deep-learning
 ============================================================
 # Diffusion Models
 
@@ -334,7 +334,7 @@ TITLE: LoRA Theory
 DOMAIN: concepts
 TAGS: peft, fine-tuning, linear-algebra, svd, rank-decomposition
 LAST_UPDATED: 2026-04-07
-LINKS: lora-qlora, attention-mechanisms
+LINKS: attention-mechanisms, lora-qlora
 ============================================================
 # Low-Rank Adaptation (LoRA) Theory
 
@@ -377,7 +377,7 @@ TITLE: Multi-Object Tracking
 DOMAIN: concepts
 TAGS: multi-object-tracking, bytetrack, deepsort, kalman-filter, reid, mot
 LAST_UPDATED: 2026-04-07
-LINKS: field-fusion, object-detection, tennis-vision, computer-vision
+LINKS: tennis-vision, computer-vision, object-detection, field-fusion
 ============================================================
 # Multi-Object Tracking
 
@@ -471,7 +471,7 @@ TITLE: Object Detection
 DOMAIN: concepts
 TAGS: object-detection, yolo, detr, anchor-free, nms, map, detection-head
 LAST_UPDATED: 2026-04-07
-LINKS: field-fusion, tennis-vision, computer-vision, multi-object-tracking, transformers-cv
+LINKS: transformers-cv, multi-object-tracking, tennis-vision, field-fusion, computer-vision
 ============================================================
 # Object Detection
 
@@ -565,7 +565,7 @@ TITLE: RAG Architectures
 DOMAIN: concepts
 TAGS: rag, retrieval, vector-db, embeddings, chunking, langchain, pinecone, chroma, faiss
 LAST_UPDATED: 2026-04-07
-LINKS: quanta-ai, genai-agents, ai-internship
+LINKS: ai-internship, quanta-ai, genai-agents
 ============================================================
 # RAG Architectures
 
@@ -643,7 +643,7 @@ TITLE: Parallax — Index
 DOMAIN: meta
 TAGS: [index, master, navigation]
 LAST_UPDATED: 2026-04-07
-LINKS: insureml-pipeline, object-detection, travel-planner, vlmverse, decifra, multi-object-tracking, lora-qlora, mlops, lora-theory, deepguard, transformers-cv, tennis-vision, molecuquest, rppg-heart-rate, deep-learning, knowledge-gaps, quanta-ai, diffusion-models, open-source, computer-vision, rag-architectures, reasoning-llms, histopathology, machine-and-deep-learning-nlp, connections, vision-transformer, community, field-fusion, ai-internship, genai-agents, attention-mechanisms
+LINKS: deep-learning, mlops, lora-qlora, quanta-ai, machine-and-deep-learning-nlp, deepguard, lora-theory, open-source, travel-planner, reasoning-llms, vision-transformer, ai-internship, transformers-cv, multi-object-tracking, attention-mechanisms, object-detection, histopathology, diffusion-models, knowledge-gaps, rag-architectures, vlmverse, tennis-vision, molecuquest, community, field-fusion, insureml-pipeline, connections, computer-vision, decifra, genai-agents, rppg-heart-rate
 ============================================================
 # 🌌 Parallax
 
@@ -813,7 +813,7 @@ TITLE: Connections
 DOMAIN: meta
 TAGS: cross-domain, connections, synthesis, graph, patterns
 LAST_UPDATED: 2026-04-07
-LINKS: index, insureml-pipeline, object-detection, vlmverse, decifra, multi-object-tracking, lora-qlora, mlops, deepguard, transformers-cv, overview, tennis-vision, knowledge-gaps, quanta-ai, reasoning-llms, histopathology, vision-transformer, field-fusion, attention-mechanisms
+LINKS: mlops, lora-qlora, quanta-ai, deepguard, reasoning-llms, vision-transformer, transformers-cv, multi-object-tracking, attention-mechanisms, object-detection, histopathology, knowledge-gaps, vlmverse, tennis-vision, field-fusion, index, insureml-pipeline, overview, decifra
 ============================================================
 # Connections
 
@@ -908,7 +908,7 @@ TITLE: Knowledge Gaps
 DOMAIN: meta
 TAGS: gaps, todo, learn-next, weak-areas
 LAST_UPDATED: 2026-04-07
-LINKS: index, overview
+LINKS: overview, index
 ============================================================
 # Knowledge Gaps
 
@@ -963,7 +963,7 @@ TITLE: Overview — kernel_crush
 DOMAIN: meta
 TAGS: overview, identity, summary, career
 LAST_UPDATED: 2026-04-07
-LINKS: open-source, index, community, ai-internship
+LINKS: ai-internship, index, open-source, community
 ============================================================
 # Overview — kernel_crush (Harsh Tomar)
 
@@ -1061,7 +1061,7 @@ TITLE: Decifra
 DOMAIN: projects
 TAGS: mlops, fraud-detection, xai, zenml, mlflow, dvc, shap, lime, bentoml, xgboost
 LAST_UPDATED: 2026-04-07
-LINKS: mlops, deep-learning
+LINKS: deep-learning, mlops
 ============================================================
 # Decifra
 
@@ -1129,7 +1129,7 @@ TITLE: DeepGuard
 DOMAIN: projects
 TAGS: mlops, deepfake, xception, dvc, mlflow, docker, aws, kubernetes, monitoring
 LAST_UPDATED: 2026-04-07
-LINKS: mlops, deep-learning, computer-vision
+LINKS: computer-vision, deep-learning, mlops
 ============================================================
 # DeepGuard
 
@@ -1188,7 +1188,7 @@ TITLE: Field Fusion
 DOMAIN: projects
 TAGS: computer-vision, football, yolov8, deepsort, bytetrack, k-means, tracking, pose
 LAST_UPDATED: 2026-04-07
-LINKS: object-detection, multi-object-tracking, computer-vision
+LINKS: computer-vision, object-detection, multi-object-tracking
 ============================================================
 # Field Fusion
 
@@ -1242,7 +1242,7 @@ TITLE: Histopathology Analysis
 DOMAIN: projects
 TAGS: medical-ai, computer-vision, mobilenetv2, grad-cam, transfer-learning, flask, opencv
 LAST_UPDATED: 2026-04-07
-LINKS: deep-learning, computer-vision
+LINKS: computer-vision, deep-learning
 ============================================================
 # Breast Cancer Histopathology Analysis
 
@@ -1642,7 +1642,7 @@ TITLE: MoleCuQuest
 DOMAIN: projects
 TAGS: drug-discovery, molecular-ai, nvidia-nim, rdkit, cma-es, qed, next-js, firebase
 LAST_UPDATED: 2026-04-07
-LINKS: genai-agents, deep-learning
+LINKS: deep-learning, genai-agents
 ============================================================
 # MoleCuQuest
 
@@ -1694,7 +1694,7 @@ TITLE: QuantaAI
 DOMAIN: projects
 TAGS: genai, agents, langgraph, gpt4, nextjs, fastapi, streaming, rag, web-search
 LAST_UPDATED: 2026-04-07
-LINKS: genai-agents, rag-architectures
+LINKS: rag-architectures, genai-agents
 ============================================================
 # QuantaAI
 
@@ -1755,7 +1755,7 @@ TITLE: rPPG Heart Rate
 DOMAIN: projects
 TAGS: healthcare, computer-vision, deep-learning, signal-processing, rppg, physnet, pytorch
 LAST_UPDATED: 2026-04-07
-LINKS: deep-learning, computer-vision
+LINKS: computer-vision, deep-learning
 ============================================================
 # rPPG Heart Rate
 
@@ -1818,7 +1818,7 @@ TITLE: Tennis Vision
 DOMAIN: projects
 TAGS: computer-vision, yolov8, bytetrack, pytorch, object-detection, tracking
 LAST_UPDATED: 2026-04-07
-LINKS: object-detection, deep-learning, multi-object-tracking, computer-vision
+LINKS: computer-vision, object-detection, multi-object-tracking, deep-learning
 ============================================================
 # Tennis Vision
 
@@ -2001,7 +2001,7 @@ TITLE: LoRA & QLoRA
 DOMAIN: research
 TAGS: lora, qlora, peft, fine-tuning, quantization, 4-bit, nf4, llm, memory-efficiency
 LAST_UPDATED: 2026-04-07
-LINKS: lora-theory, deep-learning, attention-mechanisms
+LINKS: lora-theory, attention-mechanisms, deep-learning
 ============================================================
 # LoRA & QLoRA
 
@@ -2065,7 +2065,7 @@ TITLE: Reasoning LLMs
 DOMAIN: research
 TAGS: reasoning, chain-of-thought, rlhf, inference-scaling, cot, llm
 LAST_UPDATED: 2026-04-07
-LINKS: lora-qlora, deep-learning, vlmverse, attention-mechanisms
+LINKS: vlmverse, attention-mechanisms, lora-qlora, deep-learning
 ============================================================
 # Reasoning LLMs
 
@@ -2134,7 +2134,7 @@ TITLE: transformers-CV
 DOMAIN: research
 TAGS: transformers, computer-vision, pytorch, vit, detr, swin, sam, diffusion, gan, vae, jepa
 LAST_UPDATED: 2026-04-07
-LINKS: computer-vision, deep-learning, vision-transformer, diffusion-models, attention-mechanisms
+LINKS: deep-learning, attention-mechanisms, diffusion-models, computer-vision, vision-transformer
 ============================================================
 # transformers-CV
 
@@ -2196,7 +2196,7 @@ TITLE: Vision Transformer (ViT)
 DOMAIN: research
 TAGS: vit, transformer, image-classification, patch-embedding, mhsa, pytorch
 LAST_UPDATED: 2026-04-07
-LINKS: attention-mechanisms, deep-learning, computer-vision, transformers-cv
+LINKS: attention-mechanisms, computer-vision, transformers-cv, deep-learning
 ============================================================
 # Vision Transformer (ViT)
 
@@ -2280,7 +2280,7 @@ TITLE: VLMverse — PaLiGemma
 DOMAIN: research
 TAGS: vlm, vision-language, paligemma, siglip, gemma, rope, kv-cache, pytorch
 LAST_UPDATED: 2026-04-07
-LINKS: transformers-cv, deep-learning, attention-mechanisms
+LINKS: attention-mechanisms, transformers-cv, deep-learning
 ============================================================
 # VLMverse — PaLiGemma
 
@@ -2341,7 +2341,7 @@ TITLE: Computer Vision
 DOMAIN: skills
 TAGS: computer-vision, yolo, opencv, tracking, segmentation, detection, pose
 LAST_UPDATED: 2026-04-07
-LINKS: field-fusion, rppg-heart-rate, tennis-vision, object-detection, histopathology, multi-object-tracking, transformers-cv
+LINKS: transformers-cv, multi-object-tracking, tennis-vision, object-detection, histopathology, field-fusion, rppg-heart-rate
 ============================================================
 # Computer Vision
 
@@ -2414,7 +2414,7 @@ TITLE: Deep Learning
 DOMAIN: skills
 TAGS: pytorch, neural-networks, architectures, gradient-descent, optimization, loss-functions
 LAST_UPDATED: 2026-04-07
-LINKS: rppg-heart-rate, computer-vision, histopathology, lora-qlora, attention-mechanisms
+LINKS: attention-mechanisms, lora-qlora, histopathology, computer-vision, rppg-heart-rate
 ============================================================
 # Deep Learning Infrastructure & Frameworks
 
@@ -2452,7 +2452,7 @@ TITLE: GenAI & Agent Systems
 DOMAIN: skills
 TAGS: langgraph, ag2, crewai, smolagents, rag, mcp, openai, agents, multi-agent
 LAST_UPDATED: 2026-04-07
-LINKS: ai-internship, molecuquest, quanta-ai, rag-architectures
+LINKS: ai-internship, rag-architectures, molecuquest, quanta-ai
 ============================================================
 # GenAI & Agent Systems
 
@@ -2518,7 +2518,7 @@ TITLE: MLOps
 DOMAIN: skills
 TAGS: mlops, mlflow, dvc, zenml, bentoml, docker, kubernetes, aws, prometheus, grafana, cicd
 LAST_UPDATED: 2026-04-07
-LINKS: decifra, ai-internship, deep-learning, deepguard
+LINKS: ai-internship, decifra, deep-learning, deepguard
 ============================================================
 # MLOps
 
