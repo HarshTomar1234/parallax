@@ -119,11 +119,11 @@ def write_llms_txt(pages):
         lines.append(f'## {domain.upper() or "ROOT"}')
         for p in sorted(domains[domain], key=lambda x: x['id']):
             tags = p['tags'].strip('[]').replace('"', '').replace("'", '')
-            lines.append(f"[{p['id']}] {p['title']} — {p['summary']}")
+            lines.append(f"[{p['id']}] {p['title']} - {p['summary']}")
         lines.append('')
 
     out = '\n'.join(lines)
-    with open(os.path.join(WIKI_DIR, 'llms.txt'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(WIKI_DIR, 'llms.txt'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(out)
     print(f"  wrote wiki/llms.txt ({len(pages)} pages, {len(out)} chars)")
 
@@ -150,7 +150,7 @@ def write_llms_full_txt(pages):
         sections.append('')
 
     out = '\n'.join(sections)
-    with open(os.path.join(WIKI_DIR, 'llms-full.txt'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(WIKI_DIR, 'llms-full.txt'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(out)
     print(f"  wrote wiki/llms-full.txt ({len(out):,} chars)")
 
