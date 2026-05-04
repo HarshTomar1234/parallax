@@ -5,7 +5,7 @@ tags: lora, qlora, peft, fine-tuning, quantization, 4-bit, nf4, llm, memory-effi
 sources: [github-lora-qlora, portfolio-research]
 last_updated: 2026-04-07
 confidence: 0.85
-links: [[attention-mechanisms]], [[deep-learning]], [[lora-theory]]
+links: [[attention-mechanisms]], [[deep-learning]], [[lora-theory]], [[pytorch-lora-qlora]]
 ---
 
 # LoRA & QLoRA
@@ -63,3 +63,4 @@ Enables fine-tuning Llama-65B on a single GPU with 48GB VRAM — impossible with
 - [[attention-mechanisms]] — transformer layers where LoRA is applied
 - [[deep-learning]] — domain
 - [[lora-theory]] — deeper theoretical treatment
+- [[pytorch-lora-qlora]] — from-scratch implementation repo
