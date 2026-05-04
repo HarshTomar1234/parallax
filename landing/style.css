@@ -518,6 +518,97 @@ html, body {
   margin: 0 0.2rem;
 }
 
+/* ---- LIGHT THEME OVERRIDES ---- */
+[data-theme="light"] {
+  --bg-main:    #f9fafb;
+  --bg-sidebar: #ffffff;
+  --bg-hover:   #f3f4f6;
+  --bg-code:    #f1f5f9;
+
+  --text-main:    #374151;
+  --text-muted:   #9ca3af;
+  --text-heading: #111827;
+
+  --accent:     #2563eb;
+  --accent-dim: rgba(37, 99, 235, 0.1);
+  --border:     #e5e7eb;
+}
+[data-theme="light"] #article-container pre code { color: #1e293b; }
+[data-theme="light"] #graph-overlay { background: #f0f4f8; }
+
+/* ---- READING PROGRESS BAR ---- */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ---- THEME TOGGLE BUTTON ---- */
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+#theme-toggle:hover {
+  color: var(--text-main);
+  border-color: #555;
+}
+
+/* ---- BREADCRUMB ---- */
+#breadcrumb {
+  max-width: 760px;
+  margin: 0 auto 1.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+#breadcrumb.hidden { display: none; }
+#breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+#breadcrumb a:hover { color: var(--accent); }
+.breadcrumb-sep {
+  opacity: 0.4;
+  font-size: 0.75rem;
+}
+.breadcrumb-current {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* ---- CONFIDENCE BADGE ---- */
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid;
+  margin-bottom: 1.5rem;
+}
+.confidence-badge.verified  { color: #10b981; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
+.confidence-badge.high      { color: #3b82f6; border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.08); }
+.confidence-badge.medium    { color: #f59e0b; border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08); }
+.confidence-badge.low       { color: #9ca3af; border-color: rgba(156,163,175,0.3); background: rgba(156,163,175,0.08); }
+
 /* ---- GRAPH TRIGGER BUTTON ---- */
 .graph-trigger {
   display: flex;
