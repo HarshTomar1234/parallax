@@ -4,7 +4,7 @@ domain: projects
 tags: [multi-agent-systems, llm-agents, streamlit, fastapi, adk]
 sources: [https://github.com/HarshTomar1234/Travel-Planner]
 last_updated: 2026-04-07
-links: []
+links: [[genai-agents]], [[reasoning-llms]], [[vlmverse]]
 ---
 
 ## Project Overview
@@ -114,3 +114,9 @@ The system generates detailed recommendations covering:
 *   User authentication and saved trip functionality.
 *   Offline mode for cached plans.
 *   Mobile application development.
+
+## Related
+
+- [[genai-agents]] — multi-agent orchestration patterns used in this project
+- [[reasoning-llms]] — GPT-4o reasoning capabilities powering the agents
+- [[vlmverse]] — broader LLM ecosystem context

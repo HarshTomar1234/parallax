@@ -4,7 +4,7 @@ domain: learning
 tags: [Machine Learning, Deep Learning, Natural Language Processing, AI]
 sources: [https://github.com/HarshTomar1234/Machine-and-Deep-Learning-NLP]
 last_updated: 2026-04-08
-links: []
+links: [[deep-learning]], [[attention-mechanisms]], [[reasoning-llms]], [[lora-qlora]]
 ---
 
 ### Overview
@@ -46,3 +46,10 @@ Collection of learned techniques and concepts across machine learning, deep lear
 -   **ML Frameworks:** Scikit-learn
 -   **Deep Learning Frameworks:** TensorFlow, Keras, PyTorch
 -   **NLP Libraries:** NLTK, SpaCy, Hugging Face Transformers
+
+## Related
+
+- [[deep-learning]] — foundational neural network architectures covered here
+- [[attention-mechanisms]] — the Transformer architecture studied in this repo
+- [[reasoning-llms]] — modern LLM reasoning built on these NLP fundamentals
+- [[lora-qlora]] — parameter-efficient fine-tuning of the models learned here
