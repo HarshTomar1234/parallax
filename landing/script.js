@@ -82,11 +82,15 @@ function processFrontmatter(markdown) {
 // Render markdown to screen
 async function loadPage(route) {
   if (!route) route = 'index';
-  
+
   // Highlight active nav item
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
   const navItem = document.querySelector(`.nav-item[data-page="${route}"]`);
   if (navItem) navItem.classList.add('active');
+
+  // Reset progress bar and render breadcrumb immediately
+  resetProgressBar();
+  renderBreadcrumb(route);
 
   const container = document.getElementById('article-container');
   container.innerHTML = '<div style="color:var(--text-muted); padding: 2rem;">Loading...</div>';
@@ -101,19 +105,24 @@ async function loadPage(route) {
       }
       return;
     }
-    
+
     let markdown = await res.text();
-    
+
+    // Extract confidence before processing frontmatter
+    const confMatch = markdown.match(/^confidence:\s*([\d.]+)/m);
+    const confidence = confMatch ? confMatch[1] : null;
+
     // Process custom syntax
     markdown = processFrontmatter(markdown);
     markdown = processWikiLinks(markdown);
-    
+
     // Render using marked.js
-    container.innerHTML = marked.parse(markdown);
-    
+    const badge = renderConfidenceBadge(confidence);
+    container.innerHTML = (badge ? badge : '') + marked.parse(markdown);
+
     // Scroll to top
-    document.getElementById('content').scrollTo(0,0);
-    
+    document.getElementById('content').scrollTo(0, 0);
+
   } catch (err) {
     console.error(err);
     container.innerHTML = `<h1>Error</h1><p>Could not load the page locally. Make sure the local python server is running.</p>`;
@@ -305,6 +314,85 @@ cpInput.addEventListener('input', (e) => {
     `).join('');
   }
 });
+
+// --- THEME TOGGLE (F4) ---
+const themeToggleBtn  = document.getElementById('theme-toggle');
+const themeIconMoon   = document.getElementById('theme-icon-moon');
+const themeIconSun    = document.getElementById('theme-icon-sun');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const isLight = theme === 'light';
+  themeIconMoon.style.display = isLight ? 'none'  : '';
+  themeIconSun.style.display  = isLight ? ''      : 'none';
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  localStorage.setItem('parallax-theme', next);
+}
+
+themeToggleBtn.addEventListener('click', toggleTheme);
+// Restore saved preference on load
+applyTheme(localStorage.getItem('parallax-theme') || 'dark');
+
+
+// --- READING PROGRESS BAR (F1) ---
+const progressBar = document.getElementById('progress-bar');
+const contentEl   = document.getElementById('content');
+
+contentEl.addEventListener('scroll', () => {
+  const scrollTop    = contentEl.scrollTop;
+  const scrollHeight = contentEl.scrollHeight - contentEl.clientHeight;
+  const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+});
+
+function resetProgressBar() {
+  progressBar.style.width = '0%';
+}
+
+
+// --- BREADCRUMB (F2) ---
+const breadcrumbEl = document.getElementById('breadcrumb');
+const BREADCRUMB_HIDE = new Set(['index', 'overview']);
+
+function renderBreadcrumb(route) {
+  if (!route || BREADCRUMB_HIDE.has(route)) {
+    breadcrumbEl.classList.add('hidden');
+    return;
+  }
+  const parts = route.split('/');
+  let html = `<a href="#/index">Home</a>`;
+  if (parts.length === 2) {
+    const domain  = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+    const pageName = parts[1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    html += `<span class="breadcrumb-sep">/</span><span>${domain}</span>`;
+    html += `<span class="breadcrumb-sep">/</span><span class="breadcrumb-current">${pageName}</span>`;
+  } else {
+    const pageName = parts[0].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    html += `<span class="breadcrumb-sep">/</span><span class="breadcrumb-current">${pageName}</span>`;
+  }
+  breadcrumbEl.innerHTML = html;
+  breadcrumbEl.classList.remove('hidden');
+}
+
+
+// --- CONFIDENCE BADGE (F3) ---
+function renderConfidenceBadge(confidence) {
+  if (confidence === null || confidence === undefined) return '';
+  const val = parseFloat(confidence);
+  if (isNaN(val)) return '';
+  let cls, label, dot;
+  if      (val >= 0.9) { cls = 'verified'; label = 'Verified';    dot = '●'; }
+  else if (val >= 0.7) { cls = 'high';     label = 'High';        dot = '●'; }
+  else if (val >= 0.5) { cls = 'medium';   label = 'Medium';      dot = '●'; }
+  else                 { cls = 'low';      label = 'Speculative';  dot = '○'; }
+  return `<span class="confidence-badge ${cls}" title="Confidence score: ${val}">${dot} ${label} (${val})</span>`;
+}
+
 
 // --- KNOWLEDGE GRAPH ---
 const DOMAIN_COLORS = {
