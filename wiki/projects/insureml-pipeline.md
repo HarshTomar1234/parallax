@@ -4,7 +4,7 @@ domain: projects
 tags: [MLOps, AWS, FastAPI, Docker]
 sources: [https://github.com/HarshTomar1234/InsureML-Pipeline]
 last_updated: 2026-04-07
-links: []
+links: [[mlops]], [[deep-learning]], [[connections]]
 ---
 # InsureML-Pipeline
 
@@ -331,4 +331,9 @@ This project showcases expertise in:
 ## Contact
 
 *   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
-*   **GitHub Issues**: [https://github.com/HarshTomar1234/InsureML-Pipeline/issues](https://github.com/HarshTomar1234/InsureML-Pipeline/issues)
+
+## Related
+
+- [[mlops]] — end-to-end MLOps patterns this project implements
+- [[deep-learning]] — ML fundamentals underlying the Random Forest pipeline
+- [[connections]] — cross-domain synthesis of projects and skills
