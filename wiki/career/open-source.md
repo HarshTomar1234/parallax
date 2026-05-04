@@ -1,10 +1,10 @@
 ---
 title: Open Source Contributions
 domain: career
-tags: open-source, contributions, hive, iccv, bboxmaskpose, threading, race-condition
+tags: open-source, contributions, hive, iccv, bboxmaskpose, kubrick, threading, race-condition, mcp
 sources: [github-profile, conversation-logs]
 last_updated: 2026-05-04
-links: [[overview]], [[community]]
+links: [[overview]], [[community]], [[genai-agents]]
 ---
 
 # Open Source Contributions
@@ -46,9 +46,20 @@ links: [[overview]], [[community]]
 
 ---
 
-## Kubrick
+## Kubrick AI
 
-**Status:** Contribution in progress — details to be added once PR is merged.
+**Type:** Bug fix — missing UI utility file
+
+**Repo:** https://github.com/kubrick-ai/kubrick-ai (The Neural Maze × Neural Bits)
+
+**What Kubrick is:** A free, open-source course teaching how to build a production-ready MCP Multimodal Agent for video processing. Stack: FastMCP, Groq (Llama 4), Pixeltable, Opik, FastAPI, React. One of the more serious open-source AI engineering courses — no shortcuts, no fluff.
+
+**Fix:** Added missing `kubrick-ui/src/lib/utils.ts` — a shadcn/ui utility file that was accidentally omitted from the repo, causing the React frontend to fail for anyone cloning and running the project.
+
+- File: `kubrick-ui/src/lib/utils.ts`
+- Commit: `fix: add missing kubrick-ui/src/lib/utils.ts` (Dec 19, 2025)
+
+**Significance:** Small fix, real impact — anyone trying to run the full Kubrick stack would hit this immediately. Clean contribution to a well-structured educational repo in the MCP/agentic AI space.
 
 ---
 
