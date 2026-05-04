@@ -11,7 +11,7 @@ const pages = [
   'skills/computer-vision', 'skills/genai-agents', 'skills/mlops', 'skills/deep-learning',
   'concepts/attention-mechanisms', 'concepts/diffusion-models', 'concepts/rag-architectures', 'concepts/lora-theory', 'concepts/object-detection', 'concepts/multi-object-tracking',
   'career/ai-internship', 'career/community', 'career/open-source',
-  'meta/knowledge-gaps', 'meta/connections'
+  'meta/knowledge-gaps', 'meta/connections', 'meta/synthesis'
 ];
 
 function resolvePagePath(linkName) {

@@ -4,6 +4,7 @@ domain: meta
 tags: overview, identity, summary, career
 sources: [github-profile, portfolio, resumes, recommendation-letter, internship-certificate]
 last_updated: 2026-04-07
+confidence: 0.95
 links: [[index]], [[ai-internship]], [[community]], [[open-source]]
 ---
 

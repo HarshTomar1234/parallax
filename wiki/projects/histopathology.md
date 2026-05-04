@@ -4,6 +4,7 @@ domain: projects
 tags: medical-ai, computer-vision, mobilenetv2, grad-cam, transfer-learning, flask, opencv
 sources: [github-histopathology, portfolio-projects]
 last_updated: 2026-04-07
+confidence: 0.95
 links: [[computer-vision]], [[deep-learning]]
 ---
 

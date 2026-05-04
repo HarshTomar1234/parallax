@@ -4,6 +4,7 @@ domain: research
 tags: vlm, vision-language, paligemma, siglip, gemma, rope, kv-cache, pytorch
 sources: [github-vlmverse, portfolio-research]
 last_updated: 2026-04-07
+confidence: 0.8
 links: [[attention-mechanisms]], [[transformers-cv]], [[deep-learning]]
 ---
 

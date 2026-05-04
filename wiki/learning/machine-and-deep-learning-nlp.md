@@ -4,6 +4,7 @@ domain: learning
 tags: [Machine Learning, Deep Learning, Natural Language Processing, AI]
 sources: [https://github.com/HarshTomar1234/Machine-and-Deep-Learning-NLP]
 last_updated: 2026-04-08
+confidence: 0.8
 links: [[deep-learning]], [[attention-mechanisms]], [[reasoning-llms]], [[lora-qlora]]
 ---
 

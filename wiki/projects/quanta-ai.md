@@ -4,6 +4,7 @@ domain: projects
 tags: genai, agents, langgraph, gpt4, nextjs, fastapi, streaming, rag, web-search
 sources: [github-quanta-ai, portfolio-projects]
 last_updated: 2026-04-07
+confidence: 0.95
 links: [[genai-agents]], [[rag-architectures]]
 ---
 

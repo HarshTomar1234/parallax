@@ -4,6 +4,7 @@ domain: skills
 tags: computer-vision, yolo, opencv, tracking, segmentation, detection, pose
 sources: [github-profile, portfolio-projects, portfolio-research, resumes]
 last_updated: 2026-04-07
+confidence: 0.9
 links: [[tennis-vision]], [[field-fusion]], [[histopathology]], [[rppg-heart-rate]], [[transformers-cv]], [[object-detection]], [[multi-object-tracking]]
 ---
 
