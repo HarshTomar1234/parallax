@@ -206,6 +206,26 @@ def write_graph_json(pages):
     print(f"  wrote wiki/graph.json ({len(nodes)} nodes, {len(edges)} edges)")
 
 
+def write_search_index(pages):
+    """Compact JSON search index for single-fetch client-side search."""
+    index = [
+        {
+            'path': p['id'],
+            'title': p['title'],
+            'domain': p['domain'],
+            'tags': p['tags'],
+            'summary': p['summary'],
+            'content': p['body'],
+        }
+        for p in sorted(pages, key=lambda x: x['id'])
+    ]
+    out = json.dumps(index, separators=(',', ':'), ensure_ascii=False)
+    with open(os.path.join(WIKI_DIR, 'search-index.json'), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(out)
+    total_chars = sum(len(p['body']) for p in pages)
+    print(f"  wrote wiki/search-index.json ({len(pages)} entries, {total_chars:,} content chars)")
+
+
 if __name__ == '__main__':
     print('Parallax Export Generator')
     print(f'  Scanning {WIKI_DIR}/ ...')
@@ -215,5 +235,6 @@ if __name__ == '__main__':
     write_llms_txt(pages)
     write_llms_full_txt(pages)
     write_graph_json(pages)
+    write_search_index(pages)
     print()
-    print('Done. Commit wiki/llms.txt, wiki/llms-full.txt, wiki/graph.json')
+    print('Done. Outputs: wiki/llms.txt, wiki/llms-full.txt, wiki/graph.json, wiki/search-index.json')
