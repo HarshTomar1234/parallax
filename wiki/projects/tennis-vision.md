@@ -9,11 +9,11 @@ links: [[computer-vision]], [[object-detection]], [[multi-object-tracking]], [[d
 
 # Tennis Vision
 
-Real-time tennis match analysis system. Top project by stars (★27).
+Real-time tennis match analysis system. Top project by stars (★32).
 
 - **Repo:** https://github.com/HarshTomar1234/Tennis-Vision
 - **Demo:** https://huggingface.co/spaces/Coddieharsh/tennis-vision
-- **Stars:** 27 | **Forks:** 1
+- **Stars:** 32 | **Forks:** 2
 - **Last updated:** Jan 30, 2026
 
 ---
