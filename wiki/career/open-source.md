@@ -3,7 +3,7 @@ title: Open Source Contributions
 domain: career
 tags: open-source, contributions, hive, iccv, bboxmaskpose, threading, race-condition
 sources: [github-profile, conversation-logs]
-last_updated: 2026-04-07
+last_updated: 2026-05-04
 links: [[overview]], [[community]]
 ---
 
@@ -41,6 +41,14 @@ links: [[overview]], [[community]]
 **Domain:** Multi-task learning — joint detection, pose estimation, and instance segmentation
 
 **Why Notable:** ICCV (International Conference on Computer Vision) is the top-3 venue in computer vision. Forking and studying the official implementation of an ICCV 2025 paper indicates active tracking of cutting-edge research.
+
+---
+
+---
+
+## Kubrick
+
+**Status:** Contribution in progress — details to be added once PR is merged.
 
 ---
 
