@@ -4,6 +4,7 @@ domain: research
 tags: vit, transformer, image-classification, patch-embedding, mhsa, pytorch
 sources: [github-transformers-cv, portfolio-research]
 last_updated: 2026-04-07
+confidence: 0.8
 links: [[transformers-cv]], [[attention-mechanisms]], [[deep-learning]], [[computer-vision]]
 ---
 

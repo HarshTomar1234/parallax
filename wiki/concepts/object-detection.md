@@ -4,6 +4,7 @@ domain: concepts
 tags: object-detection, yolo, detr, anchor-free, nms, map, detection-head
 sources: [github-transformers-cv, github-tennis-vision, portfolio-projects]
 last_updated: 2026-04-07
+confidence: 0.85
 links: [[tennis-vision]], [[field-fusion]], [[transformers-cv]], [[computer-vision]], [[multi-object-tracking]]
 ---
 

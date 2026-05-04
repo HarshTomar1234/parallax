@@ -4,7 +4,8 @@ domain: meta
 tags: cross-domain, connections, synthesis, graph, patterns
 sources: []
 last_updated: 2026-04-07
-links: [[index]], [[overview]], [[knowledge-gaps]]
+confidence: 0.85
+links: [[index]], [[overview]], [[knowledge-gaps]], [[synthesis]]
 ---
 
 # Connections
