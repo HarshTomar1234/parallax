@@ -100,7 +100,7 @@ mcp = FastMCP("parallax-wiki")
 
 
 @mcp.tool()
-def list_pages(domain: Optional[str] = None) -> str:
+def list_pages(domain: Optional[str] = None):
     """
     List all wiki pages. Optionally filter by domain
     (projects, research, skills, concepts, career, learning, meta).
@@ -121,7 +121,7 @@ def list_pages(domain: Optional[str] = None) -> str:
 
 
 @mcp.tool()
-def get_page(slug: str) -> str:
+def get_page(slug: str):
     """
     Return the full markdown content of a wiki page by its slug
     (e.g. 'attention-mechanisms', 'travel-planner', 'synthesis').
@@ -140,7 +140,7 @@ def get_page(slug: str) -> str:
 
 
 @mcp.tool()
-def get_related(slug: str, hops: int = 1) -> str:
+def get_related(slug: str, hops: int = 1):
     """
     Return slugs reachable from a given page within N hops via the links graph.
     hops=1 returns direct neighbours; hops=2 returns neighbours-of-neighbours, etc.
@@ -183,7 +183,7 @@ def get_related(slug: str, hops: int = 1) -> str:
 
 
 @mcp.tool()
-def search_wiki(query: str) -> str:
+def search_wiki(query: str):
     """
     Full-text keyword search across all wiki pages.
     Returns up to 10 results ranked by hit count, with a short excerpt around the first match.
