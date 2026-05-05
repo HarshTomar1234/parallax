@@ -4,7 +4,7 @@ const pages = [
   'projects/insureml-pipeline',
   'index', 'overview', 'log',
   // AGENT_INJECT_PAGES_START
-  'learning/machine-and-deep-learning-nlp', 'learning/agentforge',
+  'learning/machine-and-deep-learning-nlp', 'learning/agentforge', 'learning/pytorch-lora-qlora',
 
   'projects/travel-planner', 'projects/tennis-vision', 'projects/quanta-ai', 'projects/deepguard', 'projects/decifra', 'projects/molecuquest', 'projects/field-fusion', 'projects/histopathology', 'projects/rppg-heart-rate',
   'research/transformers-cv', 'research/vlmverse', 'research/lora-qlora', 'research/reasoning-llms', 'research/vision-transformer',
