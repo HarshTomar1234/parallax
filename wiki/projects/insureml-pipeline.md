@@ -5,7 +5,7 @@ tags: [MLOps, AWS, FastAPI, Docker]
 sources: [https://github.com/HarshTomar1234/InsureML-Pipeline]
 last_updated: 2026-04-07
 confidence: 0.8
-links: "[[mlops]], [[deep-learning]], [[connections]]"
+links: [mlops, deep-learning, connections]
 ---
 # InsureML-Pipeline
 

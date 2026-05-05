@@ -1,10 +1,10 @@
 ---
 title: Log
 domain: meta
-tags: log, activity, chronological
+tags: [log, activity, chronological]
 sources: []
 last_updated: 2026-04-07
-links: "[[index]]"
+links: [index]
 ---
 
 # Parallax — Activity Log

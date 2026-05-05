@@ -5,7 +5,7 @@ tags: [machine-learning, deep-learning, nlp, ai, pytorch, transformers]
 sources: [https://github.com/HarshTomar1234/Machine-and-Deep-Learning-NLP]
 last_updated: 2026-04-08
 confidence: 0.8
-links: "[[deep-learning]], [[attention-mechanisms]], [[reasoning-llms]], [[lora-qlora]]"
+links: [deep-learning, attention-mechanisms, reasoning-llms, lora-qlora]
 ---
 
 ### Overview

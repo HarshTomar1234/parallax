@@ -1,11 +1,11 @@
 ---
 title: Field Fusion
 domain: projects
-tags: computer-vision, football, yolov8, deepsort, bytetrack, k-means, tracking, pose
+tags: [computer-vision, football, yolov8, deepsort, bytetrack, k-means, tracking, pose]
 sources: [github-field-fusion, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: "[[computer-vision]], [[multi-object-tracking]], [[object-detection]]"
+links: [computer-vision, multi-object-tracking, object-detection]
 ---
 
 # Field Fusion

@@ -1,11 +1,11 @@
 ---
 title: Deep Learning
 domain: skills
-tags: pytorch, neural-networks, architectures, gradient-descent, optimization, loss-functions
+tags: [pytorch, neural-networks, architectures, gradient-descent, optimization, loss-functions]
 sources: [portfolio-research, resumes]
 last_updated: 2026-04-07
 confidence: 0.85
-links: "[[computer-vision]], [[lora-qlora]], [[attention-mechanisms]]"
+links: [computer-vision, lora-qlora, attention-mechanisms]
 ---
 
 # Deep Learning Infrastructure & Frameworks

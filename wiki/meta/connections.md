@@ -1,11 +1,11 @@
 ---
 title: Connections
 domain: meta
-tags: cross-domain, connections, synthesis, graph, patterns
+tags: [cross-domain, connections, synthesis, graph, patterns]
 sources: []
 last_updated: 2026-04-07
 confidence: 0.85
-links: "[[index]], [[overview]], [[knowledge-gaps]], [[synthesis]]"
+links: [index, overview, knowledge-gaps, synthesis]
 ---
 
 # Connections

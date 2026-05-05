@@ -1,11 +1,11 @@
 ---
 title: GenAI & Agent Systems
 domain: skills
-tags: langgraph, ag2, crewai, smolagents, rag, mcp, openai, agents, multi-agent
+tags: [langgraph, ag2, crewai, smolagents, rag, mcp, openai, agents, multi-agent]
 sources: [github-profile, portfolio-projects, portfolio-more, resumes]
 last_updated: 2026-04-07
 confidence: 0.9
-links: "[[quanta-ai]], [[molecuquest]], [[rag-architectures]], [[ai-internship]], [[agentforge]]"
+links: [quanta-ai, molecuquest, rag-architectures, ai-internship, agentforge]
 ---
 
 # GenAI & Agent Systems

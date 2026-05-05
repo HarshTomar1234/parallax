@@ -1,11 +1,11 @@
 ---
 title: Multi-Object Tracking
 domain: concepts
-tags: multi-object-tracking, bytetrack, deepsort, kalman-filter, reid, mot
+tags: [multi-object-tracking, bytetrack, deepsort, kalman-filter, reid, mot]
 sources: [github-tennis-vision, github-field-fusion, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.85
-links: "[[tennis-vision]], [[field-fusion]], [[object-detection]], [[computer-vision]]"
+links: [tennis-vision, field-fusion, object-detection, computer-vision]
 ---
 
 # Multi-Object Tracking

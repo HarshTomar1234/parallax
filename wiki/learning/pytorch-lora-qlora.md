@@ -1,11 +1,11 @@
 ---
 title: PyTorch LoRA & QLoRA
 domain: learning
-tags: lora, qlora, fine-tuning, pytorch, quantization, peft, transformers, from-scratch
+tags: [lora, qlora, fine-tuning, pytorch, quantization, peft, transformers, from-scratch]
 sources: [https://github.com/HarshTomar1234/PyTorch-LoRA-QLoRA]
 last_updated: 2026-05-04
 confidence: 0.90
-links: "[[lora-qlora]], [[lora-theory]], [[deep-learning]], [[reasoning-llms]]"
+links: [lora-qlora, lora-theory, deep-learning, reasoning-llms]
 ---
 
 # PyTorch LoRA & QLoRA

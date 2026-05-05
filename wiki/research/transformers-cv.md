@@ -1,11 +1,11 @@
 ---
 title: transformers-CV
 domain: research
-tags: transformers, computer-vision, pytorch, vit, detr, swin, sam, diffusion, gan, vae, jepa
+tags: [transformers, computer-vision, pytorch, vit, detr, swin, sam, diffusion, gan, vae, jepa]
 sources: [github-transformers-cv]
 last_updated: 2026-04-07
 confidence: 0.85
-links: "[[vision-transformer]], [[attention-mechanisms]], [[diffusion-models]], [[deep-learning]], [[computer-vision]]"
+links: [vision-transformer, attention-mechanisms, diffusion-models, deep-learning, computer-vision]
 ---
 
 # transformers-CV

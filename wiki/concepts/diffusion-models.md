@@ -1,11 +1,11 @@
 ---
 title: Diffusion Models
 domain: concepts
-tags: diffusion, ddpm, score-matching, denoising, generative, noise-schedule
+tags: [diffusion, ddpm, score-matching, denoising, generative, noise-schedule]
 sources: [transformers-cv, github-profile]
 last_updated: 2026-04-07
 confidence: 0.8
-links: "[[transformers-cv]], [[deep-learning]]"
+links: [transformers-cv, deep-learning]
 ---
 
 # Diffusion Models
