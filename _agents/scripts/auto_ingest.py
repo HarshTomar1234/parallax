@@ -64,6 +64,7 @@ domain: {domain}
 tags: [generate 3-4 relevant technical tags]
 sources: [{repo_url}]
 last_updated: {today}
+confidence: 0.80
 links: []
 ---
 
@@ -80,14 +81,14 @@ Write the page following the Parallax style guidelines:
 - Headers should be noun phrases
 - Absolutely ZERO code blocks (```) for infrastructure or architecture.
 """
-    # Bulletproof fallback logic for models
+    # Use 2.5-flash as primary (better quality), fall back to 2.0-flash
     try:
-        print(f"Calling Gemini API (gemini-2.0-flash) for {repo_name}...")
-        model = genai.GenerativeModel('gemini-2.0-flash')
+        print(f"Calling Gemini API (gemini-2.5-flash) for {repo_name}...")
+        model = genai.GenerativeModel('gemini-2.5-flash')
         response = model.generate_content(prompt)
     except Exception as e:
-        print(f"Warning: Flash model failed ({e}). Falling back to gemini-2.5-flash...")
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        print(f"Warning: 2.5-flash failed ({e}). Falling back to gemini-2.0-flash...")
+        model = genai.GenerativeModel('gemini-2.0-flash')
         response = model.generate_content(prompt)
     
     text = response.text
@@ -102,23 +103,10 @@ Write the page following the Parallax style guidelines:
     return text
 
 def update_registry(domain, repo_name, slug):
-    """Automatically update index.md, script.js, and index.html to reflect the new page."""
+    """Automatically update index.md and index.html to reflect the new page."""
     print(f"Updating registry files for {domain}/{slug}...")
-    
-    # 1. Update landing/script.js
-    script_file = "landing/script.js"
-    if os.path.exists(script_file):
-        with open(script_file, "r", encoding="utf-8") as f:
-            js_content = f.read()
-            
-        marker = r"// AGENT_INJECT_PAGES_START"
-        inject = f"// AGENT_INJECT_PAGES_START\n  '{domain}/{slug}',"
-        js_content = re.sub(marker, inject, js_content, count=1)
-        
-        with open(script_file, "w", encoding="utf-8") as f:
-            f.write(js_content)
 
-    # 2. Update landing/index.html (Sidebar)
+    # 1. Update landing/index.html (Sidebar)
     html_file = "landing/index.html"
     if os.path.exists(html_file):
         with open(html_file, "r", encoding="utf-8") as f:
@@ -133,7 +121,7 @@ def update_registry(domain, repo_name, slug):
         with open(html_file, "w", encoding="utf-8") as f:
             f.write(html_content)
 
-    # 3. Update wiki/index.md (Master Table)
+    # 2. Update wiki/index.md (Master Table)
     index_file = "wiki/index.md"
     if os.path.exists(index_file):
         with open(index_file, "r", encoding="utf-8") as f:
