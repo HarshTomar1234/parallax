@@ -321,6 +321,46 @@ For manual/conversational ingests: search `wiki/llms.txt` for the repo name befo
 
 ---
 
+## MCP Server (A5)
+
+The Parallax wiki is also exposed as an MCP (Model Context Protocol) server — callable from Claude Desktop, Claude Code, or any MCP-compatible client.
+
+**Files:** `mcp/` directory — `server.py`, `requirements.txt`, `claude_desktop_config.json`
+**Dependency:** `pip install -r mcp/requirements.txt`
+
+### Tools exposed
+
+| Tool | Signature | Description |
+|------|-----------|-------------|
+| `list_pages` | `(domain?: str)` | List all pages, optionally filtered by domain |
+| `get_page` | `(slug: str)` | Return full markdown of a page by slug |
+| `get_related` | `(slug: str, hops?: int)` | Return slugs reachable within N hops via links graph (max 3) |
+| `search_wiki` | `(query: str)` | Keyword search across all pages, returns top 10 with excerpt |
+
+### Claude Desktop setup
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
+or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
+
+Copy `mcp/claude_desktop_config.json` into your Claude Desktop config file
+(`%APPDATA%\Claude\claude_desktop_config.json` on Windows,
+`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS).
+
+### Claude Code setup
+
+```bash
+claude mcp add parallax -- python D:/LLM-wiki/mcp/server.py
+```
+
+### Design notes
+
+- No vector DB — keyword search ranks by raw hit count (consistent with zero-dependency philosophy)
+- Pages loaded once at startup; restart the server to pick up new wiki pages
+- `get_related` does BFS on plain-slug frontmatter `links:` arrays (same format used by check_orphans.py)
+- Slug matching is fuzzy on `get_page`: exact match first, then substring if unique
+
+---
+
 ## One-Sentence Rules for Every Agent
 
 1. Read `wiki/index.md` before touching anything else.
