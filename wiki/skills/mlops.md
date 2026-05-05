@@ -5,7 +5,7 @@ tags: mlops, mlflow, dvc, zenml, bentoml, docker, kubernetes, aws, prometheus, g
 sources: [github-profile, portfolio-projects, portfolio-more, resumes]
 last_updated: 2026-04-07
 confidence: 0.9
-links: [[deepguard]], [[decifra]], [[deep-learning]]
+links: "[[deepguard]], [[decifra]], [[deep-learning]]"
 ---
 
 # MLOps

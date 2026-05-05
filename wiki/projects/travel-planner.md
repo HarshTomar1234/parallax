@@ -5,7 +5,7 @@ tags: [multi-agent-systems, llm-agents, streamlit, fastapi, adk]
 sources: [https://github.com/HarshTomar1234/Travel-Planner]
 last_updated: 2026-04-07
 confidence: 0.8
-links: [[genai-agents]], [[reasoning-llms]], [[vlmverse]]
+links: "[[genai-agents]], [[reasoning-llms]], [[vlmverse]]"
 ---
 
 ## Project Overview

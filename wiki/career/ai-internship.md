@@ -5,7 +5,7 @@ tags: internship, rag, langchain, fastapi, research-profiling, work-experience
 sources: [portfolio-home, recommendation-letter, internship-certificate, resumes]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[genai-agents]], [[rag-architectures]], [[overview]]
+links: "[[genai-agents]], [[rag-architectures]], [[overview]]"
 ---
 
 # AI Internship

@@ -5,7 +5,7 @@ tags: genai, agents, langgraph, gpt4, nextjs, fastapi, streaming, rag, web-searc
 sources: [github-quanta-ai, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[genai-agents]], [[rag-architectures]]
+links: "[[genai-agents]], [[rag-architectures]]"
 ---
 
 # QuantaAI

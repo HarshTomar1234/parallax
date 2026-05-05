@@ -5,7 +5,7 @@ tags: open-source, contributions, hive, iccv, bboxmaskpose, kubrick, threading, 
 sources: [github-profile, conversation-logs]
 last_updated: 2026-05-04
 confidence: 0.95
-links: [[overview]], [[community]], [[genai-agents]]
+links: "[[overview]], [[community]], [[genai-agents]]"
 ---
 
 # Open Source Contributions

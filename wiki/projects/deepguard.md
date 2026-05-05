@@ -5,7 +5,7 @@ tags: mlops, deepfake, xception, dvc, mlflow, docker, aws, kubernetes, monitorin
 sources: [github-deepguard, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[mlops]], [[deep-learning]], [[computer-vision]]
+links: "[[mlops]], [[deep-learning]], [[computer-vision]]"
 ---
 
 # DeepGuard

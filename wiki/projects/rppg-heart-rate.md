@@ -5,7 +5,7 @@ tags: healthcare, computer-vision, deep-learning, signal-processing, rppg, physn
 sources: [github-rppg, portfolio-more]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[computer-vision]], [[deep-learning]]
+links: "[[computer-vision]], [[deep-learning]]"
 ---
 
 # rPPG Heart Rate

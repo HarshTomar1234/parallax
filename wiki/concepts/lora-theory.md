@@ -5,7 +5,7 @@ tags: peft, fine-tuning, linear-algebra, svd, rank-decomposition
 sources: [research-papers]
 last_updated: 2026-04-07
 confidence: 0.85
-links: [[lora-qlora]], [[attention-mechanisms]]
+links: "[[lora-qlora]], [[attention-mechanisms]]"
 ---
 
 # Low-Rank Adaptation (LoRA) Theory

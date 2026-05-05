@@ -5,7 +5,7 @@ tags: community, cncf, gdg, mentoring, tech-talks, open-source, cloud-native
 sources: [portfolio-home, resumes]
 last_updated: 2026-04-07
 confidence: 0.9
-links: [[overview]], [[open-source]]
+links: "[[overview]], [[open-source]]"
 ---
 
 # Community Contributions

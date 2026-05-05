@@ -5,7 +5,7 @@ tags: synthesis, cross-domain, patterns, trajectory, meta
 sources: [wiki-graph, connections, overview]
 last_updated: 2026-05-05
 confidence: 0.85
-links: [[connections]], [[overview]], [[attention-mechanisms]], [[deep-learning]], [[mlops]], [[genai-agents]]
+links: "[[connections]], [[overview]], [[attention-mechanisms]], [[deep-learning]], [[mlops]], [[genai-agents]]"
 ---
 
 # Synthesis

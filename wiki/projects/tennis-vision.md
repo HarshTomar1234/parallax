@@ -5,7 +5,7 @@ tags: computer-vision, yolov8, bytetrack, pytorch, object-detection, tracking
 sources: [github-tennis-vision, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[computer-vision]], [[object-detection]], [[multi-object-tracking]], [[deep-learning]]
+links: "[[computer-vision]], [[object-detection]], [[multi-object-tracking]], [[deep-learning]]"
 ---
 
 # Tennis Vision

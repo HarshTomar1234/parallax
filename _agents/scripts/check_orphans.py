@@ -16,7 +16,10 @@ WIKI_DIR = 'wiki'
 all_pages = set()
 outbound_links = {}  # slug -> set of linked slugs
 
+SKIP_DIRS = {'.obsidian', '_templates', '_attachments'}
+
 for root, dirs, files in os.walk(WIKI_DIR):
+    dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
     for fname in files:
         if not fname.endswith('.md'):
             continue

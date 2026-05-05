@@ -5,7 +5,7 @@ tags: mlops, fraud-detection, xai, zenml, mlflow, dvc, shap, lime, bentoml, xgbo
 sources: [github-decifra, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[mlops]], [[deep-learning]]
+links: "[[mlops]], [[deep-learning]]"
 ---
 
 # Decifra
