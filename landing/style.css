@@ -61,12 +61,17 @@ html, body {
   border: none;
   color: var(--text-muted);
   cursor: pointer;
-  display: none; /* hidden on md+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
 }
 
 #sidebar-toggle:hover {
   color: var(--text-main);
+  background: var(--bg-hover);
 }
 
 .logo {
@@ -107,7 +112,16 @@ html, body {
   background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border);
   overflow-y: auto;
-  transition: transform 0.3s ease;
+  overflow-x: hidden;
+  transition: width 0.25s ease, opacity 0.25s ease;
+}
+
+/* Desktop sidebar collapsed state */
+#layout.sidebar-collapsed #sidebar {
+  width: 0;
+  opacity: 0;
+  border-right: none;
+  overflow: hidden;
 }
 
 .sidenav {
