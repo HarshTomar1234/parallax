@@ -763,6 +763,11 @@ html, body {
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .graph-hints { display: none; }
+  #graph-legend { display: none; }
+}
+
 #graph-close {
   background: none;
   border: 1px solid var(--border);

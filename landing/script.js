@@ -466,7 +466,17 @@ function toggleGraph(show) {
   if (show === undefined) show = isHidden;
   if (show) {
     graphOverlay.classList.remove('hidden');
-    if (!graphLoaded) loadKnowledgeGraph();
+    // Wait for overlay to paint before reading dimensions — fixes mobile centering
+    requestAnimationFrame(() => {
+      if (!graphLoaded) {
+        loadKnowledgeGraph();
+      } else if (graphSimulation) {
+        const w = graphOverlay.clientWidth;
+        const h = graphOverlay.clientHeight - 52;
+        d3.select('#graph-svg').attr('width', w).attr('height', h);
+        graphSimulation.force('center', d3.forceCenter(w / 2, h / 2)).alpha(0.3).restart();
+      }
+    });
   } else {
     graphOverlay.classList.add('hidden');
     graphTooltip.classList.add('hidden');
@@ -517,8 +527,8 @@ function nodeRadius(d) {
 
 function renderGraph(nodes, rawEdges) {
   const svgEl = document.getElementById('graph-svg');
-  const width  = window.innerWidth;
-  const height = window.innerHeight - 52;
+  const width  = graphOverlay.clientWidth  || window.innerWidth;
+  const height = (graphOverlay.clientHeight || window.innerHeight) - 52;
 
   const svg = d3.select(svgEl)
     .attr('width',  width)
