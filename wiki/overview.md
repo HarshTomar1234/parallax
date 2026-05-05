@@ -3,7 +3,7 @@ title: Overview — kernel_crush
 domain: meta
 tags: [overview, identity, summary, career]
 sources: [github-profile, portfolio, resumes, recommendation-letter, internship-certificate]
-last_updated: 2026-04-07
+last_updated: 2026-05-05
 confidence: 0.95
 links: [index, ai-internship, community, open-source, writing]
 ---
@@ -43,13 +43,13 @@ Implements architectures from scratch as the primary learning strategy — not f
 - Recommendation Letter: from supervising engineer (on file)
 
 ### Community Contributor
-- **CNCF** — Cloud Native Computing Foundation, 15+ discussions
+- **CNCF** — Cloud Native Computing Foundation; volunteer events, community discussions, and cloud-native ecosystem involvement
 - **Google Developer Groups** — 2 tech talks on AI/ML best practices
-- Mentored 10+ junior developers through workshops and open-source
 
 ### Open Source Contributions
 - **Hive multi-agent framework** — threading race condition fix in `_write_progress`, `GraphExecutor`; added `threading.Lock` to serialize concurrent writes from parallel branches
 - **BBoxMaskPose** (ICCV 2025) — official paper repo: "Detection, Pose Estimation and Segmentation for Multiple Bodies: Closing the Virtuous Circle"
+- **Kubrick AI** — added missing `kubrick-ui/src/lib/utils.ts` (shadcn/ui utility); anyone cloning the MCP multimodal agent course repo would hit this immediately
 
 ---
 
@@ -94,5 +94,5 @@ Implements architectures from scratch as the primary learning strategy — not f
 
 - [[ai-internship]] — internship details
 - [[community]] — CNCF, GDG contributions
-- [[open-source]] — Hive, BBoxMaskPose
+- [[open-source]] — Hive, BBoxMaskPose, Kubrick AI
 - [[index]] — full wiki navigation

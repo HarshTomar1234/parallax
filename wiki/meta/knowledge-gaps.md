@@ -3,7 +3,7 @@ title: Knowledge Gaps
 domain: meta
 tags: [gaps, todo, learn-next, weak-areas]
 sources: []
-last_updated: 2026-04-07
+last_updated: 2026-05-05
 confidence: 0.85
 links: [index, overview]
 ---
@@ -14,10 +14,9 @@ Areas to strengthen. Agent-maintained — update after each learning session.
 
 ---
 
-## Identified Gaps (as of 2026-04-07)
+## Identified Gaps (as of 2026-05-05)
 
 ### Research Depth
-- **No blog posts yet** — portfolio says "blogs coming soon." Writing would solidify understanding and build search presence.
 - **JEPA family** — implemented diagrams and read papers, but no from-scratch implementation yet (unlike DDPM, ViT, etc.)
 - **Mamba / SSMs** — State Space Models as attention alternative not yet implemented
 - **Diffusion for video** — Sora-style video generation not yet explored
