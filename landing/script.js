@@ -123,6 +123,13 @@ async function loadPage(route) {
     // Scroll to top
     document.getElementById('content').scrollTo(0, 0);
 
+    // Update shareable URL: ?page=slug + #/slug (skip for index to keep root URL clean)
+    if (route && route !== 'index') {
+      history.replaceState(null, '', `?page=${route}#/${route}`);
+    } else {
+      history.replaceState(null, '', window.location.pathname);
+    }
+
   } catch (err) {
     console.error(err);
     container.innerHTML = `<h1>Error</h1><p>Could not load the page locally. Make sure the local python server is running.</p>`;
@@ -606,8 +613,12 @@ window.addEventListener('resize', () => {
 
 // Initialize
 window.addEventListener('DOMContentLoaded', () => {
+  // Deep-link: ?page= takes priority, then hash, then default index
+  const params = new URLSearchParams(window.location.search);
+  const pageParam = params.get('page');
   const hash = window.location.hash.replace('#/', '');
-  loadPage(hash || 'index');
+  const initial = pageParam || hash || 'index';
+  loadPage(initial);
   // Pre-load search index in background for instant Ctrl+K
   if (window.requestIdleCallback) {
     window.requestIdleCallback(buildSearchIndex);
