@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Parallax</h1>
+  <h1 align="center">🌌 Parallax</h1>
   <p align="center">
     <strong>A self-organizing, LLM-assisted knowledge base for Machine Learning, Computer Vision, and Generative AI.</strong>
   </p>
@@ -31,56 +31,58 @@ Built for: [Harsh Tomar (@kernel_crush)](https://github.com/HarshTomar1234) — 
 ## Screenshots
 
 <p align="center">
-  <img src="images/spa-home.png" alt="Parallax Home" width="100%">
-  <br>
+  <img src="images/spa-home.png" alt="Parallax Home" width="85%">
+  <br><br>
   <em>Home — dark-mode wiki interface with categorized sidebar navigation and Ctrl+K search</em>
 </p>
 
 <br>
 
 <p align="center">
-  <img src="images/spa-graph.png" alt="Knowledge Graph" width="100%">
-  <br>
+  <img src="images/spa-graph.png" alt="Knowledge Graph" width="85%">
+  <br><br>
   <em>Knowledge Graph — D3.js force-directed graph, 33 nodes and 155 edges, color-coded by domain</em>
 </p>
 
 <br>
 
-<table>
-  <tr>
-    <td width="50%">
-      <img src="images/spa-article.png" alt="Article view with confidence badge" width="100%">
-      <p align="center"><em>Article view — breadcrumb navigation, confidence badge, collapsible sidebar</em></p>
-    </td>
-    <td width="50%">
-      <img src="images/spa-search.png" alt="Command palette search" width="100%">
-      <p align="center"><em>Ctrl+K command palette — full-text search with keyword highlighting</em></p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="images/spa-article.png" alt="Article view with confidence badge" width="85%">
+  <br><br>
+  <em>Article view — breadcrumb navigation, confidence badge, collapsible sidebar</em>
+</p>
 
 <br>
 
 <p align="center">
-  <img src="images/spa-light.png" alt="Light mode" width="100%">
-  <br>
+  <img src="images/spa-search.png" alt="Command palette search" width="85%">
+  <br><br>
+  <em>Ctrl+K command palette — full-text search with keyword highlighting</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="images/spa-light.png" alt="Light mode" width="85%">
+  <br><br>
   <em>Light mode — system-aware theme with manual toggle</em>
 </p>
 
 <br>
 
-<table>
-  <tr>
-    <td width="50%">
-      <img src="images/obsidian-page.png" alt="Obsidian reading view" width="100%">
-      <p align="center"><em>Obsidian — reading view with structured Properties panel</em></p>
-    </td>
-    <td width="50%">
-      <img src="images/obsidian-graph.png" alt="Obsidian graph view" width="100%">
-      <p align="center"><em>Obsidian — graph view mirroring the SPA knowledge graph</em></p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="images/obsidian-page.png" alt="Obsidian reading view" width="85%">
+  <br><br>
+  <em>Obsidian — reading view with structured Properties panel and backlinks</em>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="images/obsidian-graph.png" alt="Obsidian graph view" width="85%">
+  <br><br>
+  <em>Obsidian — graph view mirroring the SPA knowledge graph, color-coded by domain</em>
+</p>
 
 ---
 
