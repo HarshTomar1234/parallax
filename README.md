@@ -9,7 +9,7 @@
   <p align="center">
     <a href="https://github.com/HarshTomar1234/parallax"><img src="https://img.shields.io/github/stars/HarshTomar1234/parallax?style=flat-square&color=3b82f6" alt="Stars"></a>
     <a href="https://github.com/HarshTomar1234/parallax/commits/main"><img src="https://img.shields.io/github/last-commit/HarshTomar1234/parallax?style=flat-square&color=22c55e" alt="Last Commit"></a>
-    <a href="wiki/index.md"><img src="https://img.shields.io/badge/pages-37-blue?style=flat-square" alt="Pages"></a>
+    <a href="wiki/index.md"><img src="https://img.shields.io/badge/pages-38-blue?style=flat-square" alt="Pages"></a>
     <a href="AGENTS.md"><img src="https://img.shields.io/badge/agent--assisted-yes-purple?style=flat-square" alt="Agent Assisted"></a>
     <a href="https://harshtomar1234.github.io/parallax/"><img src="https://img.shields.io/badge/live%20demo-open-orange?style=flat-square" alt="Live Demo"></a>
   </p>
@@ -90,15 +90,19 @@ Built for: [Harsh Tomar (@kernel_crush)](https://github.com/HarshTomar1234) — 
 
 | Feature | Description |
 |---------|-------------|
-| **37 Interlinked Wiki Pages** | Projects, research implementations, skills, concepts, learning repos, and career history — fully cross-referenced with zero orphan pages |
+| **38 Interlinked Wiki Pages** | Projects, research implementations, skills, concepts, learning repos, and career history — fully cross-referenced with zero orphan pages |
 | **D3.js Knowledge Graph** | Force-directed graph with 33 nodes and 155 edges, color-coded by domain, with drag, zoom, and click-to-navigate |
 | **Ctrl+K Command Palette** | Full-text search across the entire knowledge base via a pre-built search index, with keyword highlighting and tag filtering |
+| **Semantic Search** | MCP `search_wiki` tool expands queries with domain synonyms — "neural network" matches "deep learning", "agent" matches "langgraph"/"crewai" |
+| **MCP Server** | `mcp/server.py` — 5 tools (`search_wiki`, `get_page`, `get_summary`, `get_related`, `list_pages`) callable from any Claude session |
+| **Deep-Link URLs** | Every page navigation updates `?page=<slug>` in the URL — shareable, bookmarkable direct links to any article |
 | **Confidence Scoring** | Every page carries a confidence score (0.0–1.0); rendered as a color-coded badge — Verified, High, Medium, or Low |
 | **Dark / Light Mode** | System-aware theme with manual toggle; state persisted across sessions |
 | **Collapsible Sidebar** | Desktop sidebar collapses to full-width reading mode with smooth animation; state persisted via localStorage |
 | **Breadcrumb Navigation** | Hierarchical path shown on every page (Home / Domain / Page) |
 | **Reading Progress Bar** | Thin progress indicator at the top of the viewport as you scroll long articles |
 | **Obsidian Vault Integration** | The `wiki/` directory opens directly as an Obsidian vault — full graph view, backlinks panel, and Properties rendering with no configuration required |
+| **Stale Metrics CI** | Weekly GitHub Action fetches live star counts from GitHub API, flags >10% drift and pages past staleness threshold, opens an issue automatically |
 | **LLM-Assisted Workflows** | Structured schema for ingesting new repos, generating pages, and validating the knowledge graph via CI |
 
 ---
@@ -107,7 +111,7 @@ Built for: [Harsh Tomar (@kernel_crush)](https://github.com/HarshTomar1234) — 
 
 ```
 parallax/
-├── wiki/                    # Core knowledge graph (37 pages)
+├── wiki/                    # Core knowledge graph (38 pages)
 │   ├── index.md             # Master entry point
 │   ├── overview.md          # High-level identity and stats
 │   ├── log.md               # Append-only activity log
@@ -119,6 +123,10 @@ parallax/
 │   ├── learning/            # Learning repository pages (3 pages)
 │   ├── meta/                # Synthesis, connections, knowledge gaps
 │   └── _templates/          # Page template for Obsidian
+├── mcp/                     # MCP server — wiki as callable tools
+│   ├── server.py            # FastMCP server (5 tools)
+│   ├── requirements.txt     # mcp>=1.0.0
+│   └── claude_desktop_config.json  # Ready-to-paste Claude Desktop config
 ├── landing/                 # Static web interface
 │   ├── index.html           # SPA shell with sidebar, topbar, graph overlay
 │   ├── style.css            # Obsidian-inspired dark/light theme
@@ -126,9 +134,9 @@ parallax/
 ├── raw/                     # Immutable source material
 │   └── resumes/             # Domain-specific PDF resumes
 ├── _agents/
-│   ├── scripts/             # validate_wiki.py, check_orphans.py, generate_exports.py
+│   ├── scripts/             # validate_wiki.py, check_orphans.py, generate_exports.py, stale_check.py
 │   └── workflows/           # Agent workflow definitions
-├── .github/workflows/       # CI/CD: deploy, validation, weekly ingest
+├── .github/workflows/       # CI/CD: deploy, validation, weekly ingest, stale-check
 ├── images/                  # README screenshots
 ├── AGENTS.md                # Agent schema and conventions
 └── README.md
@@ -169,6 +177,15 @@ The repository uses an LLM-assisted workflow system defined in [`AGENTS.md`](AGE
 Trigger ingestion remotely via the **LLM Auto-Ingest** GitHub Action (`workflow_dispatch`). Provide a repository URL and it will fetch the source, generate a structured wiki page, and open a pull request.
 
 CI also auto-generates AI-consumable exports on every push: `llms.txt`, `llms-full.txt`, `graph.json`, and `search-index.json`.
+
+The wiki is also exposed as an **MCP server** (`mcp/server.py`) — callable from Claude Desktop or Claude Code:
+
+```bash
+# Add to Claude Code (global, available in all projects)
+claude mcp add --scope user parallax -- python /path/to/parallax/mcp/server.py
+```
+
+Five tools: `search_wiki` · `get_page` · `get_summary` · `get_related` · `list_pages`
 
 ---
 
