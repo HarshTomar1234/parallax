@@ -35,13 +35,15 @@ links: [overview, community, genai-agents]
 
 ## ICCV 2025 — BBoxMaskPose
 
+**Type:** Merged PR — upstream contribution
+
 **Paper:** "Detection, Pose Estimation and Segmentation for Multiple Bodies: Closing the Virtuous Circle"
 
-**Repo:** https://github.com/HarshTomar1234/BBoxMaskPose (fork of official ICCV 2025 repo)
+**Repo:** https://github.com/HarshTomar1234/BBoxMaskPose
 
 **Domain:** Multi-task learning — joint detection, pose estimation, and instance segmentation
 
-**Why Notable:** ICCV (International Conference on Computer Vision) is the top-3 venue in computer vision. Forking and studying the official implementation of an ICCV 2025 paper indicates active tracking of cutting-edge research.
+**Significance:** ICCV (International Conference on Computer Vision) is a top-3 venue in computer vision. Merged contribution to the official ICCV 2025 implementation — one of three upstream OSS PRs merged to date.
 
 ---
 
