@@ -335,22 +335,67 @@ html, body {
 /* Mobile */
 @media (max-width: 768px) {
   #sidebar-toggle { display: block; }
-  
+
+  /* Topbar: hide nav links, shrink search/graph to icon-only */
+  .topbar-link { display: none; }
+  .search-trigger span,
+  .search-trigger kbd { display: none; }
+  .graph-trigger span { display: none; }
+  .topbar-right { gap: 0.75rem; }
+  #topbar { padding: 0 1rem; }
+
+  /* Sidebar: full-height slide-in panel */
   #sidebar {
     position: fixed;
     top: 56px;
     bottom: 0;
     left: 0;
     z-index: 90;
+    width: 280px;
     transform: translateX(-100%);
+    transition: transform 0.25s ease;
   }
 
   #sidebar.open {
     transform: translateX(0);
-    box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.6);
   }
 
-  #content { padding: 2rem 1.5rem; }
+  /* Tap-outside overlay to close sidebar */
+  #sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(0,0,0,0.4);
+  }
+  #sidebar-backdrop.visible { display: block; }
+
+  /* Content */
+  #content { padding: 1.5rem 1rem; }
+
+  /* Article: full width, tighter font */
+  #article-container {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* Command palette: full width on mobile */
+  #command-palette {
+    width: 95vw;
+    max-width: 95vw;
+    top: 4vh;
+  }
+
+  /* Tables: allow horizontal scroll */
+  #article-container table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Confidence badge: smaller */
+  .confidence-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
 }
 
 /* ---- COMMAND PALETTE ---- */

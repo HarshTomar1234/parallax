@@ -140,9 +140,7 @@ async function loadPage(route) {
 function handleHashChange() {
   let hash = window.location.hash.replace('#/', '');
   loadPage(hash || 'index');
-  
-  // Close sidebar on mobile after nav
-  document.getElementById('sidebar').classList.remove('open');
+  closeMobileSidebar();
 }
 
 window.addEventListener('hashchange', handleHashChange);
@@ -156,16 +154,24 @@ if (localStorage.getItem('sidebar-collapsed') === 'true') {
   layout.classList.add('sidebar-collapsed');
 }
 
+const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+function closeMobileSidebar() {
+  sidebar.classList.remove('open');
+  sidebarBackdrop.classList.remove('visible');
+}
+
 document.getElementById('sidebar-toggle').addEventListener('click', () => {
   if (window.innerWidth <= 768) {
-    // Mobile: slide in/out
-    sidebar.classList.toggle('open');
+    const isOpen = sidebar.classList.toggle('open');
+    sidebarBackdrop.classList.toggle('visible', isOpen);
   } else {
-    // Desktop: collapse/expand
     const collapsed = layout.classList.toggle('sidebar-collapsed');
     localStorage.setItem('sidebar-collapsed', collapsed);
   }
 });
+
+sidebarBackdrop.addEventListener('click', closeMobileSidebar);
 
 // Setup click handlers for nav
 document.querySelectorAll('.nav-item').forEach(el => {
@@ -302,20 +308,38 @@ cpInput.addEventListener('input', (e) => {
     return;
   }
   
+  // Strip markdown for clean snippet display
+  function cleanSnippet(raw) {
+    return raw
+      .replace(/^---[\s\S]*?---\n/, '')      // frontmatter
+      .replace(/\[\[([^\]]+)\]\]/g, '$1')     // [[wikilinks]] → text
+      .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // [text](url) → text
+      .replace(/^#{1,6}\s+/gm, '')            // headings
+      .replace(/\*\*([^*]+)\*\*/g, '$1')      // bold
+      .replace(/\*([^*]+)\*/g, '$1')          // italic
+      .replace(/`[^`]+`/g, '')               // inline code
+      .replace(/^\|.*\|$/gm, '')             // table rows
+      .replace(/^[-*]\s+/gm, '')             // list markers
+      .replace(/^---+$/gm, '')               // hr
+      .replace(/\n{2,}/g, ' ')               // collapse newlines
+      .replace(/\s{2,}/g, ' ')               // collapse spaces
+      .trim();
+  }
+
   const results = [];
   for (const item of searchIndex) {
     const textLower = item.content.toLowerCase();
     const idx = textLower.indexOf(query);
     if (idx !== -1) {
-      // Find a snippet around the match
       const start = Math.max(0, idx - 40);
       const end = Math.min(item.content.length, idx + query.length + 60);
-      let snippet = item.content.substring(start, end).replace(/\n/g, ' ');
-      
+      let raw = item.content.substring(start, end);
+      let snippet = cleanSnippet(raw);
+
       // Highlight the keyword
       const regex = new RegExp(`(${query})`, 'gi');
       snippet = snippet.replace(regex, '<mark>$1</mark>');
-      
+
       results.push({
         path: item.path,
         title: item.title || (item.path.split('/').pop().replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase())),
