@@ -64,7 +64,7 @@ InsureML-Pipeline completes all four steps. Every other project is at step 1 or 
 
 A recurring choice across this wiki: build from scratch before using a framework.
 
-- ByteTrack implemented manually before using Supervision
+- LoRA and QLoRA implemented in pure PyTorch before using PEFT (see [[pytorch-lora-qlora]])
 - Attention mechanisms coded in NumPy before using PyTorch
 - MCP client built from scratch in Kubrick before using a library
 - RAG pipeline assembled from components before using LangChain
