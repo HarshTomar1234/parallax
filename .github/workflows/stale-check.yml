@@ -1,0 +1,37 @@
+name: Stale Metrics Check
+
+on:
+  schedule:
+    # Every Sunday at 01:00 UTC (after wiki-validator runs at 00:00)
+    - cron: '0 1 * * 0'
+  workflow_dispatch:
+
+jobs:
+  stale-check:
+    runs-on: ubuntu-latest
+    name: Check for stale page metrics
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run stale check
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: HarshTomar1234
+        run: python _agents/scripts/stale_check.py
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Stale Metrics Check" >> $GITHUB_STEP_SUMMARY
+          echo "Completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
