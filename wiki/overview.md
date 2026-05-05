@@ -81,12 +81,11 @@ Implements architectures from scratch as the primary learning strategy — not f
 
 - **GitHub repos:** 67
 - **Starred repos:** 553 (breadth of interests)
-- **Top project stars:** 27 (Tennis Vision)
+- **Top project stars:** 32 (Tennis Vision)
 - **Production systems deployed:** 7
 - **Research impls:** 11+ architectures built from scratch
-- **Open source:** 2+ production codebases contributed to
+- **Open source:** 3 production codebases contributed to
 - **Tech talks given:** 2
-- **Developers mentored:** 10+
 - **CNCF discussions:** 15+
 
 ---
