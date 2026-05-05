@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "parallax": {
+      "command": "python",
+      "args": ["D:/LLM-wiki/mcp/server.py"]
+    }
+  }
+}

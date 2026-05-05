@@ -158,3 +158,14 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 - `wiki/log.md` — removed duplicate log entry (same Machine-and-Deep-Learning-NLP ingest logged twice)
 - `wiki/projects/insureml-pipeline.md` — removed hallucinated email `matshushita.konosuke@gmail.com`
 - `landing/index.html` — added missing sidebar items: `skills/deep-learning`, `concepts/lora-theory`, `concepts/object-detection`, `concepts/multi-object-tracking`, `research/vision-transformer`, `research/reasoning-llms`, `meta/connections`
+
+---
+
+## [2026-05-05] feat | MCP server (A5)
+
+- Created `mcp/server.py` — Parallax wiki as an MCP server using FastMCP
+- Four tools: `search_wiki`, `get_page`, `get_related`, `list_pages`
+- Pages loaded from `wiki/` at startup; keyword search with hit-count ranking and excerpt extraction
+- `get_related` does BFS over plain-slug frontmatter `links:` arrays (up to 3 hops)
+- Added `mcp/requirements.txt` and `mcp/claude_desktop_config.json`
+- Documented setup in `AGENTS.md` § MCP Server (A5)
