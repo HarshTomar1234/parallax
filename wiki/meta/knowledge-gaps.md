@@ -1,11 +1,11 @@
 ---
 title: Knowledge Gaps
 domain: meta
-tags: gaps, todo, learn-next, weak-areas
+tags: [gaps, todo, learn-next, weak-areas]
 sources: []
 last_updated: 2026-04-07
 confidence: 0.85
-links: [[index]], [[overview]]
+links: [index, overview]
 ---
 
 # Knowledge Gaps

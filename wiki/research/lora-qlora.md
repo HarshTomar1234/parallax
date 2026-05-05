@@ -1,11 +1,11 @@
 ---
 title: LoRA & QLoRA
 domain: research
-tags: lora, qlora, peft, fine-tuning, quantization, 4-bit, nf4, llm, memory-efficiency
+tags: [lora, qlora, peft, fine-tuning, quantization, 4-bit, nf4, llm, memory-efficiency]
 sources: [github-lora-qlora, portfolio-research]
 last_updated: 2026-04-07
 confidence: 0.85
-links: [[attention-mechanisms]], [[deep-learning]], [[lora-theory]], [[pytorch-lora-qlora]]
+links: [attention-mechanisms, deep-learning, lora-theory, pytorch-lora-qlora]
 ---
 
 # LoRA & QLoRA

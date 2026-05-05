@@ -47,8 +47,11 @@ def check_page_content(filepath, content):
     if '[[' not in body:
         warnings.append(f"[NO WIKI LINKS] {filepath}")
 
+SKIP_DIRS = {'.obsidian', '_templates', '_attachments'}
+
 # Walk the wiki directory
 for root, dirs, files in os.walk(WIKI_DIR):
+    dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
     for fname in files:
         if not fname.endswith('.md'):
             continue

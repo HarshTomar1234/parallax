@@ -1,11 +1,11 @@
 ---
 title: MoleCuQuest
 domain: projects
-tags: drug-discovery, molecular-ai, nvidia-nim, rdkit, cma-es, qed, next-js, firebase
+tags: [drug-discovery, molecular-ai, nvidia-nim, rdkit, cma-es, qed, next-js, firebase]
 sources: [github-molecuquest, portfolio-projects]
 last_updated: 2026-04-07
 confidence: 0.95
-links: [[genai-agents]], [[deep-learning]]
+links: [genai-agents, deep-learning]
 ---
 
 # MoleCuQuest

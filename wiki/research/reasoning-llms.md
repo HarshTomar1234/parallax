@@ -1,11 +1,11 @@
 ---
 title: Reasoning LLMs
 domain: research
-tags: reasoning, chain-of-thought, rlhf, inference-scaling, cot, llm
+tags: [reasoning, chain-of-thought, rlhf, inference-scaling, cot, llm]
 sources: [github-profile, portfolio-research]
 last_updated: 2026-04-07
 confidence: 0.8
-links: [[attention-mechanisms]], [[deep-learning]], [[lora-qlora]], [[vlmverse]]
+links: [attention-mechanisms, deep-learning, lora-qlora, vlmverse]
 ---
 
 # Reasoning LLMs

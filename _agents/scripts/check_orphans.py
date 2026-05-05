@@ -16,7 +16,10 @@ WIKI_DIR = 'wiki'
 all_pages = set()
 outbound_links = {}  # slug -> set of linked slugs
 
+SKIP_DIRS = {'.obsidian', '_templates', '_attachments'}
+
 for root, dirs, files in os.walk(WIKI_DIR):
+    dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
     for fname in files:
         if not fname.endswith('.md'):
             continue
@@ -25,7 +28,16 @@ for root, dirs, files in os.walk(WIKI_DIR):
         fpath = os.path.join(root, fname)
         with open(fpath, 'r', encoding='utf-8') as f:
             content = f.read()
+        # Body [[wikilinks]]
         links = set(re.findall(r'\[\[([^\]]+)\]\]', content))
+        # Frontmatter links: [slug1, slug2] array (plain slugs, no brackets)
+        fm_match = re.match(r'^---[\s\S]*?^---', content, re.MULTILINE)
+        if fm_match:
+            fm = fm_match.group(0)
+            links_field = re.search(r'^links:\s*\[([^\]]+)\]', fm, re.MULTILINE)
+            if links_field:
+                for s in links_field.group(1).split(','):
+                    links.add(s.strip())
         outbound_links[slug] = links
 
 # Find inbound link counts (only for existing pages)

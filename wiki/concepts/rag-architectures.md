@@ -1,11 +1,11 @@
 ---
 title: RAG Architectures
 domain: concepts
-tags: rag, retrieval, vector-db, embeddings, chunking, langchain, pinecone, chroma, faiss
+tags: [rag, retrieval, vector-db, embeddings, chunking, langchain, pinecone, chroma, faiss]
 sources: [github-ragify, github-pdf-chat, portfolio-more, ai-internship]
 last_updated: 2026-04-07
 confidence: 0.8
-links: [[genai-agents]], [[ai-internship]], [[quanta-ai]]
+links: [genai-agents, ai-internship, quanta-ai]
 ---
 
 # RAG Architectures

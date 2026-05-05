@@ -1,11 +1,11 @@
 ---
 title: Attention Mechanisms
 domain: concepts
-tags: attention, transformer, mhsa, rope, kv-cache, gqa, self-attention
+tags: [attention, transformer, mhsa, rope, kv-cache, gqa, self-attention]
 sources: [transformers-cv, vlmverse, lora-qlora, portfolio-research]
 last_updated: 2026-04-07
 confidence: 0.85
-links: [[transformers-cv]], [[vlmverse]], [[lora-qlora]], [[deep-learning]], [[vision-transformer]]
+links: [transformers-cv, vlmverse, lora-qlora, deep-learning, vision-transformer]
 ---
 
 # Attention Mechanisms

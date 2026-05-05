@@ -1,11 +1,11 @@
 ---
 title: AgentForge
 domain: learning
-tags: agents, crewai, langgraph, llamaindex, autogen, smolagents, pydanticai, multi-agent, frameworks
+tags: [agents, crewai, langgraph, llamaindex, autogen, smolagents, pydanticai, multi-agent, frameworks]
 sources: [https://github.com/HarshTomar1234/AgentForge]
 last_updated: 2026-05-05
 confidence: 0.90
-links: [[genai-agents]], [[reasoning-llms]], [[rag-architectures]], [[vlmverse]]
+links: [genai-agents, reasoning-llms, rag-architectures, vlmverse]
 ---
 
 # AgentForge
