@@ -285,6 +285,51 @@ def search_wiki(query: str):
     return json.dumps(top, indent=2)
 
 
+@mcp.tool()
+def get_summary(slug: str):
+    """
+    Return a compact summary of a wiki page: title, domain, confidence, tags,
+    and the first meaningful paragraph of body text (stripped of markdown).
+    Faster than get_page() when you only need a quick overview.
+    """
+    pages = _load_pages()
+    page = pages.get(slug)
+    if page is None:
+        matches = [s for s in pages if slug.lower() in s.lower()]
+        if len(matches) == 1:
+            page = pages[matches[0]]
+        elif len(matches) > 1:
+            return f"Ambiguous slug '{slug}'. Matches: {matches}."
+        else:
+            return f"Page '{slug}' not found. Use list_pages() to see available slugs."
+
+    meta = page["meta"]
+
+    # Extract first non-empty, non-heading paragraph from body
+    body = page["body"]
+    # Strip markdown: headers, bold, italic, wikilinks, URLs, list markers
+    clean = re.sub(r"^#{1,6}\s+.*$", "", body, flags=re.MULTILINE)
+    clean = re.sub(r"\[\[.*?\]\]", "", clean)
+    clean = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", clean)
+    clean = re.sub(r"[*_`#>|-]", "", clean)
+    clean = re.sub(r"https?://\S+", "", clean)
+
+    paragraphs = [p.strip() for p in re.split(r"\n{2,}", clean) if len(p.strip()) > 40]
+    first_para = paragraphs[0][:300] if paragraphs else "(no summary available)"
+
+    result = {
+        "slug": slug,
+        "title": meta.get("title", slug),
+        "domain": meta.get("domain", ""),
+        "confidence": meta.get("confidence", ""),
+        "tags": meta.get("tags", []),
+        "last_updated": meta.get("last_updated", ""),
+        "links": meta.get("links", []),
+        "summary": first_para,
+    }
+    return json.dumps(result, indent=2)
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
