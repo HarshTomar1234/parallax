@@ -396,6 +396,9 @@ html, body {
 
   /* Confidence badge: smaller */
   .confidence-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
+
+  /* Prevent long URLs from overflowing list items */
+  #article-container li a { word-break: break-all; }
 }
 
 /* ---- COMMAND PALETTE ---- */
