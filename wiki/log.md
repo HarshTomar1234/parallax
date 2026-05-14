@@ -169,3 +169,7 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 - `get_related` does BFS over plain-slug frontmatter `links:` arrays (up to 3 hops)
 - Added `mcp/requirements.txt` and `mcp/claude_desktop_config.json`
 - Documented setup in `AGENTS.md` § MCP Server (A5)
+
+## 2026-05-14
+- Fixed Learning Repos table in `wiki/index.md`: added missing `agentforge` and `pytorch-lora-qlora` entries, updated columns to Page/Summary/Topics/Confidence
+- Fixed sidebar display name in `landing/index.html`: `machine-and-deep-learning-nlp` now shows as "ML & Deep Learning NLP"
