@@ -224,9 +224,15 @@ Custom health tools for this markdown wiki project:
 ```yaml
 structure:     python _agents/scripts/validate_wiki.py
 connectivity:  python _agents/scripts/check_orphans.py
+consistency:   python _agents/scripts/check_index_consistency.py
 exports:       python _agents/scripts/generate_exports.py
 stale:         python _agents/scripts/stale_check.py  # requires GITHUB_TOKEN env var
 ```
+
+`check_index_consistency.py` catches three things:
+- Pages in `wiki/<domain>/` with no row in `wiki/index.md` (content gap)
+- Pages in `wiki/<domain>/` not listed in `landing/index.html` sidebar (nav gap)
+- Sidebar display names that look auto-generated from the slug (e.g. "Machine And Deep Learning Nlp")
 
 **Known issue in `stale_check.py`:** Contains `→` character (U+2192) that fails on Windows cp1252 console encoding. Run with `PYTHONIOENCODING=utf-8` or use `! PYTHONIOENCODING=utf-8 python _agents/scripts/stale_check.py`.
 

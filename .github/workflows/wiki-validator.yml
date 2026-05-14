@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'wiki/**'
+      - 'landing/index.html'
       - 'AGENTS.md'
   schedule:
     # Run every Sunday at midnight UTC — weekly agent health check
@@ -30,6 +31,9 @@ jobs:
 
       - name: Check for orphan pages
         run: python _agents/scripts/check_orphans.py
+
+      - name: Check index and sidebar consistency
+        run: python _agents/scripts/check_index_consistency.py
 
       - name: Summary
         if: always()
