@@ -47,7 +47,7 @@ def _gh_api(path: str) -> dict:
         with urllib.request.urlopen(req, timeout=10) as resp:
             return json.loads(resp.read())
     except urllib.error.HTTPError as e:
-        print(f"  [warn] GitHub API {path} → HTTP {e.code}")
+        print(f"  [warn] GitHub API {path} -> HTTP {e.code}")
         return {}
 
 
@@ -90,6 +90,9 @@ def _load_pages() -> list[dict]:
 
 def check_star_drift(pages: list[dict]) -> list[str]:
     """Return list of stale star-count warnings."""
+    if not GITHUB_TOKEN:
+        print("  [skip] No GITHUB_TOKEN — star drift check requires a token.")
+        return []
     warnings = []
     project_pages = [p for p in pages if p.get("domain") == "projects" and p.get("github_repo")]
 
