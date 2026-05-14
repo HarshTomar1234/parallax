@@ -62,10 +62,11 @@ You can download or view specific versions of my resume formatted for different 
 <!-- AGENT_INJECT_TABLE_RESEARCH -->
 
 ### Learning Repos
-| Page | Info | Status | Types |
-|------|------|--------|-------|
-
-| [[machine-and-deep-learning-nlp]] | Auto | Newly ingested repo | Actions, LLM |
+| Page | Summary | Topics | Confidence |
+|------|---------|--------|------------|
+| [[machine-and-deep-learning-nlp]] | ML/DL/NLP concept collection | ML fundamentals, CNNs, RNNs, Transformers, NLP | 0.80 |
+| [[agentforge]] | Hands-on agent framework implementations | CrewAI, LangGraph, LlamaIndex, AutoGen, SmolAgents | 0.90 |
+| [[pytorch-lora-qlora]] | Pure PyTorch LoRA & QLoRA from scratch | LoRA, QLoRA, PEFT, Quantization | 0.90 |
 <!-- AGENT_INJECT_TABLE_LEARNING -->
 
 ### Skills
