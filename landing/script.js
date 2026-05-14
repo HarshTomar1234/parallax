@@ -108,9 +108,11 @@ async function loadPage(route) {
 
     let markdown = await res.text();
 
-    // Extract confidence before processing frontmatter
+    // Extract confidence and title before processing frontmatter
     const confMatch = markdown.match(/^confidence:\s*([\d.]+)/m);
     const confidence = confMatch ? confMatch[1] : null;
+    const titleMatch = markdown.match(/^title:\s*(.+)/m);
+    if (titleMatch) updateBreadcrumbTitle(titleMatch[1].trim());
 
     // Process custom syntax
     markdown = processFrontmatter(markdown);
@@ -425,6 +427,10 @@ function renderBreadcrumb(route) {
   breadcrumbEl.classList.remove('hidden');
 }
 
+function updateBreadcrumbTitle(title) {
+  const cur = breadcrumbEl.querySelector('.breadcrumb-current');
+  if (cur) cur.textContent = title;
+}
 
 // --- CONFIDENCE BADGE (F3) ---
 function renderConfidenceBadge(confidence) {
