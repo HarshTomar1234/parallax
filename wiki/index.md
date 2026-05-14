@@ -95,6 +95,7 @@ You can download or view specific versions of my resume formatted for different 
 | [[ai-internship]] | RAG research profiling system |
 | [[community]] | CNCF, GDG, tech talks |
 | [[open-source]] | Hive, BBoxMaskPose ICCV 2025 |
+| [[writing]] | Technical blog — autonomous ML, LLM internals |
 <!-- AGENT_INJECT_TABLE_CAREER -->
 
 ### Meta
@@ -102,6 +103,7 @@ You can download or view specific versions of my resume formatted for different 
 |------|---------|
 | [[knowledge-gaps]] | What's missing, what to learn next |
 | [[connections]] | Cross-domain connection map |
+| [[synthesis]] | Cross-domain meta-insights from the full portfolio |
 <!-- AGENT_INJECT_TABLE_META -->
 
 ---

@@ -173,3 +173,6 @@ Append-only. Format: `## [YYYY-MM-DD] operation | description`
 ## 2026-05-14
 - Fixed Learning Repos table in `wiki/index.md`: added missing `agentforge` and `pytorch-lora-qlora` entries, updated columns to Page/Summary/Topics/Confidence
 - Fixed sidebar display name in `landing/index.html`: `machine-and-deep-learning-nlp` now shows as "ML & Deep Learning NLP"
+- Added `_agents/scripts/check_index_consistency.py` to health stack: checks index.md completeness, sidebar completeness, and auto-slug label quality
+- Fixed index.md missing entries: added `writing` (career) and `synthesis` (meta) rows
+- Wired consistency check into `wiki-validator.yml` CI; trigger now also fires on `landing/index.html` changes
